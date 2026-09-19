@@ -1,0 +1,265 @@
+{
+    "Multiple Image Blend 2": {
+        "title": "多图像混合2",
+        "inputs": {
+            "image_a": "图像a",
+            "image_b": "图像b",
+            "image_c": "图像c",
+            "image_d": "图像d"
+        },
+        "widgets": {
+            "opacity": "不透明度",
+            "align": "对齐"
+        },
+        "outputs": {
+            "image": "图像"
+        }
+    },
+
+    "Preview Image-JPEG": {
+        "title": "图像预览-JPGE",
+        "inputs": {
+            "images": "图像"
+        },
+        "widgets": {
+            "quality": "画质"
+        }
+    },
+
+    "To RGB": {
+        "title": "转换为 RGB",
+        "inputs": {
+            "images": "图像"
+        },
+        "outputs": {
+            "images": "图像"
+        }
+    },
+
+    "To JPEG": {
+        "title": "转换为 JPGE",
+        "inputs": {
+            "images": "图像"
+        },
+        "widgets": {
+            "quality": "画质"
+        },
+        "outputs": {
+            "images": "图像"
+        }
+    },
+
+    "Reference Resize": {
+        "title": "参考缩放图像",
+        "inputs": {
+            "reference_image": "大小参考图像",
+            "images": "图像"
+        },
+        "outputs": {
+            "images": "图像"
+        }
+    },
+
+    "Image Align": {
+        "title": "图像对齐",
+        "inputs": {
+            "image_bg": "背景图像",
+            "images_fg": "前景图像(主体)"
+        },
+        "widgets": {
+            "align": "对齐",
+            "offset_x": "X向(水平向)位移",
+            "offset_y": "Y向(垂直向)位移"
+        },
+        "outputs": {
+            "merge_image": "合并图像",
+            "only_fg": "仅前景主体"
+        }
+    },
+    
+    "Get Batch Count": {
+        "title": "获取列队批次数值",
+        "inputs": {
+            "xy_grid_control": "XY网格控制"
+        },
+        "outputs": {
+            "BatchCount": "批次数值"
+        }
+    },
+    
+    "Load Lora Name": {
+        "title": "加载LoRA名称",
+        "widgets": {
+            "lora_name": "LoRA名称"
+        }
+    },
+
+    
+    "Load Sampler Name": {
+        "title": "加载采样器名称",
+        "widgets": {
+            "sampler_name": "采样器名称"
+        }
+    },
+    
+    
+    "Load Scheduler Name": {
+        "title": "加载调度器名称",
+        "widgets": {
+            "scheduler": "调度器"
+        }
+    },
+    
+    "Load Ckpt Name": {
+        "title": "加载Checkpoint名称",
+        "widgets": {
+            "ckpt_name": "Checkpoint名称"
+        }
+    },
+    
+    
+    "Load UNET Name": {
+        "title": "加载UNet名称",
+        "widgets": {
+            "unet_name": "UNet名称"
+        }
+    },
+    
+    "Load CLIP Name": {
+        "title": "加载CLIP名称",
+        "widgets": {
+            "clip_name": "CLIP名称"
+        }
+    },
+    
+    "Multi Line Text": {
+        "title": "多行文本",
+        "widgets": {
+            "input_text": "输入文本"
+        }
+    },
+    
+    "Integer Output": {
+        "title": "整数输出",
+        "widgets": {
+            "integer": "整数"
+        }
+    },
+    
+    "FLOAT Output": {
+        "title": "浮点数输出",
+        "widgets": {
+            "float_input": "浮点数"
+        }
+    },
+    
+    
+    "Seed Output": {
+        "title": "种子值输出",
+        "widgets": {
+            "seed": "种子",
+            "control_after_generate": "运行后操作"
+        }
+    },
+    
+    
+    "Batch Image Blend": {
+        "title": "批量图像混合",
+        "inputs": {
+            "images": "图像"
+        },
+        "widgets": {
+            "opacity": "不透明度"
+        },
+        "outputs": {
+            "image": "图像"
+        }
+    },
+    
+    
+    "Multiple Image Blend": {
+        "title": "多图像混合",
+        "inputs": {
+            "image_a": "图像a",
+            "image_b": "图像b",
+            "image_c": "图像c",
+            "image_d": "图像d"
+        },
+        "widgets": {
+            "opacity": "不透明度"
+        },
+        "outputs": {
+            "image": "图像"
+        }
+    },
+    
+    
+    "Image Blend BG": {
+        "title": "图像混合（背景图）",
+        "inputs": {
+            "image_bg": "背景图",
+            "image": "前景图"
+        },
+        "widgets": {
+            "align": "对齐",
+                "size": "大小",
+                "top left": "左上",
+                "center": "中心",
+            "opacity": "不透明度"
+        },
+        "outputs": {
+            "image": "图像"
+        }
+    },
+    
+    
+    "Fill Alpha": {
+        "title": "填充透明区域",
+        "inputs": {
+            "images": "背景图"
+        },
+        "widgets": {
+            "fill_color": "填充颜色"
+        },
+        "outputs": {
+            "image": "图像"
+        }
+    },
+    
+    
+    "Mask Levels Adjust": {
+        "title": "遮罩色阶调节",
+        "inputs": {
+            "masks": "遮罩"
+        },
+        "widgets": {
+            "output_black_point": "输出黑色值",
+            "output_white_point": "输出白色值"
+        },
+        "outputs": {
+            "masks": "遮罩"
+        }
+    },
+    
+    
+    "RN_MultipleImageBlend_2": {
+        "title": "多图像混合2",
+        "inputs": {
+            "image_a": "图像a",
+            "image_b": "图像b",
+            "image_c": "图像c",
+            "image_d": "图像d"
+        },
+        "widgets": {
+            "align": "对齐",
+                "size": "大小",
+                "top left": "左上",
+                "center": "中心",
+            "opacity": "不透明度"
+        },
+        "outputs": {
+            "image": "图像"
+        }
+    }
+
+}
