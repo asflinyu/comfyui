@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<title>生成入口</title>
+<link rel="stylesheet" href="/static/layout.css?v=6">
+<style>
+:root{--bg:#0b0d12;--panel:#14171d;--border:#252a33;--text:#e7e9ef;--muted:#8b93a7;--accent:#4f8cff;}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;line-height:1.5}
+.nav{display:flex;gap:10px;align-items:center;margin-bottom:18px;flex-wrap:wrap}
+.nav a{color:var(--muted);text-decoration:none;font-size:13px}
+.nav a.on{color:var(--text);font-weight:600}
+.status-chip{font-size:11px;padding:3px 8px;border-radius:10px;background:#1e232c;color:var(--muted)}
+.status-chip.ok{background:#1a3c2b;color:#6ce0a0}
+.status-chip.err{background:#3c1a1a;color:#ff8a8a}
+h1{margin:0 0 6px;font-size:28px}
+.lead{color:var(--muted);margin:0 0 8px;font-size:14px}
+.sec{font-size:13px;color:var(--muted);letter-spacing:.08em;text-transform:uppercase;margin:0 0 8px}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+@media(max-width:900px){.grid,.grid3{grid-template-columns:1fr}}
+.card{display:block;background:var(--panel);border:1px solid var(--border);border-radius:14px;padding:16px;text-decoration:none;color:inherit;transition:border-color .15s,transform .15s}
+.card:hover{border-color:var(--accent);transform:translateY(-1px)}
+.tag{display:inline-block;font-size:11px;padding:2px 8px;border-radius:999px;margin-bottom:8px}
+.tag.img{background:#1a3326;color:#7ee0a8}
+.tag.i2i{background:#33281a;color:#e0c07e}
+.tag.vid{background:#2a2140;color:#c9b6ff}
+.card h2{margin:0 0 6px;font-size:17px}
+.card p{margin:0;color:var(--muted);font-size:13px}
+.give{margin-top:10px;font-size:12px;color:#b7becc}
+.give b{color:var(--text);font-weight:600}
+.more{margin-top:16px}
+.more a{color:var(--accent);text-decoration:none;font-size:13px}
+</style>
+</head>
+<body class="tiled">
+<div class="home-shell">
+  <div class="nav">
+    <a class="on" href="/">入口</a>
+    <span style="color:#333">|</span>
+    <a href="/t2i">生图</a>
+    <span style="color:#333">|</span>
+    <a href="/i2v">I2V</a>
+    <span style="color:#333">|</span>
+    <a href="/t2v">T2V</a>
+    <span style="color:#333">|</span>
+    <a href="/s2v">S2V</a>
+    <span style="color:#333">|</span>
+    <a href="/talking-video">视频数字人</a>
+    <span style="color:#333">|</span>
+    <a href="/f2v">F2V</a>
+    <span style="color:#333">|</span>
+    <a href="/console">分镜控制台</a>
+    <span style="color:#333">|</span>
+    <a href="/fast">快速版分镜</a>
+    <span id="sys" style="margin-left:auto;display:flex;gap:8px;flex-wrap:wrap"></span>
+  </div>
+  <h1>生成入口</h1>
+  <p class="lead">图片生成有多套真实工作流。视频四种：T2V、I2V、S2V、F2V。数字人两种：视频数字人、精品 14B 口播。文案 Excel 想尽快出片，用快速版分镜。</p>
+  <div class="home-body">
+  <div class="home-block">
+  <div class="sec">分镜成片</div>
+  <div class="grid">
+    <a class="card" href="/fast">
+      <span class="tag img">快速</span>
+      <h2>快速版分镜</h2>
+      <p>Excel 镜头直接用，不走 LLM。Qwen 4 步出图 + Wan fp8 4 步 I2V，720p。</p>
+      <div class="give"><b>你给：</b>文案 Excel　　<b>得到：</b>分镜 + 成片</div>
+    </a>
+    <a class="card" href="/console">
+      <span class="tag vid">原版</span>
+      <h2>分镜控制台 V2</h2>
+      <p>Kimi 写分镜，可切高清。慢，画质选项更多。</p>
+      <div class="give"><b>你给：</b>需求 / Excel　　<b>得到：</b>分镜 + 成片</div>
+    </a>
+  </div>
+  </div>
+  <div class="home-block">
+  <div class="sec">图片生成</div>
+  <div class="grid3">
+    <a class="card" href="/t2i?wf=flux_dev">
+      <span class="tag img">文生图</span>
+      <h2>Flux Dev</h2>
+      <p>最强静帧，1280×2304。只出图。</p>
+      <div class="give"><b>你给：</b>文字</div>
+    </a>
+    <a class="card" href="/t2i?wf=qwen_t2i">
+      <span class="tag img">文生图</span>
+      <h2>Qwen Image</h2>
+      <p>中文提示更稳，Lightning 4 步。</p>
+      <div class="give"><b>你给：</b>文字</div>
+    </a>
+    <a class="card" href="/t2i?wf=sdxl_t2i">
+      <span class="tag img">文生图</span>
+      <h2>SDXL / SD1.5 / SD3.5</h2>
+      <p>工作室里还可切 Schnell、majicMIX、SD3.5。</p>
+      <div class="give"><b>你给：</b>文字</div>
+    </a>
+    <a class="card" href="/t2i?wf=flux_kontext">
+      <span class="tag i2i">图生图</span>
+      <h2>Flux Kontext</h2>
+      <p>按文字改已有图，尽量保住人和构图。</p>
+      <div class="give"><b>你给：</b>底图 + 改图指令</div>
+    </a>
+    <a class="card" href="/t2i?wf=qwen_edit">
+      <span class="tag i2i">图生图</span>
+      <h2>Qwen Edit</h2>
+      <p>中文改图，适合换动作、换衣服、改细节。</p>
+      <div class="give"><b>你给：</b>底图 + 中文指令</div>
+    </a>
+    <a class="card" href="/t2i?wf=sdxl_i2i">
+      <span class="tag i2i">图生图</span>
+      <h2>SDXL / SD1.5 重绘 · 放大</h2>
+      <p>传统 I2I，或 4x UltraSharp 只放大不改内容。</p>
+      <div class="give"><b>你给：</b>底图 ± 提示词</div>
+    </a>
+  </div>
+  </div>
+  <div class="home-block">
+  <div class="sec">数字人 · 两种</div>
+  <div class="grid">
+    <a class="card" href="/talking-video">
+      <span class="tag vid">视频</span>
+      <h2>视频数字人</h2>
+      <p>上传一段正脸视频当底片，保留点头眨眼，再配台词或音频。</p>
+      <div class="give"><b>你给：</b>视频 + 台词/音频　　<b>得到：</b>数字人视频</div>
+    </a>
+    <a class="card" href="/s2v">
+      <span class="tag vid">S2V</span>
+      <h2>精品 14B 口播</h2>
+      <p>Wan 2.2 重画全身和场景。质量高，大约 20 分钟。</p>
+      <div class="give"><b>你给：</b>人脸 + 台词/音频　　<b>得到：</b>14B 对口型视频</div>
+    </a>
+  </div>
+  </div>
+  <div class="home-block">
+  <div class="sec">视频生成 · 四种</div>
+  <div class="grid">
+    <a class="card" href="/t2v">
+      <span class="tag vid">T2V</span>
+      <h2>文生视频</h2>
+      <p>纯文字出片，Wan 2.2 14B fp8。不传图、不采集人脸。</p>
+      <div class="give"><b>你给：</b>文字　　<b>得到：</b>短视频</div>
+    </a>
+    <a class="card" href="/i2v">
+      <span class="tag vid">I2V</span>
+      <h2>Image to Video</h2>
+      <p>传入底图，让画面动起来。有图时最稳。</p>
+      <div class="give"><b>你给：</b>一张图 + 动作　　<b>得到：</b>短视频</div>
+    </a>
+    <a class="card" href="/s2v">
+      <span class="tag vid">S2V</span>
+      <h2>Speech to Video</h2>
+      <p>口播数字人，一张脸跟着声音说话。</p>
+      <div class="give"><b>你给：</b>人脸 + 台词/音频　　<b>得到：</b>对口型视频</div>
+    </a>
+    <a class="card" href="/f2v">
+      <span class="tag vid">F2V</span>
+      <h2>Flux to Video</h2>
+      <p>视频流程里先 Flux 出图，再自动 I2V。</p>
+      <div class="give"><b>你给：</b>出图词 + 动作词　　<b>得到：</b>底图 + 短视频</div>
+    </a>
+  </div>
+  </div>
+  </div>
+</div>
+<script>
+function chip(text, ok){const s=document.createElement('span');s.className='status-chip '+(ok===false?'err':ok?'ok':'');s.textContent=text;return s}
+(async()=>{
+  try{
+    const r=await fetch('/api/health'); const h=await r.json();
+    const box=document.getElementById('sys');
+    box.appendChild(chip('Comfy '+(h.comfy||''), h.comfy==='ok'));
+    const gpu=h.gpu||{};
+    box.appendChild(chip((gpu.name||'GPU')+' '+(gpu.vram_gb||'?')+'GB', true));
+  }catch(e){
+    document.getElementById('sys').appendChild(chip('控制台离线', false));
+  }
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<title>图生视频 I2V</title>
+<link rel="stylesheet" href="/static/layout.css?v=6">
+<style>
+:root{--bg:#0b0d12;--panel:#14171d;--border:#252a33;--text:#e7e9ef;--muted:#8b93a7;--accent:#4f8cff;}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;line-height:1.5}
+.card{background:var(--panel);border:1px solid var(--border);border-radius:12px;padding:16px 18px;margin-bottom:14px}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.col{flex:1;min-width:160px}
+label{display:block;color:var(--muted);font-size:12px;margin-bottom:4px}
+input,textarea,select{width:100%;background:#0d1016;border:1px solid var(--border);border-radius:8px;color:var(--text);padding:8px 10px;font-size:13px}
+textarea{min-height:110px;resize:vertical;line-height:1.55}
+button{background:var(--accent);color:#fff;border:0;border-radius:8px;padding:8px 14px;font-size:13px;cursor:pointer}
+button.secondary{background:#2c313b}
+button:disabled{opacity:.5;cursor:not-allowed}
+.nav{display:flex;gap:10px;align-items:center;margin-bottom:14px;flex-wrap:wrap}
+.nav a{color:var(--muted);text-decoration:none;font-size:13px}
+.nav a.on{color:var(--text);font-weight:600}
+.status-chip{font-size:11px;padding:3px 8px;border-radius:10px;background:#1e232c;color:var(--muted)}
+.status-chip.ok{background:#1a3c2b;color:#6ce0a0}
+.status-chip.err{background:#3c1a1a;color:#ff8a8a}
+.hint{color:var(--muted);font-size:12px;margin:0}
+.hint code{color:#c9d4ff}
+.progress-bar{height:16px;background:#22262e;border-radius:8px;overflow:hidden;margin-top:10px}
+.progress-fill{height:100%;width:8%;background:linear-gradient(90deg,var(--accent),#78aaff);transition:width .3s}
+.log-panel{margin-top:10px;background:#0a0c10;border:1px solid var(--border);border-radius:8px;max-height:240px;overflow:auto;padding:8px;font-size:12px;display:none}
+.log-time{color:var(--muted)}
+.preview{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(max-width:800px){.preview{grid-template-columns:1fr}}
+img,video{width:100%;border-radius:8px;background:#000;display:block}
+.thumb{max-height:260px;object-fit:contain;margin-top:8px;display:none}
+#toast{position:fixed;bottom:14px;right:14px;background:var(--panel);border:1px solid var(--border);border-radius:8px;padding:9px 14px;display:none;z-index:9999;font-size:13px}
+.spinner{width:14px;height:14px;border:2px solid var(--muted);border-top-color:var(--accent);border-radius:50%;animation:spin .8s linear infinite;display:inline-block;vertical-align:middle;margin-right:6px}
+@keyframes spin{to{transform:rotate(360deg)}}
+</style>
+</head>
+<body class="tiled">
+<div class="shell">
+  <header class="chrome">
+  <div class="nav">
+    <a href="/">入口</a><span style="color:#333">|</span>
+    <a href="/t2i">生图</a><span style="color:#333">|</span>
+    <a class="on" href="/i2v">I2V</a><span style="color:#333">|</span>
+    <a href="/t2v">T2V</a><span style="color:#333">|</span>
+    <a href="/s2v">S2V</a><span style="color:#333">|</span>
+    <a href="/talking">口播</a><span style="color:#333">|</span>
+    <a href="/talking-video">视频数字人</a><span style="color:#333">|</span>
+    <a href="/f2v">F2V</a><span style="color:#333">|</span>
+    <a href="/console">分镜控制台</a>
+    <span id="sys" style="margin-left:auto;display:flex;gap:8px;flex-wrap:wrap"></span>
+  </div>
+  <h2>传入底图 → 短视频</h2>
+  <p class="hint">I2V：你先给一张图，再写这几秒怎么动。Wan 14B <code>fp8 + 4 步</code>，1088×1920。没有图请先去 <a href="/t2i" style="color:#9cbcff">文生图</a> 或用 <a href="/f2v" style="color:#9cbcff">F2V</a> 自动出图。</p>
+  </header>
+  <div class="workspace">
+  <section class="pane-form">
+
+  <div class="card">
+    <div class="row">
+      <div class="col"><label>时长（秒）</label><input id="durInp" type="number" min="1" max="4" step="0.5" value="2" /></div>
+      <div class="col"><label>Seed（空=随机）</label><input id="seedInp" type="number" placeholder="随机" /></div>
+      <div class="col"><label>视频</label><input value="fp8 4步 · 1088×1920" disabled /></div>
+    </div>
+  </div>
+  <div class="card">
+    <label>1. 底图</label>
+    <input id="imgFile" type="file" accept="image/*" />
+    <p class="hint" id="imgMeta" style="margin-top:6px">还没选图。也可以从文生图页点「用这张图去 I2V」带过来。</p>
+    <img id="imgPrev" class="thumb" alt="底图预览" />
+  </div>
+  <div class="card">
+    <div class="row" style="justify-content:space-between;align-items:flex-end;margin-bottom:6px">
+      <label style="margin:0">2. 动作提示词</label>
+      <button type="button" id="exBtn" class="secondary">填入示例</button>
+    </div>
+    <textarea id="vidArea" placeholder="只写图里已有的动作，不要改人数、不要换场景"></textarea>
+    <div style="margin-top:10px">
+      <label>负向提示词</label>
+      <textarea id="negArea" style="min-height:72px">cartoon, anime, extra people, extra limbs, ghosting, double exposure, blurry, lowres, text, watermark, extra heads, morphing</textarea>
+    </div>
+    <div class="row" style="margin-top:12px">
+      <button id="genBtn" style="font-size:15px;padding:10px 18px">生成视频</button>
+      <span class="hint">点了才会占 GPU。2 秒大约几分钟。</span>
+    </div>
+    <div id="progressWrap" style="display:none">
+      <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+      <div class="hint" id="progressMeta" style="margin-top:6px"></div>
+    </div>
+    <div class="log-panel" id="logPanel"></div>
+  </div>
+  </section>
+  <section class="pane-preview">
+  <div class="card fill-card" id="resultCard">
+    <h3 style="margin:0 0 10px">结果</h3>
+    <div class="stage cols">
+      <div class="cell"><div class="hint">底图</div><img id="outImg" alt="still" /></div>
+      <div class="cell"><div class="hint">视频</div><video id="outVid" controls playsinline></video></div>
+    </div>
+    <p class="hint" id="outMeta" style="margin-top:8px">生成结果会铺满右侧</p>
+  </div>
+  </section>
+  </div>
+</div>
+<div id="toast"></div>
+<script>
+const EXAMPLE = `Vertical 9:16 live-action, natural breathing and slight head turn, fabric shifts, cinematic micro movement, sharp face, no morphing, no ghosting`;
+const $ = id => document.getElementById(id);
+let imageName='';
+function toast(m){const t=$('toast');t.textContent=m;t.style.display='block';setTimeout(()=>t.style.display='none',2400)}
+function chip(text, ok){const s=document.createElement('span');s.className='status-chip '+(ok===false?'err':ok?'ok':'');s.textContent=text;return s}
+async function jget(u){const r=await fetch(u);const d=await r.json().catch(()=>({}));if(!r.ok) throw new Error(d.detail||d.error||r.statusText);return d}
+async function jpost(u,b){const r=await fetch(u,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(b)});const d=await r.json().catch(()=>({}));if(!r.ok) throw new Error(typeof d.detail==='string'?d.detail:(d.error||JSON.stringify(d.detail)||r.statusText));return d}
+function showImage(name){
+  imageName=name;
+  $('imgMeta').textContent='当前底图：'+name;
+  $('imgPrev').src='/files/'+encodeURIComponent(name)+'?t='+Date.now();
+  $('imgPrev').style.display='block';
+}
+$('exBtn').onclick=()=>{$('vidArea').value=EXAMPLE}
+async function boot(){
+  try{
+    const h=await jget('/api/health'); const box=$('sys'); box.innerHTML='';
+    box.appendChild(chip('Comfy '+(h.comfy||''), h.comfy==='ok'));
+    const gpu=h.gpu||{}; box.appendChild(chip((gpu.name||'GPU')+' '+(gpu.vram_gb||'?')+'GB', true));
+    box.appendChild(chip('I2V fp8', true));
+  }catch(e){$('sys').appendChild(chip('控制台离线', false))}
+  const q=new URLSearchParams(location.search).get('image');
+  if(q) showImage(q);
+}
+$('imgFile').onchange=async()=>{
+  const f=$('imgFile').files[0]; if(!f) return;
+  const fd=new FormData(); fd.append('files', f); fd.append('shot_index','0'); fd.append('project_id','i2v');
+  try{
+    const r=await fetch('/api/upload/image',{method:'POST',body:fd}); const d=await r.json();
+    const ok=(d.results||[])[0]; if(!ok) throw new Error(d.error||'上传失败');
+    showImage(ok.image_name); toast('底图已上传');
+  }catch(e){toast('图片上传失败: '+e.message)}
+};
+$('genBtn').onclick=async()=>{
+  if(!imageName){toast('先上传或从文生图带入一张底图');return}
+  const video_prompt=$('vidArea').value.trim();
+  if(!video_prompt){toast('先写动作提示词');return}
+  $('genBtn').disabled=true;
+  $('progressWrap').style.display='block'; $('logPanel').style.display='block'; $('logPanel').innerHTML='';
+  $('progressFill').style.width='6%'; $('progressMeta').innerHTML='<span class="spinner"></span>提交 I2V…';
+  try{
+    poll((await jpost('/api/i2v/generate',{
+      image_name:imageName, video_prompt, negative:$('negArea').value.trim(),
+      duration_s:Math.min(4, Math.max(1, +$('durInp').value||2)),
+      seed:$('seedInp').value?+$('seedInp').value:null
+    })).task_id);
+  }catch(e){$('genBtn').disabled=false;$('progressMeta').textContent='提交失败: '+e.message;toast('提交失败')}
+};
+function addLog(entry){const p=$('logPanel'); const d=document.createElement('div'); d.innerHTML='<span class="log-time">'+(entry.ts||'').slice(11,19)+'</span> '+(entry.message||''); p.appendChild(d); p.scrollTop=p.scrollHeight}
+async function poll(tid){
+  const t0=Date.now();
+  const timer=setInterval(async()=>{
+    try{
+      const s=await jget('/api/generate/status/'+tid);
+      const elapsed=Math.floor((Date.now()-t0)/1000);
+      $('logPanel').innerHTML=''; (s.logs||[]).forEach(addLog);
+      if(s.status==='done'){
+        clearInterval(timer); $('progressFill').style.width='100%'; $('progressMeta').textContent='完成，用时 '+elapsed+'s'; $('genBtn').disabled=false;
+        const rec=(s.results||[])[0]||{};
+        $('resultCard').style.display='block';
+        if(rec.image) $('outImg').src='/files/'+encodeURIComponent(rec.image)+'?t='+Date.now();
+        if(rec.video) $('outVid').src='/comfy-output/'+encodeURIComponent(rec.video)+'?t='+Date.now();
+        $('outMeta').textContent=(rec.image||'')+' → '+(rec.video||'');
+        return;
+      }
+      if(s.status==='error'){clearInterval(timer); $('progressMeta').textContent=s.message||'失败'; $('genBtn').disabled=false; return}
+      $('progressFill').style.width=Math.min(92, 6+(s.progress||elapsed/4))+'%';
+      $('progressMeta').innerHTML='<span class="spinner"></span>'+(s.message||'生成中')+' · '+elapsed+'s';
+    }catch(e){$('progressMeta').textContent='状态读取失败: '+e.message}
+  },1500);
+}
+boot();
+</script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+{
+  "title": "最后一秒",
+  "summary": "雨夜追逐中，黑衣女孩在闸门落下的瞬间滑铲穿越，反手接住飞来的钥匙，回眸一笑。",
+  "shot_count": 3,
+  "shots": [
+    {
+      "index": 1,
+      "duration_s": 5.0,
+      "dialogue": "跑！别回头，他们就在后面！",
+      "positive_prompt": "cinematic action short film, young woman in black leather jacket sprinting through a narrow rainy alley at night, neon signs reflecting on wet asphalt, water splashing under her sneakers, handheld camera chasing behind her, motion blur on background, dramatic rim lighting, teal and orange color grading, shallow depth of field, 35mm lens, high detail, 24fps film look",
+      "negative_prompt": "blurry, low resolution, distorted face, extra limbs, deformed hands, mangled fingers, watermark, text, logo, subtitles, cartoon, anime, oversaturated, flickering, jitter, static frame, duplicate characters",
+      "image_prompt": "a young woman in a black leather jacket running through a rainy neon alley at night, seen from behind, water splashing, cinematic teal and orange lighting, wet reflective ground, film still, 35mm, shallow depth of field, high detail",
+      "camera": "低角度手持跟拍，镜头随人物向前冲刺并轻微上下颠簸，结尾快速推近她的后背",
+      "image_mode": "upload",
+      "image_name": "",
+      "image_source": "",
+      "audio_name": "",
+      "audio_duration_s": 0.0
+    },
+    {
+      "index": 2,
+      "duration_s": 5.0,
+      "dialogue": "闪开——！",
+      "positive_prompt": "action sequence, young woman in black leather jacket sliding on wet ground under a heavy metal shutter door that is rapidly closing, sparks flying from the metal edge, rain droplets frozen mid-air, low ground level camera, dynamic diagonal composition, dramatic side lighting, slow motion 60fps feel, cinematic teal and orange grade, high detail, realistic physics",
+      "negative_prompt": "blurry, low quality, deformed body, extra legs, wrong anatomy, stiff motion, floating character, cartoon, anime, watermark, text, logo, duplicate limbs, overexposed, flicker, frozen frame",
+      "image_prompt": "young woman in black leather jacket sliding on wet pavement under a half-closed metal shutter door, sparks and rain, low ground camera angle, cinematic dramatic lighting, motion energy, film still, high detail",
+      "camera": "地面贴地横移镜头，与人物滑行方向平行跟拍，闸门从画面上方压下来",
+      "image_mode": "upload",
+      "image_name": "",
+      "image_source": "",
+      "audio_name": "",
+      "audio_duration_s": 0.0
+    },
+    {
+      "index": 3,
+      "duration_s": 5.0,
+      "dialogue": "接住了。就这点本事？",
+      "positive_prompt": "young woman in black leather jacket rising from a slide on wet pavement, catching a set of flying keys with her left hand without looking, turning her head toward camera with a confident smirk, rain dripping from her hair, neon light behind her creating a silhouette rim, camera slowly pushing in on her face, cinematic close up, shallow depth of field, 85mm lens, high detail, film grain",
+      "negative_prompt": "blurry, low resolution, deformed hands, extra fingers, distorted face, unnatural eyes, watermark, text, logo, subtitle, cartoon, anime, plastic skin, overexposed, flicker, shaky unusable footage",
+      "image_prompt": "close up of a confident young woman in a black leather jacket catching flying keys in mid air, rain soaked hair, neon backlight rim, wet pavement, cinematic film still, 85mm, shallow depth of field, high detail",
+      "camera": "中景缓慢推近至面部特写，轻微手持呼吸感，结尾定格在她回眸的瞬间",
+      "image_mode": "upload",
+      "image_name": "",
+      "image_source": "",
+      "audio_name": "",
+      "audio_duration_s": 0.0
+    }
+  ],
+  "brief": "一个测试短剧",
+  "id": "4974531a0a",
+  "updated_at": "2026-09-14T20:33:18"
+}

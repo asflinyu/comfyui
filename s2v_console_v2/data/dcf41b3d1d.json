@@ -1,0 +1,69 @@
+{
+  "id": "dcf41b3d1d",
+  "title": "草地追蝶的小奶猫",
+  "summary": "阳光明媚的草地上，一只毛茸茸的小猫追着蝴蝶奔跑扑腾，最后蝴蝶轻轻落在它鼻尖。",
+  "mode": "i2v",
+  "shots": [
+    {
+      "index": 1,
+      "duration_s": 1.5,
+      "dialogue": "喵？",
+      "positive_prompt": "Vertical close-up, a fluffy orange and white kitten sitting on bright green grass in a sunny meadow, looking up curiously at a colorful butterfly hovering above, sharp kitten and butterfly, soft bokeh background, warm golden sunlight, fresh vibrant colors, realistic fur detail, cute and lively atmosphere, 4k",
+      "negative_prompt": "ugly, deformed, blurry, low quality, watermark, text, extra legs, distorted face, dark, oversaturated",
+      "image_prompt": "中文画面描述：竖屏特写，一只橘白相间的蓬松小奶猫坐在阳光明媚的绿色草地上，仰头好奇地盯着上方一只彩色蝴蝶，主体清晰锐利，背景草地虚化散景，暖色调自然光照，画面清新可爱",
+      "image_prompt_en": "Vertical 9:16 close-up, a fluffy orange and white kitten sitting on sunny green grass, looking up curiously at a colorful butterfly above, sharp subject, blurred bokeh grass background, warm natural sunlight, fresh and cute style",
+      "camera": "固定特写，轻微缓慢推近",
+      "image_name": "console_dcf41b3d1d_shot1_343161.png",
+      "image_source": "gen",
+      "audio_name": "console_tts_209550.wav",
+      "audio_duration_s": 0.56,
+      "length": 0
+    },
+    {
+      "index": 2,
+      "duration_s": 1.5,
+      "dialogue": "喵！",
+      "positive_prompt": "Low angle medium tracking shot, a cute fluffy kitten running and chasing a colorful butterfly through sunlit green grass, dynamic motion, grass blades swaying, butterfly fluttering ahead, warm daylight, shallow depth of field with blurred background, joyful energetic mood, realistic fur, vertical composition",
+      "negative_prompt": "static, blurry motion, ugly, deformed, low quality, watermark, text, dark lighting, distorted animals",
+      "image_prompt": "中文画面描述：竖屏中景低角度跟拍，一只小奶猫在阳光明媚的草地上奔跑追逐一只彩色蝴蝶，草叶轻摇，主体清晰，背景草地和天空虚化，暖色调明亮光照，画面充满活力与童趣",
+      "image_prompt_en": "Vertical 9:16 medium low-angle tracking shot, a cute kitten running after a colorful butterfly on sunny green grass, swaying grass blades, sharp subject, blurred grass and sky background, warm bright lighting, energetic and playful mood",
+      "camera": "低角度跟拍，随小猫移动",
+      "image_name": "console_dcf41b3d1d_shot2_569900.png",
+      "image_source": "gen",
+      "audio_name": "console_tts_340139.wav",
+      "audio_duration_s": 0.8,
+      "length": 0
+    },
+    {
+      "index": 3,
+      "duration_s": 1.5,
+      "dialogue": "噗…",
+      "positive_prompt": "Slow motion side medium shot, a fluffy kitten leaping into the air with paws stretched out trying to catch a butterfly, colorful butterfly just above, grass and tiny dust particles floating, bright sun backlight, shallow depth of field, cute action moment, realistic fur, warm and cheerful",
+      "negative_prompt": "ugly, deformed, blurry, low quality, watermark, text, extra paws, distorted face, dark, gloomy",
+      "image_prompt": "中文画面描述：竖屏中景慢动作侧拍，一只小奶猫腾空跃起伸出爪子扑向空中蝴蝶，草屑飞散，主体清晰，背景草地虚化，逆光暖色调，画面生动可爱",
+      "image_prompt_en": "Vertical 9:16 medium side slow-motion shot, a fluffy kitten jumping up with paws stretched toward a butterfly in the air, grass particles floating, sharp subject, blurred grass background, warm backlit sunlight, lively and adorable",
+      "camera": "慢动作侧拍，捕捉跃起瞬间",
+      "image_name": "console_dcf41b3d1d_shot3_813805.png",
+      "image_source": "gen",
+      "audio_name": "console_tts_240628.wav",
+      "audio_duration_s": 0.72,
+      "length": 0
+    },
+    {
+      "index": 4,
+      "duration_s": 1.5,
+      "dialogue": "喵～",
+      "positive_prompt": "Extreme close-up macro shot, a colorful butterfly gently resting on a fluffy kitten's pink nose, kitten looking slightly cross-eyed at the butterfly, sunny meadow blurred bokeh background, soft warm natural light, adorable and peaceful mood, realistic fur and butterfly wings, vertical composition",
+      "negative_prompt": "ugly, deformed, blurry, low quality, watermark, text, harsh shadows, distorted eyes, dark background",
+      "image_prompt": "中文画面描述：竖屏微距特写，一只彩色蝴蝶轻轻落在一小奶猫粉粉的鼻尖上，小猫对眼望着蝴蝶，主体清晰，背景阳光明媚的草地虚化成柔和散景，暖色调柔光，画面温馨治愈",
+      "image_prompt_en": "Vertical 9:16 extreme macro close-up, a colorful butterfly resting on a fluffy kitten's pink nose, kitten looking cross-eyed at the butterfly, sharp subject, soft bokeh sunny meadow background, warm gentle light, heartwarming and healing mood",
+      "camera": "固定微距特写",
+      "image_name": "console_dcf41b3d1d_shot4_543251.png",
+      "image_source": "gen",
+      "audio_name": "console_tts_617502.wav",
+      "audio_duration_s": 0.56,
+      "length": 0
+    }
+  ],
+  "updated_at": "2026-09-16T15:25:12.044953+00:00"
+}

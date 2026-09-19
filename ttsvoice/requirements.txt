@@ -1,0 +1,14 @@
+# Install PyTorch with CUDA first on Windows, then:
+#   pip install -r requirements.txt
+qwen-tts>=0.0.3
+accelerate
+einops
+gradio
+librosa
+onnxruntime
+soundfile
+sox
+torchaudio
+transformers
+modelscope
+huggingface_hub

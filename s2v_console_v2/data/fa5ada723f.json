@@ -1,0 +1,69 @@
+{
+  "id": "fa5ada723f",
+  "title": "阳光草地追蝶的小猫",
+  "summary": "毛茸茸的小猫在阳光明媚的草地上发现并追逐蝴蝶，最后目送蝴蝶飞走，画面治愈可爱。",
+  "mode": "i2v",
+  "shots": [
+    {
+      "index": 1,
+      "duration_s": 1.5,
+      "dialogue": "喵？有蝴蝶！",
+      "positive_prompt": "A cute fluffy kitten lying on a sunlit green meadow, head up and ears perked, big curious eyes looking off-frame at a colorful butterfly, soft bokeh background with blurred wildflowers and warm sunlight, bright natural lighting, vertical 9:16 composition, shallow depth of field, gentle breeze moving grass, photorealistic, 4k, adorable",
+      "negative_prompt": "blurry kitten, dark shadows, overexposed, distorted face, text, watermark, low quality, extra legs, deformed body",
+      "image_prompt": "竖屏近景，一只毛茸茸的可爱小猫趴在阳光明媚的绿色草地上，抬起头竖起耳朵，大眼睛好奇地望向画外的蝴蝶，背景是虚化的野花和温暖阳光，色调明亮清新，浅景深，写实风格",
+      "image_prompt_en": "Vertical 9:16 close-up, a fluffy adorable kitten lying on sunlit green grass, head raised with ears perked, big curious eyes looking off-frame at a butterfly, background of blurred wildflowers and warm sunlight, bright and fresh tones, shallow depth of field, photorealistic",
+      "camera": "固定镜头，轻微推进",
+      "image_name": "console_fa5ada723f_shot1_435964.png",
+      "image_source": "gen",
+      "audio_name": "console_tts_212485.wav",
+      "audio_duration_s": 1.6,
+      "length": 0
+    },
+    {
+      "index": 2,
+      "duration_s": 1.8,
+      "dialogue": "小蝴蝶，别跑呀！",
+      "positive_prompt": "A cute fluffy kitten running and leaping through a sunny green meadow while chasing a colorful butterfly, dynamic side view, motion blur on paws and butterfly wings, tall grass blades in foreground sharp and background softly blurred, bright natural sunlight, vertical 9:16 composition, shallow depth of field, joyful energetic mood, photorealistic, 4k",
+      "negative_prompt": "static pose, dark scene, blurry subject, extra limbs, deformed kitten, watermark, text, low quality",
+      "image_prompt": "竖屏中景，毛茸茸的可爱小猫在阳光明媚的草地上奔跑跳跃，追逐一只飞舞的彩色蝴蝶，前景草叶清晰，背景草地与天空虚化，明亮暖色调，浅景深，充满动感活力",
+      "image_prompt_en": "Vertical 9:16 medium shot, a fluffy cute kitten running and leaping on sunlit green grass chasing a colorful fluttering butterfly, foreground grass sharp, background meadow and sky blurred, bright warm tones, shallow depth of field, dynamic and lively",
+      "camera": "侧面跟拍，轻微晃动模拟手持",
+      "image_name": "console_fa5ada723f_shot2_236220.png",
+      "image_source": "gen",
+      "audio_name": "console_tts_437306.wav",
+      "audio_duration_s": 1.44,
+      "length": 0
+    },
+    {
+      "index": 3,
+      "duration_s": 1.7,
+      "dialogue": "抓到啦～",
+      "positive_prompt": "A cute fluffy kitten mid-pounce in a sunlit meadow, front paw stretched upward toward a colorful butterfly, happy bright eyes, soft bokeh background of green grass and dandelions, warm golden sunlight, vertical 9:16 composition, shallow depth of field, freeze motion, photorealistic, 4k, adorable",
+      "negative_prompt": "ugly expression, closed eyes, missing paw, dark shadows, overexposed, watermark, text, deformed body",
+      "image_prompt": "竖屏近景，毛茸茸的小猫在阳光草地中跃起，前爪伸向一只彩色蝴蝶，眼睛明亮开心，周围是虚化的绿草和蒲公英，暖金色调，浅景深，画面甜美可爱",
+      "image_prompt_en": "Vertical 9:16 close-up, a fluffy kitten jumping up in sunlit grass, front paw reaching toward a colorful butterfly, bright happy eyes, surrounding blurred green grass and dandelions, warm golden tones, shallow depth of field, sweet and cute",
+      "camera": "慢动作定格，轻微环绕",
+      "image_name": "console_fa5ada723f_shot3_324728.png",
+      "image_source": "gen",
+      "audio_name": "console_tts_206561.wav",
+      "audio_duration_s": 0.56,
+      "length": 0
+    },
+    {
+      "index": 4,
+      "duration_s": 1.0,
+      "dialogue": "下次再玩～",
+      "positive_prompt": "A cute fluffy kitten sitting peacefully on a sunny green meadow, looking up as a colorful butterfly flies away, soft warm backlight, background bokeh of grass and wildflowers, vertical 9:16 composition, shallow depth of field, calm happy mood, photorealistic, 4k",
+      "negative_prompt": "aggressive expression, dark scene, blurry subject, text, watermark, extra limbs, deformed body",
+      "image_prompt": "竖屏中景，可爱毛茸茸的小猫坐在阳光草地上，抬头望着飞远的蝴蝶，背景虚化的绿草和野花沐浴在温暖逆光中，色调柔和治愈，浅景深",
+      "image_prompt_en": "Vertical 9:16 medium shot, a cute fluffy kitten sitting on sunlit grass looking up at a butterfly flying away, blurred green grass and wildflowers bathed in warm backlight, soft healing tones, shallow depth of field",
+      "camera": "固定镜头，缓缓拉远",
+      "image_name": "console_fa5ada723f_shot4_964784.png",
+      "image_source": "gen",
+      "audio_name": "console_tts_312649.wav",
+      "audio_duration_s": 2.08,
+      "length": 0
+    }
+  ],
+  "updated_at": "2026-09-16T15:24:29.614335+00:00"
+}

@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<title>Flux 图生视频 F2V</title>
+<link rel="stylesheet" href="/static/layout.css?v=6">
+<style>
+:root{--bg:#0b0d12;--panel:#14171d;--border:#252a33;--text:#e7e9ef;--muted:#8b93a7;--accent:#4f8cff;--ok:#2dd36f;--err:#ff5a5a;}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;line-height:1.5}
+.card{background:var(--panel);border:1px solid var(--border);border-radius:12px;padding:16px 18px;margin-bottom:14px}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.col{flex:1;min-width:160px}
+label{display:block;color:var(--muted);font-size:12px;margin-bottom:4px}
+input,textarea,select{width:100%;background:#0d1016;border:1px solid var(--border);border-radius:8px;color:var(--text);padding:8px 10px;font-size:13px}
+textarea{min-height:120px;resize:vertical;line-height:1.55}
+button{background:var(--accent);color:#fff;border:0;border-radius:8px;padding:8px 14px;font-size:13px;cursor:pointer}
+button:hover{filter:brightness(1.1)}
+button.secondary{background:#2c313b}
+button:disabled{opacity:.5;cursor:pointer}
+.nav{display:flex;gap:10px;align-items:center;margin-bottom:14px;flex-wrap:wrap}
+.nav a{color:var(--muted);text-decoration:none;font-size:13px}
+.nav a.on{color:var(--text);font-weight:600}
+.status-chip{font-size:11px;padding:3px 8px;border-radius:10px;background:#1e232c;color:var(--muted)}
+.status-chip.ok{background:#1a3c2b;color:#6ce0a0}
+.status-chip.err{background:#3c1a1a;color:#ff8a8a}
+.hint{color:var(--muted);font-size:12px;margin:0}
+.hint code{color:#c9d4ff}
+.progress-bar{height:16px;background:#22262e;border-radius:8px;overflow:hidden;margin-top:10px}
+.progress-fill{height:100%;width:8%;background:linear-gradient(90deg,var(--accent),#78aaff);transition:width .3s}
+.log-panel{margin-top:10px;background:#0a0c10;border:1px solid var(--border);border-radius:8px;max-height:280px;overflow:auto;padding:8px;font-size:12px;display:none}
+.log-time{color:var(--muted)}
+.preview{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(max-width:800px){.preview{grid-template-columns:1fr}}
+img,video{width:100%;border-radius:8px;background:#000;display:block}
+#toast{position:fixed;bottom:14px;right:14px;background:var(--panel);border:1px solid var(--border);border-radius:8px;padding:9px 14px;display:none;z-index:9999;font-size:13px}
+.spinner{width:14px;height:14px;border:2px solid var(--muted);border-top-color:var(--accent);border-radius:50%;animation:spin .8s linear infinite;display:inline-block;vertical-align:middle;margin-right:6px}
+@keyframes spin{to{transform:rotate(360deg)}}
+</style>
+</head>
+<body class="tiled">
+<div class="shell">
+  <header class="chrome">
+  <div class="nav">
+    <a href="/">入口</a>
+    <span style="color:#333">|</span>
+    <a href="/t2i">生图</a>
+    <span style="color:#333">|</span>
+    <a href="/i2v">I2V</a>
+    <span style="color:#333">|</span>
+    <a href="/t2v">T2V</a>
+    <span style="color:#333">|</span>
+    <a href="/s2v">S2V</a>
+    <span style="color:#333">|</span>
+    <a href="/talking">口播</a>
+    <span style="color:#333">|</span>
+    <a href="/talking-video">视频数字人</a>
+    <span style="color:#333">|</span>
+    <a class="on" href="/f2v">F2V</a>
+    <span style="color:#333">|</span>
+    <a href="/console">分镜控制台</a>
+    <span id="sys" style="margin-left:auto;display:flex;gap:8px;flex-wrap:wrap"></span>
+  </div>
+  <h2>Flux → 快速视频</h2>
+  <p class="hint">独立流程：先用 Flux 出 <code>1280×2304</code> 底图，再用 Wan 14B <code>fp8 + 4 步 LoRA</code> 出 1088×1920 视频。不用 fp16。</p>
+  </header>
+  <div class="workspace">
+  <section class="pane-form">
+
+  <div class="card">
+    <div class="row">
+      <div class="col"><label>时长（秒）</label><input id="durInp" type="number" min="1" max="4" step="0.5" value="2" /></div>
+      <div class="col"><label>Seed（空=随机）</label><input id="seedInp" type="number" placeholder="随机" /></div>
+      <div class="col"><label>底图</label><input value="Flux 1280×2304" disabled /></div>
+      <div class="col"><label>视频</label><input value="fp8 4步 · 1088×1920" disabled /></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="row" style="justify-content:space-between;align-items:flex-end;margin-bottom:6px">
+      <label style="margin:0">1. Flux 出图提示词</label>
+      <button type="button" id="exBtn" class="secondary">填入示例</button>
+    </div>
+    <textarea id="imgArea" placeholder="描述第一帧画面。竖屏、人数、光线、姿势…"></textarea>
+    <div style="margin-top:10px">
+      <label>2. 视频动作提示词（可留空，默认复用出图词）</label>
+      <textarea id="vidArea" style="min-height:90px" placeholder="这几秒身体怎么动、镜头怎么走…"></textarea>
+    </div>
+    <div style="margin-top:10px">
+      <label>负向提示词</label>
+      <textarea id="negArea" style="min-height:72px">cartoon, anime, extra people, extra limbs, ghosting, double exposure, blurry, lowres, text, watermark, extra heads, morphing</textarea>
+    </div>
+    <div class="row" style="margin-top:12px">
+      <button id="genBtn" style="font-size:15px;padding:10px 18px">生成：Flux 图 + 快速视频</button>
+      <span class="hint">Flux 约 0.5–2 分钟，2 秒视频大约再几分钟。</span>
+    </div>
+    <div id="progressWrap" style="display:none">
+      <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+      <div class="hint" id="progressMeta" style="margin-top:6px"></div>
+    </div>
+    <div class="log-panel" id="logPanel"></div>
+  </div>
+  </section>
+  <section class="pane-preview">
+  <div class="card fill-card" id="resultCard">
+    <h3 style="margin:0 0 10px">结果</h3>
+    <div class="stage cols">
+      <div class="cell"><div class="hint">Flux 底图</div><img id="outImg" alt="flux still" /></div>
+      <div class="cell"><div class="hint">快速视频</div><video id="outVid" controls playsinline></video></div>
+    </div>
+    <p class="hint" id="outMeta" style="margin-top:8px">生成结果会铺满右侧</p>
+  </div>
+  </section>
+  </div>
+</div>
+<div id="toast"></div>
+<script>
+const EXAMPLE_IMG = `photorealistic cinematic still, vertical 9:16, one adult Chinese woman sitting on a rumpled hotel bed, white robe slipping off shoulders, warm bedside lamp, sharp skin texture, shallow depth of field, two people not allowed, solo`;
+const EXAMPLE_VID = `Vertical 9:16 live-action, the woman breathes and slightly turns her head, robe shifts, natural micro movement, sharp face, no morphing, no ghosting, one person only`;
+const $ = id => document.getElementById(id);
+function toast(m){const t=$('toast');t.textContent=m;t.style.display='block';setTimeout(()=>t.style.display='none',2400)}
+function chip(text, ok){const s=document.createElement('span');s.className='status-chip '+(ok===false?'err':ok?'ok':'');s.textContent=text;return s}
+async function jget(u){const r=await fetch(u);const d=await r.json().catch(()=>({}));if(!r.ok) throw new Error(d.detail||d.error||r.statusText);return d}
+async function jpost(u,b){const r=await fetch(u,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(b)});const d=await r.json().catch(()=>({}));if(!r.ok) throw new Error(typeof d.detail==='string'?d.detail:(d.error||JSON.stringify(d.detail)||r.statusText));return d}
+
+$('exBtn').onclick=()=>{$('imgArea').value=EXAMPLE_IMG;$('vidArea').value=EXAMPLE_VID}
+
+async function boot(){
+  try{
+    const h=await jget('/api/health');
+    const box=$('sys');box.innerHTML='';
+    box.appendChild(chip('Comfy '+(h.comfy||''), h.comfy==='ok'));
+    const gpu=h.gpu||{};
+    box.appendChild(chip((gpu.name||'GPU')+' '+(gpu.vram_gb||'?')+'GB', true));
+    box.appendChild(chip('F2V Flux+fp8', true));
+  }catch(e){
+    $('sys').appendChild(chip('控制台离线', false));
+  }
+}
+
+$('genBtn').onclick=async()=>{
+  const image_prompt=$('imgArea').value.trim();
+  if(!image_prompt){toast('先写 Flux 出图提示词');return}
+  $('genBtn').disabled=true;
+  $('progressWrap').style.display='block';
+  $('logPanel').style.display='block';
+  $('logPanel').innerHTML='';
+  $('progressFill').style.width='6%';
+  $('progressMeta').innerHTML='<span class="spinner"></span>提交 F2V…';
+  try{
+    const r=await jpost('/api/f2v/generate',{
+      image_prompt,
+      video_prompt:$('vidArea').value.trim(),
+      negative:$('negArea').value.trim(),
+      duration_s:Math.min(4, Math.max(1, +$('durInp').value||2)),
+      seed:$('seedInp').value?+$('seedInp').value:null
+    });
+    poll(r.task_id);
+  }catch(e){
+    $('genBtn').disabled=false;
+    $('progressMeta').textContent='提交失败: '+e.message;
+    toast('提交失败');
+  }
+};
+
+function addLog(entry){
+  const p=$('logPanel');
+  const d=document.createElement('div');
+  const ts=(entry.ts||'').slice(11,19);
+  d.innerHTML='<span class="log-time">'+ts+'</span> '+(entry.message||'');
+  p.appendChild(d);p.scrollTop=p.scrollHeight;
+}
+
+async function poll(tid){
+  const t0=Date.now();
+  const timer=setInterval(async()=>{
+    try{
+      const s=await jget('/api/generate/status/'+tid);
+      const elapsed=Math.floor((Date.now()-t0)/1000);
+      $('logPanel').innerHTML='';
+      (s.logs||[]).forEach(addLog);
+      if(s.status==='done'){
+        clearInterval(timer);
+        $('progressFill').style.width='100%';
+        $('progressMeta').textContent='完成，用时 '+elapsed+'s';
+        $('genBtn').disabled=false;
+        const rec=(s.results||[])[0]||{};
+        $('resultCard').style.display='block';
+        if(rec.image) $('outImg').src='/files/'+encodeURIComponent(rec.image)+'?t='+Date.now();
+        if(rec.video) $('outVid').src='/comfy-output/'+encodeURIComponent(rec.video)+'?t='+Date.now();
+        $('outMeta').textContent=(rec.image||'')+' → '+(rec.video||'');
+        return;
+      }
+      if(s.status==='error'){
+        clearInterval(timer);
+        $('progressMeta').textContent=s.message||'失败';
+        $('genBtn').disabled=false;
+        return;
+      }
+      const pct=Math.min(92, 6+(s.progress||elapsed/4));
+      $('progressFill').style.width=pct+'%';
+      $('progressMeta').innerHTML='<span class="spinner"></span>'+(s.message||'生成中')+' · '+elapsed+'s';
+    }catch(e){
+      $('progressMeta').textContent='状态读取失败: '+e.message;
+    }
+  },1500);
+}
+boot();
+</script>
+</body>
+</html>

@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<title>S2V 快速版分镜</title>
+<link rel="stylesheet" href="/static/layout.css?v=7">
+<style>
+:root{--bg:#0b0d12;--panel:#14171d;--border:#252a33;--text:#e7e9ef;--muted:#8b93a7;--accent:#4f8cff;--ok:#2dd36f;--warn:#f7c548;--err:#ff5a5a;}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;line-height:1.5}
+.container{max-width:none;width:100%;min-height:100vh;margin:0;padding:12px 16px}
+.card{background:var(--panel);border:1px solid var(--border);border-radius:12px;padding:14px 16px;margin-bottom:14px}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+button{background:var(--accent);color:#fff;border:0;border-radius:8px;padding:8px 14px;font-size:13px;cursor:pointer}
+button.secondary{background:#2c313b}button:disabled{opacity:.5;cursor:not-allowed}
+.status-chip{font-size:11px;padding:3px 8px;border-radius:10px;background:#1e232c;color:var(--muted)}
+.status-chip.ok{background:#1a3c2b;color:#6ce0a0}
+.shot{border:1px solid var(--border);border-radius:10px;padding:10px;margin-top:8px;background:#0f1218}
+.shot img{max-width:120px;max-height:90px;border-radius:6px;border:1px solid var(--border);background:#000}
+.muted{color:var(--muted);font-size:12px}
+#toast{position:fixed;bottom:14px;right:14px;background:var(--panel);border:1px solid var(--border);border-radius:8px;padding:9px 14px;display:none;z-index:9999;font-size:13px}
+#statusBar{position:fixed;top:12px;left:50%;transform:translateX(-50%);background:var(--panel);border:1px solid var(--accent);border-radius:10px;padding:8px 16px;display:none;z-index:9998;font-size:13px;align-items:center;gap:10px;box-shadow:0 4px 20px rgba(0,0,0,.5);max-width:90vw}
+.spinner{width:14px;height:14px;border:2px solid var(--muted);border-top-color:var(--accent);border-radius:50%;animation:spin .8s linear infinite;flex:none}
+@keyframes spin{to{transform:rotate(360deg)}}
+video{width:100%;max-height:360px;border-radius:6px;background:#000}
+.progress-bar{height:16px;background:#22262e;border-radius:8px;overflow:hidden;margin-top:10px}
+.progress-fill{height:100%;width:0%;background:linear-gradient(90deg,var(--accent),#78aaff);transition:width .3s}
+</style>
+</head>
+<body class="tiled">
+<div class="page-full">
+<div class="container">
+  <h2 style="margin:0 0 12px">⚡ S2V 快速版分镜
+    <a href="/console" style="float:right;font-size:13px;font-weight:500;color:var(--accent);text-decoration:none;margin-left:12px">原控制台 →</a>
+    <a href="/" style="float:right;font-size:13px;font-weight:500;color:var(--accent);text-decoration:none">入口 →</a>
+  </h2>
+  <div class="card">
+    <div class="row" id="sysStatus"></div>
+    <p class="muted" style="margin:8px 0 0">Excel 镜头直接用，不走 Kimi。出图 Qwen 4 步，视频 Wan fp8 4 步 LoRA，720×1280。原控制台没改。</p>
+  </div>
+  <div class="card">
+    <div class="row">
+      <input type="file" id="xlsxInp" accept=".xlsx,.xls" style="width:auto;min-width:240px;padding:4px 8px;background:#0d1016;border:1px solid var(--border);border-radius:8px;color:var(--text)" />
+      <button id="importBtn" class="secondary">📂 导入 Excel 成分镜</button>
+      <button id="runBtn" style="background:#2dd36f">🚀 一键跑快速全程</button>
+    </div>
+    <div id="meta" class="muted" style="margin-top:8px">还没有分镜</div>
+    <div class="progress-bar" id="barWrap" style="display:none"><div class="progress-fill" id="bar"></div></div>
+    <div id="barMeta" class="muted"></div>
+  </div>
+  <div id="shots"></div>
+  <div class="card" id="resultCard" style="display:none">
+    <h3 style="margin:0 0 10px">生成结果</h3>
+    <div id="results"></div>
+  </div>
+</div>
+</div>
+<div id="toast"></div>
+<div id="statusBar"><span class="spinner"></span><span id="statusText"></span><span id="statusTime"></span></div>
+<script>
+const $=id=>document.getElementById(id);
+let project={id:'',title:'',shots:[],mode:'i2v'};
+const FAST={workflow:'qwen_t2i',resolution:'final_720',quality:'fast',width:720,height:1280};
+
+function toast(msg){const t=$('toast');t.textContent=msg;t.style.display='block';setTimeout(()=>t.style.display='none',3200);}
+let _timer=null,_t0=0;
+function setStatus(msg){
+  $('statusBar').style.display='flex';_t0=Date.now();
+  const tick=()=>{$('statusText').textContent=msg;$('statusTime').textContent=Math.round((Date.now()-_t0)/1000)+'s';};
+  tick();clearInterval(_timer);_timer=setInterval(tick,500);
+}
+function clearStatus(){clearInterval(_timer);_timer=null;$('statusBar').style.display='none';}
+function busy(btn,text){const old=btn.textContent;btn.disabled=true;btn.textContent=text;return()=>{btn.disabled=false;btn.textContent=old;};}
+
+async function waitTask(tid,label){
+  while(true){
+    const d=await fetch('/api/generate/status/'+tid).then(r=>r.json());
+    $('statusText').textContent=`${label}：${d.message||''}${d.progress!=null?' ('+d.progress+'%)':''}`;
+    $('barWrap').style.display='block';
+    $('bar').style.width=(d.progress||0)+'%';
+    $('barMeta').textContent=d.message||'';
+    if(d.status==='done') return d;
+    if(d.status==='error') throw new Error(d.message||'任务失败');
+    await new Promise(r=>setTimeout(r,1200));
+  }
+}
+
+function render(){
+  $('meta').textContent = project.shots&&project.shots.length
+    ? `${project.title} · ${project.shots.length} 镜 · Qwen 4步 + fp8 4步 I2V · 720p`
+    : '还没有分镜';
+  const box=$('shots');box.innerHTML='';
+  (project.shots||[]).forEach(s=>{
+    const d=document.createElement('div');d.className='shot';
+    const img=s.image_name?`<img src="/files/${s.image_name}?t=${Date.now()}" />`:'<span class="status-chip">待出图</span>';
+    d.innerHTML=`<div class="row" style="justify-content:space-between"><b>镜头 ${s.index} · ${s.duration_s}s</b><span class="muted">${s.time||''}</span></div>
+      <div class="row" style="margin-top:6px;align-items:flex-start">${img}
+        <div style="flex:1;min-width:200px"><div>${s.visual||s.image_prompt||''}</div>
+        <div class="muted">台词：${s.dialogue||'（无）'}　反转：${s.twist||s.camera||''}</div></div>
+      </div>`;
+    box.appendChild(d);
+  });
+}
+
+async function importExcel(){
+  const f=$('xlsxInp').files[0];
+  if(!f){toast('请先选择 Excel');return;}
+  const restore=busy($('importBtn'),'⏳ 解析中...');
+  setStatus('正在把 Excel 转成分镜（不走 LLM）...');
+  try{
+    const fd=new FormData();fd.append('files',f);fd.append('mode','i2v');
+    const r=await fetch('/api/storyboard/from_excel',{method:'POST',body:fd});
+    const d=await r.json();
+    if(!r.ok) throw new Error(d.detail||d.error||'解析失败');
+    project=d;render();toast(`已生成 ${project.shots.length} 个镜头：${project.title}`);
+  }catch(e){toast('导入失败: '+e.message);}
+  finally{restore();clearStatus();}
+}
+
+async function runFast(){
+  if(!project.shots||!project.shots.length){
+    if(!$('xlsxInp').files[0]){toast('请先导入 Excel');return;}
+    await importExcel();
+    if(!project.shots||!project.shots.length) return;
+  }
+  const restore=busy($('runBtn'),'⏳ 跑全程中...');
+  $('resultCard').style.display='none';
+  try{
+    setStatus('第 2/4 步：Qwen 4 步出参考图...');
+    const img=await fetch('/api/images/generate_all',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({
+      project,width:FAST.width,height:FAST.height,workflow:FAST.workflow
+    })}).then(r=>r.json());
+    const imgs=await waitTask(img.task_id,'🖼 参考图');
+    if(imgs.project){project=imgs.project;render();}
+    if(imgs.errors&&imgs.errors.length) toast('部分图片失败: '+imgs.errors.join('; '));
+
+    setStatus('第 3/4 步：合成配音...');
+    const tts=await fetch('/api/tts/all',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({
+      project,voice:'01 温柔女声·播音腔',skip_existing:false
+    })}).then(r=>r.json());
+    const aud=await waitTask(tts.task_id,'🎙 配音');
+    if(aud.project){project=aud.project;render();}
+
+    setStatus('第 4/4 步：Wan fp8 4 步 I2V...');
+    const vid=await fetch('/api/generate/videos',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({
+      project,resolution:FAST.resolution,quality:FAST.quality,video_count:1,skip_tts_if_audio:true,mode:'i2v'
+    })}).then(r=>r.json());
+    const d=await waitTask(vid.task_id,'🎬 视频');
+    const results=d.results||[];
+    $('resultCard').style.display='block';
+    const box=$('results');box.innerHTML='';
+    const videos=[];
+    results.forEach(r=>(r.videos||[]).forEach(v=>videos.push(v)));
+    if(!videos.length){box.innerHTML='<div class="muted">没有成片</div>';}
+    else videos.forEach((v,i)=>{
+      const url=`${location.origin}/comfy-output/${v.filename}`;
+      const div=document.createElement('div');
+      div.innerHTML=`<div class="row" style="justify-content:space-between"><b>${i===0?'🎉 成片':'分镜 '+i}</b>
+        <a href="/comfy-output/${v.filename}?download=true" download="${v.filename}"><button style="background:#2dd36f">⬇ 下载</button></a></div>
+        <div class="muted" style="word-break:break-all">${url}</div>
+        <video controls src="/comfy-output/${v.filename}?t=${Date.now()}" preload="metadata"></video>`;
+      box.appendChild(div);
+    });
+    toast('✅ 快速全程完成');
+  }catch(e){toast('流程失败: '+e.message);$('barMeta').textContent='失败: '+e.message;}
+  finally{restore();clearStatus();}
+}
+
+$('importBtn').addEventListener('click',importExcel);
+$('runBtn').addEventListener('click',runFast);
+fetch('/api/health').then(r=>r.json()).then(h=>{
+  const gpu=h.gpu||{};
+  const fast=h.fast||{};
+  $('sysStatus').innerHTML=`<span class="status-chip ok">快速版</span>
+    <span class="status-chip">Comfy ${h.comfy}</span>
+    <span class="status-chip">TTS ${h.tts}</span>
+    <span class="status-chip">${gpu.name||'GPU'} ${gpu.vram_gb||'?'}GB ×${gpu.count||1}</span>
+    <span class="status-chip ok">${fast.label||'Qwen 4步 + fp8 4步 · 720p'}</span>`;
+}).catch(()=>{});
+</script>
+</body>
+</html>

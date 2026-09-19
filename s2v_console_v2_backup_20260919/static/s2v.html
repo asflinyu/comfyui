@@ -1,0 +1,306 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<title>口播数字人 S2V</title>
+<link rel="stylesheet" href="/static/layout.css?v=6">
+<style>
+:root{--bg:#0b0d12;--panel:#14171d;--border:#252a33;--text:#e7e9ef;--muted:#8b93a7;--accent:#4f8cff;--ok:#2dd36f;--err:#ff5a5a;}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;line-height:1.5}
+.card{background:var(--panel);border:1px solid var(--border);border-radius:12px;padding:16px 18px;margin-bottom:14px}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.col{flex:1;min-width:160px}
+label{display:block;color:var(--muted);font-size:12px;margin-bottom:4px}
+input,textarea,select{width:100%;background:#0d1016;border:1px solid var(--border);border-radius:8px;color:var(--text);padding:8px 10px;font-size:13px}
+textarea{min-height:110px;resize:vertical;line-height:1.55}
+button{background:var(--accent);color:#fff;border:0;border-radius:8px;padding:8px 14px;font-size:13px;cursor:pointer}
+button:hover{filter:brightness(1.1)}
+button.secondary{background:#2c313b}
+button:disabled{opacity:.5;cursor:not-allowed}
+.nav{display:flex;gap:10px;align-items:center;margin-bottom:14px;flex-wrap:wrap}
+.nav a{color:var(--muted);text-decoration:none;font-size:13px}
+.nav a.on{color:var(--text);font-weight:600}
+.status-chip{font-size:11px;padding:3px 8px;border-radius:10px;background:#1e232c;color:var(--muted)}
+.status-chip.ok{background:#1a3c2b;color:#6ce0a0}
+.status-chip.err{background:#3c1a1a;color:#ff8a8a}
+.hint{color:var(--muted);font-size:12px;margin:0}
+.hint code{color:#c9d4ff}
+.progress-bar{height:16px;background:#22262e;border-radius:8px;overflow:hidden;margin-top:10px}
+.progress-fill{height:100%;width:8%;background:linear-gradient(90deg,var(--accent),#78aaff);transition:width .3s}
+.log-panel{margin-top:10px;background:#0a0c10;border:1px solid var(--border);border-radius:8px;max-height:280px;overflow:auto;padding:8px;font-size:12px;display:none}
+.log-time{color:var(--muted)}
+.preview{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(max-width:800px){.preview{grid-template-columns:1fr}}
+img,video{width:100%;border-radius:8px;background:#000;display:block}
+#toast{position:fixed;bottom:14px;right:14px;background:var(--panel);border:1px solid var(--border);border-radius:8px;padding:9px 14px;display:none;z-index:9999;font-size:13px}
+.spinner{width:14px;height:14px;border:2px solid var(--muted);border-top-color:var(--accent);border-radius:50%;animation:spin .8s linear infinite;display:inline-block;vertical-align:middle;margin-right:6px}
+@keyframes spin{to{transform:rotate(360deg)}}
+.drop{border:1px dashed var(--border);border-radius:10px;padding:12px;background:#0d1016}
+.thumb{max-height:220px;object-fit:contain;margin-top:8px;display:none}
+</style>
+</head>
+<body class="tiled">
+<div class="shell">
+  <header class="chrome">
+  <div class="nav">
+    <a href="/">入口</a>
+    <span style="color:#333">|</span>
+    <a href="/t2i">生图</a>
+    <span style="color:#333">|</span>
+    <a href="/i2v">I2V</a>
+    <span style="color:#333">|</span>
+    <a href="/t2v">T2V</a>
+    <span style="color:#333">|</span>
+    <a class="on" href="/s2v">S2V</a>
+    <span style="color:#333">|</span>
+    <a href="/talking">口播</a>
+    <span style="color:#333">|</span>
+    <a href="/talking-video">视频数字人</a>
+    <span style="color:#333">|</span>
+    <a href="/f2v">F2V</a>
+    <span style="color:#333">|</span>
+    <a href="/console">分镜控制台</a>
+    <span id="sys" style="margin-left:auto;display:flex;gap:8px;flex-wrap:wrap"></span>
+  </div>
+  <h2>人像 + 声音 → 对口型视频</h2>
+  <p class="hint">独立流程：给一张正脸（上传或 Flux 出图），再写台词或上传音频。Wan 14B S2V 标准 20 步 CFG6 让嘴跟着声音动。时长跟音频走，最长约 5 秒。不用 fp16。</p>
+  </header>
+  <div class="workspace">
+  <section class="pane-form">
+
+  <div class="card">
+    <div class="row">
+      <div class="col"><label>Seed（空=随机）</label><input id="seedInp" type="number" placeholder="随机" /></div>
+      <div class="col"><label>模型</label><input value="Wan 2.2 S2V 14B fp8" disabled /></div>
+      <div class="col"><label>画面</label><input value="1088×1920 竖屏" disabled /></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <label>1. 人像底图（优先上传一张清晰正脸）</label>
+    <div class="drop">
+      <input id="imgFile" type="file" accept="image/*" />
+      <p class="hint" id="imgMeta" style="margin-top:6px">还没选图。没有照片也可以下面写提示词，用 Flux 出一张。</p>
+      <img id="imgPrev" class="thumb" alt="人像预览" />
+    </div>
+    <div style="margin-top:10px">
+      <label>没有照片时：Flux 出图提示词（有上传图则可留空）</label>
+      <textarea id="imgArea" style="min-height:80px" placeholder="例如：photorealistic vertical 9:16 close-up of one adult Chinese woman looking at camera, studio light, sharp face"></textarea>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="row" style="justify-content:space-between;align-items:flex-end;margin-bottom:6px">
+      <label style="margin:0">2. 要说的话</label>
+      <button type="button" id="exBtn" class="secondary">填入示例</button>
+    </div>
+    <div class="row">
+      <div class="col"><label>音色</label><select id="voiceSel"></select></div>
+      <div class="col"><label>或直接上传音频（wav/mp3）</label><input id="audFile" type="file" accept="audio/*" /></div>
+    </div>
+    <div style="margin-top:10px">
+      <label>台词（上传了音频就可留空）</label>
+      <textarea id="dlgArea" placeholder="数字人要说的中文…"></textarea>
+    </div>
+    <p class="hint" id="audMeta" style="margin-top:6px">还没有音频。生成时会用上面的台词去配音。</p>
+    <audio id="audPrev" controls style="width:100%;margin-top:8px;display:none"></audio>
+    <div style="margin-top:10px">
+      <label>动作提示词（可留空）</label>
+      <textarea id="vidArea" style="min-height:72px" placeholder="说话、张嘴对口型、轻微点头。留空也按这个来。"></textarea>
+    </div>
+    <div style="margin-top:10px">
+      <label>负向提示词</label>
+      <textarea id="negArea" style="min-height:64px">closed mouth, silent, frozen face, still image, no lip movement, static, cartoon, extra people, extra limbs, ghosting, morphing, blurry, text, watermark</textarea>
+    </div>
+    <div class="row" style="margin-top:12px">
+      <button id="genBtn" style="font-size:15px;padding:10px 18px">生成口播数字人</button>
+      <span class="hint">点了才会占 GPU。标准 20 步对口型，大约几分钟一条。</span>
+    </div>
+    <div id="progressWrap" style="display:none">
+      <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+      <div class="hint" id="progressMeta" style="margin-top:6px"></div>
+    </div>
+    <div class="log-panel" id="logPanel"></div>
+  </div>
+  </section>
+  <section class="pane-preview">
+  <div class="card fill-card" id="resultCard">
+    <h3 style="margin:0 0 10px">结果</h3>
+    <div class="stage cols">
+      <div class="cell"><div class="hint">人像底图</div><img id="outImg" alt="s2v still" /></div>
+      <div class="cell"><div class="hint">口播视频</div><video id="outVid" controls playsinline></video></div>
+    </div>
+    <div id="dlWrap" class="row" style="display:none;margin-top:12px;align-items:center">
+      <a id="dlVid" href="#" download>
+        <button type="button" style="background:#2dd36f;font-size:14px;padding:9px 16px">⬇ 下载口播视频</button>
+      </a>
+      <a id="dlImg" href="#" download style="display:none">
+        <button type="button" class="secondary">⬇ 下载底图</button>
+      </a>
+    </div>
+    <p class="hint" id="outMeta" style="margin-top:8px">生成完成后，右边可以预览，下面可以下载 mp4。</p>
+  </div>
+  </section>
+  </div>
+</div>
+<div id="toast"></div>
+<script>
+const EXAMPLE_DLG = '大家好，我是数字人助手。今天用一张照片和这段话，生成对口型口播视频。';
+const EXAMPLE_IMG = 'photorealistic cinematic still, vertical 9:16 close-up of one adult Chinese woman looking at camera, natural makeup, studio soft light, sharp skin texture, one person only';
+const $ = id => document.getElementById(id);
+let imageName = '';
+let audioName = '';
+function toast(m){const t=$('toast');t.textContent=m;t.style.display='block';setTimeout(()=>t.style.display='none',2400)}
+function chip(text, ok){const s=document.createElement('span');s.className='status-chip '+(ok===false?'err':ok?'ok':'');s.textContent=text;return s}
+async function jget(u){const r=await fetch(u);const d=await r.json().catch(()=>({}));if(!r.ok) throw new Error(d.detail||d.error||r.statusText);return d}
+async function jpost(u,b){const r=await fetch(u,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(b)});const d=await r.json().catch(()=>({}));if(!r.ok) throw new Error(typeof d.detail==='string'?d.detail:(d.error||JSON.stringify(d.detail)||r.statusText));return d}
+
+$('exBtn').onclick=()=>{$('dlgArea').value=EXAMPLE_DLG;if(!$('imgArea').value.trim()&&!imageName)$('imgArea').value=EXAMPLE_IMG}
+
+async function boot(){
+  try{
+    const h=await jget('/api/health');
+    const box=$('sys');box.innerHTML='';
+    box.appendChild(chip('Comfy '+(h.comfy||''), h.comfy==='ok'));
+    box.appendChild(chip('TTS '+(h.tts||''), h.tts==='ok'));
+    const gpu=h.gpu||{};
+    box.appendChild(chip((gpu.name||'GPU')+' '+(gpu.vram_gb||'?')+'GB', true));
+    box.appendChild(chip('S2V 口播', true));
+  }catch(e){
+    $('sys').appendChild(chip('控制台离线', false));
+  }
+  try{
+    const v=await jget('/api/voices');
+    const sel=$('voiceSel');sel.innerHTML='';
+    (v.voices||['01 温柔女声·播音腔']).forEach(name=>{
+      const o=document.createElement('option');o.value=name;o.textContent=name;sel.appendChild(o);
+    });
+  }catch(e){
+    $('voiceSel').innerHTML='<option>01 温柔女声·播音腔</option>';
+  }
+}
+
+$('imgFile').onchange=async()=>{
+  const f=$('imgFile').files[0];
+  if(!f) return;
+  const fd=new FormData();
+  fd.append('files', f);
+  fd.append('shot_index', '0');
+  fd.append('project_id', 's2v');
+  try{
+    const r=await fetch('/api/upload/image',{method:'POST',body:fd});
+    const d=await r.json();
+    const ok=(d.results||[])[0];
+    if(!ok) throw new Error(d.error||'上传失败');
+    imageName=ok.image_name;
+    $('imgMeta').textContent='已上传：'+imageName;
+    $('imgPrev').src='/files/'+encodeURIComponent(imageName)+'?t='+Date.now();
+    $('imgPrev').style.display='block';
+    toast('人像已上传');
+  }catch(e){toast('图片上传失败: '+e.message)}
+};
+
+$('audFile').onchange=async()=>{
+  const f=$('audFile').files[0];
+  if(!f) return;
+  const fd=new FormData();
+  fd.append('file', f);
+  try{
+    const r=await fetch('/api/upload/audio',{method:'POST',body:fd});
+    const d=await r.json();
+    if(!r.ok) throw new Error(d.detail||d.error||'上传失败');
+    audioName=d.audio_name;
+    $('audMeta').textContent='已上传音频 '+audioName+' · '+(d.duration_s||'?')+'s（台词可留空）';
+    $('audPrev').src='/files/'+encodeURIComponent(audioName)+'?t='+Date.now();
+    $('audPrev').style.display='block';
+    toast('音频已上传');
+  }catch(e){toast('音频上传失败: '+e.message)}
+};
+
+$('genBtn').onclick=async()=>{
+  if(!imageName && !$('imgArea').value.trim()){toast('先上传人像，或写 Flux 出图词');return}
+  if(!audioName && !$('dlgArea').value.trim()){toast('先写台词，或上传音频');return}
+  $('genBtn').disabled=true;
+  $('progressWrap').style.display='block';
+  $('logPanel').style.display='block';
+  $('logPanel').innerHTML='';
+  $('progressFill').style.width='6%';
+  $('progressMeta').innerHTML='<span class="spinner"></span>提交 S2V…';
+  try{
+    const r=await jpost('/api/s2v/generate',{
+      image_name:imageName,
+      image_prompt:$('imgArea').value.trim(),
+      audio_name:audioName,
+      dialogue:$('dlgArea').value.trim(),
+      voice:$('voiceSel').value,
+      video_prompt:$('vidArea').value.trim(),
+      negative:$('negArea').value.trim(),
+      seed:$('seedInp').value?+$('seedInp').value:null
+    });
+    poll(r.task_id);
+  }catch(e){
+    $('genBtn').disabled=false;
+    $('progressMeta').textContent='提交失败: '+e.message;
+    toast('提交失败');
+  }
+};
+
+function addLog(entry){
+  const p=$('logPanel');
+  const d=document.createElement('div');
+  const ts=(entry.ts||'').slice(11,19);
+  d.innerHTML='<span class="log-time">'+ts+'</span> '+(entry.message||'');
+  p.appendChild(d);p.scrollTop=p.scrollHeight;
+}
+
+async function poll(tid){
+  const t0=Date.now();
+  const timer=setInterval(async()=>{
+    try{
+      const s=await jget('/api/generate/status/'+tid);
+      const elapsed=Math.floor((Date.now()-t0)/1000);
+      $('logPanel').innerHTML='';
+      (s.logs||[]).forEach(addLog);
+      if(s.status==='done'){
+        clearInterval(timer);
+        $('progressFill').style.width='100%';
+        $('progressMeta').textContent='完成，用时 '+elapsed+'s';
+        $('genBtn').disabled=false;
+        const rec=(s.results||[])[0]||{};
+        $('resultCard').style.display='block';
+        if(rec.image){
+          $('outImg').src='/files/'+encodeURIComponent(rec.image)+'?t='+Date.now();
+          $('dlImg').href='/files/'+encodeURIComponent(rec.image);
+          $('dlImg').setAttribute('download', rec.image);
+          $('dlImg').style.display='inline-block';
+        }
+        if(rec.video){
+          const vurl='/comfy-output/'+encodeURIComponent(rec.video);
+          $('outVid').src=vurl+'?t='+Date.now();
+          $('dlVid').href=vurl+'?download=true';
+          $('dlVid').setAttribute('download', rec.video);
+          $('dlWrap').style.display='flex';
+        }
+        $('outMeta').textContent=(rec.video||'未生成视频')+(rec.image?' · 底图 '+rec.image:'');
+        return;
+      }
+      if(s.status==='error'){
+        clearInterval(timer);
+        $('progressMeta').textContent=s.message||'失败';
+        $('genBtn').disabled=false;
+        return;
+      }
+      const pct=Math.min(92, 6+(s.progress||elapsed/4));
+      $('progressFill').style.width=pct+'%';
+      $('progressMeta').innerHTML='<span class="spinner"></span>'+(s.message||'生成中')+' · '+elapsed+'s';
+    }catch(e){
+      $('progressMeta').textContent='状态读取失败: '+e.message;
+    }
+  },1500);
+}
+boot();
+</script>
+</body>
+</html>

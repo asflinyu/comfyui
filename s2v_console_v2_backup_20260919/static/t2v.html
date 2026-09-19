@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<title>文生视频 T2V</title>
+<link rel="stylesheet" href="/static/layout.css?v=6">
+<style>
+:root{--bg:#0b0d12;--panel:#14171d;--border:#252a33;--text:#e7e9ef;--muted:#8b93a7;--accent:#4f8cff;--ok:#2dd36f;--warn:#f7c548;--err:#ff5a5a;}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;line-height:1.5}
+.card{background:var(--panel);border:1px solid var(--border);border-radius:12px;padding:16px 18px;margin-bottom:14px}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.col{flex:1;min-width:180px}
+label{display:block;color:var(--muted);font-size:12px;margin-bottom:4px}
+input,textarea,select{width:100%;background:#0d1016;border:1px solid var(--border);border-radius:8px;color:var(--text);padding:8px 10px;font-size:13px}
+textarea{min-height:160px;resize:vertical;line-height:1.55}
+button{background:var(--accent);color:#fff;border:0;border-radius:8px;padding:8px 14px;font-size:13px;cursor:pointer}
+button:hover{filter:brightness(1.1)}
+button.secondary{background:#2c313b}
+button:disabled{opacity:.5;cursor:not-allowed}
+.nav{display:flex;gap:10px;align-items:center;margin-bottom:14px;flex-wrap:wrap}
+.nav a{color:var(--muted);text-decoration:none;font-size:13px}
+.nav a.on{color:var(--text);font-weight:600}
+.status-chip{font-size:11px;padding:3px 8px;border-radius:10px;background:#1e232c;color:var(--muted)}
+.status-chip.ok{background:#1a3c2b;color:#6ce0a0}
+.status-chip.err{background:#3c1a1a;color:#ff8a8a}
+.hint{color:var(--muted);font-size:12px;margin:0}
+.hint code{color:#c9d4ff}
+.progress-bar{height:16px;background:#22262e;border-radius:8px;overflow:hidden;margin-top:10px}
+.progress-fill{height:100%;width:8%;background:linear-gradient(90deg,var(--accent),#78aaff);transition:width .3s}
+.log-panel{margin-top:10px;background:#0a0c10;border:1px solid var(--border);border-radius:8px;max-height:280px;overflow:auto;padding:8px;font-size:12px;display:none}
+.log-line{margin-bottom:3px}
+.log-time{color:var(--muted)}
+video{width:100%;max-height:640px;border-radius:8px;background:#000}
+#toast{position:fixed;bottom:14px;right:14px;background:var(--panel);border:1px solid var(--border);border-radius:8px;padding:9px 14px;display:none;z-index:9999;font-size:13px}
+.spinner{width:14px;height:14px;border:2px solid var(--muted);border-top-color:var(--accent);border-radius:50%;animation:spin .8s linear infinite;display:inline-block;vertical-align:middle;margin-right:6px}
+@keyframes spin{to{transform:rotate(360deg)}}
+</style>
+</head>
+<body class="tiled">
+<div class="shell">
+  <header class="chrome">
+  <div class="nav">
+    <a href="/">入口</a>
+    <span style="color:#333">|</span>
+    <a href="/t2i">生图</a>
+    <span style="color:#333">|</span>
+    <a href="/i2v">I2V</a>
+    <span style="color:#333">|</span>
+    <a class="on" href="/t2v">T2V</a>
+    <span style="color:#333">|</span>
+    <a href="/s2v">S2V</a>
+    <span style="color:#333">|</span>
+    <a href="/talking">口播</a>
+    <span style="color:#333">|</span>
+    <a href="/talking-video">视频数字人</a>
+    <span style="color:#333">|</span>
+    <a href="/f2v">F2V</a>
+    <span style="color:#333">|</span>
+    <a href="/console">分镜控制台</a>
+    <span id="sys" style="margin-left:auto;display:flex;gap:8px;flex-wrap:wrap"></span>
+  </div>
+  <h2>纯文字生成视频</h2>
+  <p class="hint">Wan 2.2 T2V 14B <code>fp8</code>。不上传图片、不采集人脸、不做图生视频。画面里的人由文字随机生成。不用 fp16。</p>
+  </header>
+  <div class="workspace">
+  <section class="pane-form">
+
+  <div class="card">
+    <p class="hint" style="margin-bottom:10px">固定 <code>fp8</code>，默认 4 步 LoRA、原生 1088×1920。提示词必须写清人数、同一空间、身体关系、这几秒在做什么。不要写大场景把人拆开。</p>
+    <div class="row">
+      <div class="col"><label>分辨率</label>
+        <select id="resSel">
+          <option value="vertical_1080" selected>竖屏 1080×1920（高清）</option>
+          <option value="final_720">竖屏 720×1280</option>
+          <option value="landscape_1080">横屏 1920×1080</option>
+        </select>
+      </div>
+      <div class="col"><label>画质</label>
+        <select id="qualitySel">
+          <option value="fast" selected>加速 14B（fp8 + 4步 LoRA）</option>
+          <option value="hq">高清 14B（fp8 20步）</option>
+        </select>
+      </div>
+      <div class="col"><label>时长（秒）</label><input id="durInp" type="number" min="1" max="5" step="0.5" value="3" /></div>
+      <div class="col"><label>Seed（空=随机）</label><input id="seedInp" type="number" placeholder="随机" /></div>
+    </div>
+    <div style="margin-top:10px">
+      <label>配音台词（留空则无声；约 3 秒，宜短）</label>
+      <textarea id="dlgArea" style="min-height:64px">啊…许总…吴总…快点啊…嗯啊…再快点…</textarea>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="row" style="justify-content:space-between;align-items:flex-end;margin-bottom:6px">
+      <label style="margin:0">正向提示词（英文更稳，中文也可以）</label>
+      <button type="button" id="exBtn" class="secondary">填入床上示例</button>
+    </div>
+    <textarea id="posArea" placeholder="写清：人数、同一空间、身体怎么叠、镜头、这几秒的动作…"></textarea>
+    <div style="margin-top:10px">
+      <label>负向提示词</label>
+      <textarea id="negArea" style="min-height:90px">色调艳丽，过曝，静态，细节模糊不清，字幕，静止，整体发灰，最差质量，低质量，静止不动的画面，畸形的，多余的手指，ghosting, extra people, crowd, split screen, couple far apart, extra limbs, morphing bodies, double exposure, still image, cartoon, text, watermark, extra heads, two women, second woman, extra female face, extra woman, threesome, three people, twins, duplicate face</textarea>
+    </div>
+    <div class="row" style="margin-top:12px">
+      <button id="genBtn" style="font-size:15px;padding:10px 18px">生成视频</button>
+      <span id="eta" class="hint">1080 fp8 4步大约 2–5 分钟一条，不会自动开跑。</span>
+    </div>
+    <div id="progressWrap" style="display:none">
+      <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+      <div class="hint" id="progressMeta" style="margin-top:6px"></div>
+    </div>
+    <div class="log-panel" id="logPanel"></div>
+  </div>
+  </section>
+  <section class="pane-preview">
+  <div class="card fill-card" id="resultCard">
+    <h3 style="margin:0 0 10px">成片</h3>
+    <div class="stage"><video id="outVid" controls playsinline></video><span class="empty-stage">生成视频会铺满这里</span></div>
+    <p class="hint" id="outMeta" style="margin-top:8px"></p>
+  </div>
+  </section>
+  </div>
+</div>
+<div id="toast"></div>
+<script>
+const EXAMPLE = `Vertical 9:16 live-action medium close-up, exactly two people total, exactly one adult Chinese man and exactly one adult Chinese woman, no third person, no extra female, couple having sex on the same rumpled white hotel bed, woman on her back, man on top of the same woman, bodies overlapping, one female face only, one male face only, both faces visible, warm bedside lamp, sweaty skin, natural rhythmic hip movement, sheets wrinkling, photorealistic, cinematic, sharp details`;
+const $ = id => document.getElementById(id);
+function toast(m){const t=$('toast');t.textContent=m;t.style.display='block';setTimeout(()=>t.style.display='none',2400)}
+function chip(text, ok){const s=document.createElement('span');s.className='status-chip '+(ok?'ok':'err');s.textContent=text;return s}
+async function jget(u){const r=await fetch(u);if(!r.ok) throw new Error(await r.text());return r.json()}
+async function jpost(u,b){const r=await fetch(u,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(b)});if(!r.ok) throw new Error(await r.text());return r.json()}
+
+$('exBtn').onclick=()=>{$('posArea').value=EXAMPLE}
+
+async function boot(){
+  try{
+    const h=await jget('/api/health');
+    const box=$('sys');box.innerHTML='';
+    box.appendChild(chip('Comfy '+(h.comfy||''), h.comfy==='ok'));
+    const gpu=h.gpu||{};
+    box.appendChild(chip((gpu.name||'GPU')+' '+(gpu.vram_gb||'?')+'GB', true));
+    box.appendChild(chip(gpu.t2v_hq_label||gpu.hq_label||'T2V fp8', true));
+  }catch(e){
+    $('sys').appendChild(chip('控制台离线','err'));
+  }
+}
+
+function updateEta(){
+  $('eta').textContent = $('qualitySel').value==='hq'
+    ? '1080 fp8 20步大约 8–15 分钟一条，不会自动开跑。'
+    : '1080 fp8 4步大约 2–5 分钟一条，不会自动开跑。';
+}
+$('qualitySel').onchange=updateEta;
+
+$('genBtn').onclick=async()=>{
+  const prompt=$('posArea').value.trim();
+  if(!prompt){toast('先写正向提示词');return}
+  const duration=Math.min(5, Math.max(1, +$('durInp').value||3));
+  const seed=$('seedInp').value?+$('seedInp').value:null;
+  $('genBtn').disabled=true;
+  $('progressWrap').style.display='block';
+  $('logPanel').style.display='block';
+  $('logPanel').innerHTML='';
+  $('progressFill').style.width='8%';
+  $('progressMeta').innerHTML='<span class="spinner"></span>提交 T2V 任务…';
+  try{
+    const r=await jpost('/api/t2v/generate',{
+      prompt,
+      negative:$('negArea').value.trim(),
+      resolution:$('resSel').value,
+      duration_s:duration,
+      quality:$('qualitySel').value,
+      seed,
+      dialogue:$('dlgArea')?$('dlgArea').value:''
+    });
+    poll(r.task_id);
+  }catch(e){
+    $('genBtn').disabled=false;
+    $('progressMeta').textContent='提交失败: '+e.message;
+    toast('提交失败');
+  }
+};
+
+function addLog(entry){
+  const p=$('logPanel');
+  const d=document.createElement('div');
+  d.className='log-line';
+  const ts=(entry.ts||'').slice(11,19);
+  d.innerHTML='<span class="log-time">'+ts+'</span> '+ (entry.message||'');
+  p.appendChild(d);p.scrollTop=p.scrollHeight;
+}
+
+async function poll(tid){
+  const t0=Date.now();
+  const timer=setInterval(async()=>{
+    try{
+      const s=await jget('/api/generate/status/'+tid);
+      const elapsed=Math.floor((Date.now()-t0)/1000);
+      const logs=s.logs||[];
+      $('logPanel').innerHTML='';
+      logs.forEach(addLog);
+      const st=s.status||'running';
+      if(st==='done'){
+        clearInterval(timer);
+        $('progressFill').style.width='100%';
+        $('progressMeta').textContent='完成，用时 '+elapsed+'s';
+        $('genBtn').disabled=false;
+        const files=(s.results||[])[0] && (s.results[0].videos||[]);
+        const name=files && files[0];
+        if(name){
+          $('resultCard').style.display='block';
+          $('outVid').src='/comfy-output/'+encodeURIComponent(name);
+          $('outMeta').textContent=name;
+        }
+        return;
+      }
+      if(st==='error'){
+        clearInterval(timer);
+        $('progressMeta').textContent=s.message||'失败';
+        $('genBtn').disabled=false;
+        return;
+      }
+      const pct=Math.min(90, 8+elapsed/12);
+      $('progressFill').style.width=pct+'%';
+      $('progressMeta').innerHTML='<span class="spinner"></span>'+(s.message||'生成中')+' · '+elapsed+'s';
+    }catch(e){
+      $('progressMeta').textContent='状态读取失败: '+e.message;
+    }
+  },2000);
+}
+
+boot();
+</script>
+</body>
+</html>

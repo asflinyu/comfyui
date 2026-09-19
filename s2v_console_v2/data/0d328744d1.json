@@ -1,0 +1,69 @@
+{
+  "id": "0d328744d1",
+  "title": "30天回本：奶茶店老板娘用AI翻盘",
+  "summary": "连亏三个月的奶茶店老板娘，被闺蜜点醒用AI做短视频引流，不出镜不剪辑，一个月回本爆单。",
+  "mode": "i2v",
+  "shots": [
+    {
+      "index": 1,
+      "duration_s": 3.0,
+      "dialogue": "再亏下去，这店真要关了。",
+      "positive_prompt": "Vertical 9:16 realistic smartphone-shot footage, cold quiet bubble tea shop in the afternoon, a tired Chinese woman in her early 30s in an apron sits behind the cashier counter, slowly flipping a paper account ledger, deep sigh, shoulders slumped, several unsold cups of milk tea with condensation on the counter and empty chairs in the foreground. Medium close-up on the woman, subject sharp and in focus, background softly blurred with shallow depth of field. Dim grey-blue ambient light from the storefront window, low saturation, slight overhead fluorescent coolness, melancholic mood. Subtle natural motion: pages turning, chest rising with the sigh, faint steam. Handheld slight micro shake, no on-screen subtitle text baked into the frame, natural lip movement.",
+      "negative_prompt": "text overlay, subtitles, watermark, logo, extra fingers, deformed hands, distorted face, over-smoothed plastic skin, cartoon, anime, 3D render, bright cheerful lighting, crowded store, morphing facial features, unnatural mouth, duplicate people",
+      "image_prompt": "中文画面描述：竖屏9:16中近景，一位30岁左右穿围裙的中国女性坐在奶茶店收银台后，手翻账本、眉头紧锁轻声叹气，肩背略塌；前景收银台上摆着几杯挂着水珠、没卖完的奶茶，店内空荡无顾客；主体清晰、背景虚化，冷灰蓝窗光+冷白顶灯，低饱和压抑色调。",
+      "image_prompt_en": "Vertical 9:16 medium close-up, a Chinese woman around 30 in an apron sitting behind the cashier counter of a milk tea shop, flipping an account ledger, frowning and sighing, slumped shoulders; on the counter in the foreground several unsold milk tea cups with condensation, empty store with no customers; subject in sharp focus, background softly blurred, cool grey-blue window light plus cool fluorescent top light, desaturated gloomy tone.",
+      "camera": "固定机位手持微晃，中近景，缓慢微推近",
+      "image_name": "console_0d328744d1_shot1_933731.png",
+      "image_source": "gen",
+      "audio_name": "console_tts_778121.wav",
+      "audio_duration_s": 5.28,
+      "length": 0
+    },
+    {
+      "index": 2,
+      "duration_s": 3.0,
+      "dialogue": "别急，现在实体店都用AI做短视频引流。",
+      "positive_prompt": "Vertical 9:16 realistic footage, a lively Chinese woman in her early 30s in casual jacket pushes open the glass door of a quiet bubble tea shop and walks straight in, takes the phone from her friend's hand, taps the screen, and a mobile AI short-video tool interface lights up. Fast screen inserts: AI writing a script, auto-editing timeline, generating a finished vertical video. Over-the-shoulder framing from behind the shop owner, subject sharp and background blurred, warm afternoon light spilling through the door creating a soft warm contrast against the previously cold interior. Quick energetic pace, natural hand gestures, natural lip movement, no baked-in subtitle text.",
+      "negative_prompt": "text overlay, subtitles, watermark, brand logo, extra fingers, deformed hands, distorted face, plastic skin, cartoon, anime, 3D render, blurry screen content, glitch artifacts, unnatural mouth, duplicate people",
+      "image_prompt": "中文画面描述：竖屏9:16过肩视角，一位30出头、穿休闲外套的中国女性推门走进冷清奶茶店，一把拿过老板娘手里的手机点开AI短视频工具，手机屏幕亮起发光；前景老板娘肩膀虚化、中景闺蜜与手机清晰，门缝透入暖黄自然光与室内冷光形成对比，画面有轻快动感。",
+      "image_prompt_en": "Vertical 9:16 over-the-shoulder shot, a Chinese woman in her early 30s in a casual jacket walking into a quiet milk tea shop and taking the phone from the owner's hand, tapping an AI short-video app, glowing phone screen; the shop owner's shoulder blurred in the foreground, the friend and phone sharp in mid-ground, warm yellow daylight spilling through the door contrasting with the cool interior light, lively dynamic feel.",
+      "camera": "跟随推门运动镜头，过肩视角快速横移+轻推",
+      "image_name": "console_0d328744d1_shot2_840679.png",
+      "image_source": "gen",
+      "audio_name": "console_tts_607344.wav",
+      "audio_duration_s": 8.16,
+      "length": 0
+    },
+    {
+      "index": 3,
+      "duration_s": 5.0,
+      "dialogue": "不用出镜，不用会剪，AI帮你写、帮你剪、帮你发。第一周有人来，第二周开始排队。",
+      "positive_prompt": "Vertical 9:16 fast montage, energetic quick cuts: (1) AI tool interface generating a short vertical video and hitting publish, (2) phone screen view counts climbing rapidly, (3) customers walking into the bubble tea shop, (4) delivery order tickets piling up, (5) the female shop owner busy behind the counter laughing while making drinks. Same Chinese woman around 30 in an apron, subject always sharp and in focus, background softly blurred, motion blur for speed. Lighting warms up progressively from cool grey-blue to bright warm golden, high saturation, uplifting rhythm, natural lip movement, no baked-in subtitle text.",
+      "negative_prompt": "text overlay, subtitles, watermark, logo, extra fingers, deformed hands, distorted faces, plastic skin, cartoon, anime, 3D render, chaotic unreadable screen, morphing faces between cuts, duplicate people, unnatural mouth",
+      "image_prompt": "中文画面描述：竖屏9:16快切蒙太奇感单帧，奶茶店内热闹起来，30岁左右围裙女老板在吧台后忙碌制作奶茶、抬头开心大笑，前景有排队顾客的虚化背影与堆叠的外卖小票，背景暖黄灯光通透；主体清晰背景虚化，色调从冷灰转向明亮暖金，高饱和活力感。",
+      "image_prompt_en": "Vertical 9:16 single frame suggesting a fast montage, a bustling milk tea shop, the woman owner around 30 in an apron busy making drinks behind the counter and laughing happily, blurred backs of queuing customers and stacked delivery receipts in the foreground, warm golden lighting glowing through the background; subject sharp with blurred background, color shifting from cool grey to bright warm gold, high saturation and upbeat energy.",
+      "camera": "快切蒙太奇+手持横移跟拍，节奏加速，结尾定格在笑脸上",
+      "image_name": "console_0d328744d1_shot3_981687.png",
+      "image_source": "gen",
+      "audio_name": "console_tts_646183.wav",
+      "audio_duration_s": 11.12,
+      "length": 0
+    },
+    {
+      "index": 4,
+      "duration_s": 4.0,
+      "dialogue": "一个月，真的回本了！实体店不会做短视频的，评论区扣1，我把方法发你。",
+      "positive_prompt": "Vertical 9:16 realistic footage, the Chinese woman owner around 30 in an apron sits at the counter counting cash with a satisfied confident smile, she and her friend clink two cups of bubble tea together, a sticky note reading '本' or a calendar-style '30天' note stuck on the counter edge. Medium shot, subject sharp and in focus, background softly blurred with warm shop lights and a few customers. Bright warm golden lighting, high saturation, hopeful uplifting mood, natural joyful lip movement, no baked-in subtitle text.",
+      "negative_prompt": "text overlay, subtitles, watermark, brand logo, extra fingers, deformed hands, distorted face, plastic skin, cartoon, anime, 3D render, sad mood, dark cold lighting, unnatural mouth, duplicate people",
+      "image_prompt": "中文画面描述：竖屏9:16中景，30岁左右围裙女老板坐在收银台前数着现金、笑容自信，身旁闺蜜与她碰杯奶茶，台面边缘贴着写有“30天/回本”的便签；主体清晰、背景暖黄灯光与顾客虚化，明亮暖金色调，高饱和，充满希望的爽感氛围。",
+      "image_prompt_en": "Vertical 9:16 medium shot, the woman owner around 30 in an apron sitting at the cashier counter counting cash with a confident smile, her friend clinking milk tea cups with her beside the counter, a note reading '30 days / paid back' stuck on the counter edge; subject sharp, background warm golden lights and customers softly blurred, bright warm golden tone, high saturation, hopeful triumphant mood.",
+      "camera": "轻推近至碰杯特写，再微微拉远收尾",
+      "image_name": "console_0d328744d1_shot4_579944.png",
+      "image_source": "gen",
+      "audio_name": "console_tts_445706.wav",
+      "audio_duration_s": 9.12,
+      "length": 0
+    }
+  ],
+  "updated_at": "2026-09-14T14:01:29.511260+00:00"
+}

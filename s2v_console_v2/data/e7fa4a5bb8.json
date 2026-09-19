@@ -1,0 +1,69 @@
+{
+  "id": "e7fa4a5bb8",
+  "title": "小猫追蝶",
+  "summary": "一只毛茸茸的可爱小猫在阳光明媚的草地上欢快追逐蝴蝶，留下治愈满满的夏日瞬间。",
+  "mode": "i2v",
+  "shots": [
+    {
+      "index": 1,
+      "duration_s": 1.5,
+      "dialogue": "阳光正好，蝴蝶飞飞~",
+      "positive_prompt": "A cute fluffy kitten on a sunny green meadow, bright warm sunlight, a colorful butterfly flying in front, wide cinematic shot, shallow depth of field with blurred background, vibrant colors, playful atmosphere, soft lens flare, 9:16 vertical format, high quality, realistic fur details",
+      "negative_prompt": "ugly, deformed, blurry, low quality, dark, rainy, indoor, human, text, watermark",
+      "image_prompt": "中文画面描述：竖屏全景，一只可爱的毛茸茸小猫站在翠绿的草地上，一只彩色蝴蝶在它面前飞舞，阳光明媚，背景草地虚化，色调温暖明亮，充满童趣",
+      "image_prompt_en": "Vertical 9:16 wide shot, a cute fluffy kitten standing on lush green grass, a colorful butterfly fluttering in front, bright sunny day, blurred bokeh background meadow, warm and vibrant color tone, playful and cheerful atmosphere",
+      "camera": "固定镜头，轻微推近",
+      "image_name": "console_e7fa4a5bb8_shot1_743575.png",
+      "image_source": "gen",
+      "audio_name": "console_tts_617360.wav",
+      "audio_duration_s": 2.4,
+      "length": 0
+    },
+    {
+      "index": 2,
+      "duration_s": 1.5,
+      "dialogue": "小猫出击！",
+      "positive_prompt": "Cute kitten chasing a colorful butterfly across a sunlit green lawn, dynamic side view mid-shot, motion blur on legs, shallow depth of field, bright natural sunlight, vivid green grass, playful action, soft bokeh background, vertical 9:16",
+      "negative_prompt": "static pose, ugly, deformed, blurry face, low quality, dark shadows, indoor, human, text",
+      "image_prompt": "中文画面描述：竖屏中景侧面，可爱小猫在阳光明媚的草地上追逐彩色蝴蝶，四爪腾空动态奔跑，背景草地和光斑虚化，色调清新明亮，充满活力",
+      "image_prompt_en": "Vertical 9:16 side mid-shot, cute kitten running dynamically chasing a colorful butterfly on sunlit green grass, paws off ground, background meadow and light spots softly blurred, fresh bright color tone, full of energy",
+      "camera": "横向跟拍",
+      "image_name": "console_e7fa4a5bb8_shot2_191704.png",
+      "image_source": "gen",
+      "audio_name": "console_tts_867683.wav",
+      "audio_duration_s": 0.8,
+      "length": 0
+    },
+    {
+      "index": 3,
+      "duration_s": 1.5,
+      "dialogue": "扑空啦！",
+      "positive_prompt": "Adorable kitten leaping into the air trying to catch a butterfly, low angle shot, bright blue sky with soft clouds in background, sun flare, shallow depth of field, cute paw reaching out, dynamic action freeze, vibrant summer colors, vertical 9:16",
+      "negative_prompt": "scary, aggressive, deformed paws, blurry, low quality, dark, night, human face, text",
+      "image_prompt": "中文画面描述：竖屏低角度近景，可爱的小猫跃起空中伸出爪子扑向蝴蝶，背景是明亮的蓝天和虚化的白云，阳光耀眼，色调明快清新",
+      "image_prompt_en": "Vertical 9:16 low-angle close-up, adorable kitten jumping in the air reaching paw toward a butterfly, bright blue sky and blurred white clouds in background, dazzling sunlight, bright and fresh color tone",
+      "camera": "低角度仰拍，慢动作",
+      "image_name": "console_e7fa4a5bb8_shot3_386755.png",
+      "image_source": "gen",
+      "audio_name": "console_tts_607846.wav",
+      "audio_duration_s": 0.72,
+      "length": 0
+    },
+    {
+      "index": 4,
+      "duration_s": 1.5,
+      "dialogue": "下次一定抓到！",
+      "positive_prompt": "Cute kitten landing on grass and tilting head watching butterfly fly away, close-up shot, soft golden sunlight, shallow depth of field with blurred green meadow background, expressive big eyes, whiskers details, warm summer atmosphere, vertical 9:16",
+      "negative_prompt": "angry, sad, deformed eyes, blurry, low quality, dark, indoor, human, text, watermark",
+      "image_prompt": "中文画面描述：竖屏特写，可爱的小猫落地后歪着头目送蝴蝶飞走，大眼睛清澈有神，背景是虚化的金色阳光草地，色调温暖治愈",
+      "image_prompt_en": "Vertical 9:16 close-up, cute kitten landing on grass and tilting head watching butterfly fly away, clear expressive big eyes, blurred golden sunlit meadow background, warm and healing color tone",
+      "camera": "固定特写",
+      "image_name": "console_e7fa4a5bb8_shot4_434408.png",
+      "image_source": "gen",
+      "audio_name": "console_tts_137688.wav",
+      "audio_duration_s": 1.36,
+      "length": 0
+    }
+  ],
+  "updated_at": "2026-09-17T01:41:28.415784+00:00"
+}

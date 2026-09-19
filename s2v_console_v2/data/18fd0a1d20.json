@@ -1,0 +1,54 @@
+{
+  "id": "18fd0a1d20",
+  "title": "别烧店，用AI翻身",
+  "summary": "深夜绝望的火锅店老板准备烧店骗保，朋友冲进来掏出手机用AI帮他做火了生意。",
+  "mode": "i2v",
+  "shots": [
+    {
+      "index": 1,
+      "duration_s": 4.5,
+      "dialogue": "这店……烧了，赔的钱够我还债了。",
+      "positive_prompt": "Vertical 9:16 cinematic medium close-up, a 40-year-old Chinese hotpot restaurant owner, greasy apron, tired bloodshot eyes, standing alone in a dim empty hotpot restaurant at 3 a.m., holding a red plastic bucket of gasoline in one hand and a lighter in the other, sweat on forehead, subject tack-sharp in focus, background heavily blurred with empty tables, copper hotpot and hanging red lanterns, warm amber pool of light from a single pendant lamp, cold blue moonlight through the window behind, subtle handheld micro-shake then slow push-in on his face, shallow depth of field, film grain, realistic 24fps cinematic color grading, moody chiaroscuro",
+      "negative_prompt": "text, subtitles, watermark, logo, deformed hands, extra fingers, cartoon, anime, oversaturated, plastic skin, multiple people, actual fire disaster, gore, low resolution, blurry main subject",
+      "image_prompt": "竖屏9:16，中近景。深夜空荡的火锅店内，一位四十岁左右的中国男性老板，围着油污围裙，眼白泛红、胡茬凌乱，左手提红色塑料汽油桶，右手捏着一只打火机，神情疲惫而决绝。人物正面略侧，位于画面左侧三分之一处，主体清晰锐利，背景大光圈虚化，可辨认出空桌椅、铜锅和悬挂的红灯笼。头顶一盏吊灯投下暖黄光晕，窗外透进冷蓝月光形成冷暖对比。色调暗沉压抑，中低调曝光，浅景深，电影感颗粒。",
+      "image_prompt_en": "Vertical 9:16 medium close-up. A Chinese male restaurant owner in his forties wearing a grease-stained apron stands alone in an empty dim hotpot restaurant at 3 a.m., holding a red plastic gasoline can in his left hand and a lighter in his right, bloodshot tired eyes, stubble, desperate expression. He is placed on the left third of the frame, tack-sharp subject with strongly blurred background of empty tables, copper hotpot and hanging red lanterns. A single pendant lamp casts warm amber light while cool blue moonlight comes through the window, creating warm-cool contrast. Dark low-key exposure, shallow depth of field, subtle film grain, cinematic look.",
+      "camera": "手持微晃，缓慢推近面部",
+      "image_name": "console_18fd0a1d20_shot1_154014.png",
+      "image_source": "gen",
+      "audio_name": "console_tts_761384.wav",
+      "audio_duration_s": 4.24,
+      "length": 0
+    },
+    {
+      "index": 2,
+      "duration_s": 5.0,
+      "dialogue": "烧什么烧！我用AI给你做账号，三天让你排队！",
+      "positive_prompt": "Vertical 9:16 cinematic over-the-shoulder shot, a young Chinese man in a hoodie bursts through the restaurant door and grabs the lighter away from the older owner's hand, then thrusts a glowing smartphone screen toward him, the cold blue light of the phone illuminating both faces, subject sharply focused, background blurred with the dim hotpot restaurant interior, red lanterns bokeh, motion blur on the swinging door behind, slow arc move circling from the owner's shoulder to reveal both faces, shallow depth of field, cinematic teal-and-amber lighting, film grain, 24fps realistic",
+      "negative_prompt": "text, subtitles, watermark, logo, extra limbs, deformed hands, cartoon, anime, oversaturated, plastic skin, violent fighting, fire, gore, main subject out of focus, low resolution",
+      "image_prompt": "竖屏9:16，过肩中景。穿连帽卫衣的年轻中国男性猛地推开火锅店玻璃门冲进来，一把夺走老板手里的打火机，另一只手把亮着的手机屏幕怼到老板眼前，手机冷蓝光照亮两张脸。两人位于画面中偏右，主体清晰，背景虚化的店内暗部与红灯笼光斑可见，门在身后仍微微摆动。冷暖光强烈对比（手机蓝光 vs 吊灯暖光），浅景深，电影感色调，轻微颗粒。",
+      "image_prompt_en": "Vertical 9:16 over-the-shoulder medium shot. A young Chinese man in a hoodie bursts through the glass door of a hotpot restaurant, snatching the lighter from the older owner's hand while thrusting his glowing smartphone screen toward him, the phone's cool blue light lighting up both faces. The two figures sit center-right, tack-sharp, with the dim restaurant interior blurred behind them and red lantern bokeh, the door still swinging. Strong warm-cool light contrast between the blue phone glow and amber pendant lamp, shallow depth of field, cinematic grading, slight film grain.",
+      "camera": "绕肩弧线移动，从老板肩后转到双人侧面",
+      "image_name": "console_18fd0a1d20_shot2_429798.png",
+      "image_source": "gen",
+      "audio_name": "console_tts_596603.wav",
+      "audio_duration_s": 4.24,
+      "length": 0
+    },
+    {
+      "index": 3,
+      "duration_s": 5.5,
+      "dialogue": "老板！加个号！明天我还来！",
+      "positive_prompt": "Vertical 9:16 cinematic wide-to-medium shot, the same small Chinese hotpot restaurant now crowded and lively at night, a long queue of young customers waiting outside the neon-lit glass storefront, one customer holding up a smartphone filming, the owner laughing and wiping sweat with a towel behind the steaming hotpot counter, his friend giving a thumb-up beside him, steam and warm red light filling the frame, subjects in sharp focus, background crowd softly blurred, warm tungsten and red neon glow, slight slow dolly-in with gentle handheld float, shallow depth of field, vibrant cinematic color, film grain, 24fps",
+      "negative_prompt": "text, subtitles, watermark, logo, extra fingers, deformed hands, cartoon, anime, oversaturated, plastic skin, empty restaurant, sad mood, darkness, blurry main subject, low resolution",
+      "image_prompt": "竖屏9:16，中景转全景。同一家小火锅店夜晚爆满，霓虹灯牌下的玻璃门外排起长队，年轻人举着手机拍摄。老板在热气腾腾的锅台后擦汗大笑，旁边朋友竖起大拇指。主体清晰，身后人群与蒸汽柔和虚化，暖黄灯光与红色霓虹交织，蒸汽在光中形成丁达尔效果，色调热烈饱满，浅景深，电影感颗粒。",
+      "image_prompt_en": "Vertical 9:16 medium-wide shot. The same small hotpot restaurant is packed and buzzing at night, a long queue of young customers waiting outside the neon glass storefront, one person filming with a phone. The owner laughs and wipes sweat behind the steaming hotpot counter while his friend gives a thumbs-up beside him. Sharply focused subjects with the crowd and steam softly blurred behind, warm amber tungsten mixed with red neon glow, steam catching the light in visible beams, vibrant cinematic color, shallow depth of field, film grain.",
+      "camera": "缓慢推轨前移，轻微手持浮动",
+      "image_name": "console_18fd0a1d20_shot3_998729.png",
+      "image_source": "gen",
+      "audio_name": "console_tts_420725.wav",
+      "audio_duration_s": 2.64,
+      "length": 0
+    }
+  ],
+  "updated_at": "2026-09-14T13:23:35.342144+00:00"
+}

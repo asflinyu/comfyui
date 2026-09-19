@@ -1,0 +1,127 @@
+{
+  "id": "5b955e3759",
+  "title": "老王火锅反转剧",
+  "shots": [
+    {
+      "index": 1,
+      "duration_s": 2.0,
+      "dialogue": "求您了，免费吃！",
+      "positive_prompt": "A middle-aged Chinese man in a dirty apron kneeling at the entrance of a small hotpot restaurant, hands clasped pleading, urban street background, customers walking past and ignoring him, evening light, realistic cinematic photo",
+      "negative_prompt": "bad quality, blurry, distorted face, extra limbs, deformed hands, watermark, signature, text, static pose, motionless subject, frozen frame, still image, low resolution, cartoon, anime",
+      "image_name": "console_5b955e3759_shot1_c09138.png",
+      "image_source": "gen",
+      "audio_name": "console_5b955e3759_shot1_5b3031.wav",
+      "audio_duration_s": 1.84,
+      "length": 29
+    },
+    {
+      "index": 2,
+      "duration_s": 2.0,
+      "dialogue": "不干了！",
+      "positive_prompt": "Angry middle-aged Chinese man in a dirty apron holding a red gas can inside a small hotpot shop, shouting with frustration, another man kicking the wooden door open and rushing in to stop him, dramatic warm lighting, realistic cinematic",
+      "negative_prompt": "bad quality, blurry, distorted face, extra limbs, deformed hands, watermark, signature, text, static pose, motionless subject, frozen frame, still image, low resolution, cartoon, anime",
+      "image_name": "console_5b955e3759_shot2_b32df3.png",
+      "image_source": "gen",
+      "audio_name": "console_5b955e3759_shot2_5a858b.wav",
+      "audio_duration_s": 0.48,
+      "length": 9
+    },
+    {
+      "index": 3,
+      "duration_s": 2.0,
+      "dialogue": "让AI替你拉客。",
+      "positive_prompt": "Two Chinese men inside a small restaurant, one young man in hoodie showing a laptop screen full of order notifications with 999+ badge, the other middle-aged owner crossing arms and looking skeptical, warm indoor light, realistic photo",
+      "negative_prompt": "bad quality, blurry, distorted face, extra limbs, deformed hands, watermark, signature, text, static pose, motionless subject, frozen frame, still image, low resolution, cartoon, anime",
+      "image_name": "console_5b955e3759_shot3_40a06b.png",
+      "image_source": "gen",
+      "audio_name": "console_5b955e3759_shot3_536c75.wav",
+      "audio_duration_s": 1.36,
+      "length": 21
+    },
+    {
+      "index": 4,
+      "duration_s": 2.0,
+      "dialogue": "推荐张三火锅。",
+      "positive_prompt": "Young Chinese woman sitting in a cafe looking at smartphone, a glowing holographic AI chat bubble floating beside the phone showing text recommending another hotpot restaurant, middle-aged owner watching from counter in despair, soft blue glow, realistic",
+      "negative_prompt": "bad quality, blurry, distorted face, extra limbs, deformed hands, watermark, signature, text, static pose, motionless subject, frozen frame, still image, low resolution, cartoon, anime",
+      "image_name": "console_5b955e3759_shot4_07adc6.png",
+      "image_source": "gen",
+      "audio_name": "console_5b955e3759_shot4_ddccdd.wav",
+      "audio_duration_s": 1.52,
+      "length": 25
+    },
+    {
+      "index": 5,
+      "duration_s": 2.0,
+      "dialogue": "第二推荐老王。",
+      "positive_prompt": "Same young Chinese woman smiling at smartphone, AI chat bubble now showing recommendation for Lao Wang Hotpot, middle-aged owner behind counter staring in shock and hope, warm cafe interior, realistic cinematic",
+      "negative_prompt": "bad quality, blurry, distorted face, extra limbs, deformed hands, watermark, signature, text, static pose, motionless subject, frozen frame, still image, low resolution, cartoon, anime",
+      "image_name": "console_5b955e3759_shot5_9f4fb0.png",
+      "image_source": "gen",
+      "audio_name": "console_5b955e3759_shot5_c95c77.wav",
+      "audio_duration_s": 1.12,
+      "length": 17
+    },
+    {
+      "index": 6,
+      "duration_s": 2.0,
+      "dialogue": "今天太累了。",
+      "positive_prompt": "Long line of hungry customers outside a small hotpot shop at night, owner trying to pull down metal shutter, customers eagerly reaching out and holding phones to stop him from closing, neon street lights, realistic cinematic",
+      "negative_prompt": "bad quality, blurry, distorted face, extra limbs, deformed hands, watermark, signature, text, static pose, motionless subject, frozen frame, still image, low resolution, cartoon, anime",
+      "image_name": "console_5b955e3759_shot6_812d4a.png",
+      "image_source": "gen",
+      "audio_name": "console_5b955e3759_shot6_b3761c.wav",
+      "audio_duration_s": 1.12,
+      "length": 17
+    },
+    {
+      "index": 7,
+      "duration_s": 2.0,
+      "dialogue": "我以前想烧店。",
+      "positive_prompt": "Grand opening ceremony of a modern hotpot restaurant with a large red sign reading Lao Wang Hotpot 8th Branch, media reporters interviewing the owner in a neat suit, flower baskets and balloons, bright daylight, realistic",
+      "negative_prompt": "bad quality, blurry, distorted face, extra limbs, deformed hands, watermark, signature, text, static pose, motionless subject, frozen frame, still image, low resolution, cartoon, anime",
+      "image_name": "console_5b955e3759_shot7_3a2c2d.png",
+      "image_source": "gen",
+      "audio_name": "console_5b955e3759_shot7_9a8b23.wav",
+      "audio_duration_s": 1.12,
+      "length": 17
+    },
+    {
+      "index": 8,
+      "duration_s": 1.5,
+      "dialogue": "现在别人求我开门。",
+      "positive_prompt": "Middle-aged Chinese man in stylish suit standing proudly in front of his hotpot restaurant, making a middle finger gesture that morphs into a heart shape with both hands, crowd cheering behind him, warm evening lighting, realistic cinematic",
+      "negative_prompt": "bad quality, blurry, distorted face, extra limbs, deformed hands, watermark, signature, text, static pose, motionless subject, frozen frame, still image, low resolution, cartoon, anime",
+      "image_name": "console_5b955e3759_shot8_5b52a3.png",
+      "image_source": "gen",
+      "audio_name": "console_5b955e3759_shot8_bcf8e3.wav",
+      "audio_duration_s": 1.76,
+      "length": 29
+    }
+  ],
+  "updated_at": "2026-09-14T20:23:55",
+  "last_generate": {
+    "resolution": "smoke_256",
+    "width": 256,
+    "height": 256,
+    "mode": "i2v",
+    "video_count": 1,
+    "seed_base": 42,
+    "concat_audio": "console_5b955e3759_concat_621af9.wav",
+    "results": [
+      {
+        "prompt_id": "a0813925-66f8-40bc-8363-bc944f267110",
+        "seed_base": 42,
+        "videos": [
+          {
+            "filename": "S2V控制台_老王火锅反转剧_v1_00001-audio.mp4",
+            "path": "/root/ComfyUI/output/S2V控制台_老王火锅反转剧_v1_00001-audio.mp4",
+            "url": "/comfy-output/S2V控制台_老王火锅反转剧_v1_00001-audio.mp4",
+            "frame_rate": 16.0
+          }
+        ]
+      }
+    ],
+    "at": "2026-09-14T20:23:55"
+  }
+}

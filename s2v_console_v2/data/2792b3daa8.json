@@ -1,0 +1,54 @@
+{
+  "id": "2792b3daa8",
+  "title": "AI一句话，老王火锅逆袭",
+  "summary": "老王跪求顾客被嫌，改做GEO推广后，AI把排名第二的老王火锅推爆，最终开起连锁店。",
+  "mode": "i2v",
+  "shots": [
+    {
+      "index": 1,
+      "duration_s": 5.0,
+      "dialogue": "老王：求您进来吃一顿吧！顾客：走开，脏兮兮的。朋友：别跪了，做GEO推广，让AI推荐你！",
+      "positive_prompt": "Vertical 9:16, medium shot, Chinese middle-aged man Lao Wang kneeling at hotpot restaurant entrance holding a sign, a male customer looking disgusted and walking away, a friend pulling Lao Wang up, neon sign, warm yellow streetlight, shallow depth of field, background pedestrians blurred, realistic cinematic, natural lip movement, slight camera push-in.",
+      "negative_prompt": "low quality, blurry, deformed, extra fingers, subtitles, text, watermark, cartoon, anime, unnatural lip sync, horror, violence",
+      "image_prompt": "中文画面描述：竖屏中景，傍晚火锅店门口，老王跪地举招牌，中年男顾客嫌弃甩手离开，朋友拉老王起身，霓虹灯牌，暖黄路灯光，背景行人虚化，主体清晰，色调暖黄。",
+      "image_prompt_en": "Vertical 9:16 medium shot, evening hotpot restaurant entrance, Lao Wang kneeling with sign, male customer disgusted turning away, friend pulling him up, neon sign, warm yellow streetlight, blurred pedestrians background, sharp subjects, warm yellow tones.",
+      "camera": "缓慢推近，轻微下摇",
+      "image_name": "",
+      "image_source": "",
+      "audio_name": "",
+      "audio_duration_s": 0.0,
+      "length": 0
+    },
+    {
+      "index": 2,
+      "duration_s": 5.0,
+      "dialogue": "顾客：AI，附近火锅推荐。AI：推荐A火锅。顾客：第二名呢？AI：第二名，老王火锅。",
+      "positive_prompt": "Vertical 9:16, close-up of smartphone screen in hands, AI voice assistant interface, Chinese text '推荐A火锅' then swipe to '第二名 老王火锅', background blurred street, cool blue screen light, realistic, smooth UI animation, no subtitles.",
+      "negative_prompt": "low quality, blurry, deformed, wrong text, messy UI, watermark, cartoon, anime",
+      "image_prompt": "中文画面描述：竖屏特写，顾客双手持智能手机，屏幕显示AI火锅推荐界面，冷蓝屏幕光，背景街道虚化，景别特写，色调冷蓝，主体清晰。",
+      "image_prompt_en": "Vertical 9:16 close-up, customer's hands holding smartphone, screen shows AI hotpot recommendation interface, cool blue screen light, blurred street background, sharp subject, cool blue tones.",
+      "camera": "固定特写，轻微手持晃动",
+      "image_name": "",
+      "image_source": "",
+      "audio_name": "",
+      "audio_duration_s": 0.0,
+      "length": 0
+    },
+    {
+      "index": 3,
+      "duration_s": 5.0,
+      "dialogue": "老王：感谢GEO！分店开业啦！顾客们：老王火锅，AI都推荐！",
+      "positive_prompt": "Vertical 9:16, wide shot, Lao Wang's hotpot restaurant packed with customers, long queue outside, Lao Wang cutting ribbon at new branch opening, warm red lanterns, bustling atmosphere, shallow depth of field, background crowd slightly blurred, celebratory mood, camera slowly pulls back.",
+      "negative_prompt": "low quality, blurry, deformed, watermark, subtitles, cartoon, anime",
+      "image_prompt": "中文画面描述：竖屏全景，老王火锅店内外爆满，顾客排队，老王在新店门口剪彩，红灯笼暖光，热闹气氛，背景人群稍虚化，主体清晰，色调暖红。",
+      "image_prompt_en": "Vertical 9:16 wide shot, Lao Wang's hotpot restaurant packed inside and out, customers queuing, Lao Wang cutting ribbon at new branch, red lanterns warm light, lively atmosphere, background crowd slightly blurred, warm red tones.",
+      "camera": "缓慢拉远，轻微上摇",
+      "image_name": "",
+      "image_source": "",
+      "audio_name": "",
+      "audio_duration_s": 0.0,
+      "length": 0
+    }
+  ],
+  "updated_at": "2026-09-14T13:03:28.029817+00:00"
+}

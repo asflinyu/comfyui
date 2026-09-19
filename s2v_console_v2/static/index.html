@@ -1,0 +1,591 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<title>S2V 控制台 V2</title>
+<link rel="stylesheet" href="/static/layout.css?v=6">
+<style>
+:root{--bg:#0b0d12;--panel:#14171d;--border:#252a33;--text:#e7e9ef;--muted:#8b93a7;--accent:#4f8cff;--ok:#2dd36f;--warn:#f7c548;--err:#ff5a5a;}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;line-height:1.5}
+.container{max-width:none;width:100%;min-height:100vh;margin:0;padding:12px 16px}
+.card{background:var(--panel);border:1px solid var(--border);border-radius:12px;padding:14px 16px;margin-bottom:14px}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.col{flex:1;min-width:220px}
+label{display:block;color:var(--muted);font-size:12px;margin-bottom:4px}
+input,textarea,select{width:100%;background:#0d1016;border:1px solid var(--border);border-radius:8px;color:var(--text);padding:7px 10px;font-size:13px}
+textarea{min-height:180px;resize:vertical}
+button{background:var(--accent);color:#fff;border:0;border-radius:8px;padding:7px 12px;font-size:13px;cursor:pointer}
+button:hover{filter:brightness(1.1)}
+button.secondary{background:#2c313b}
+button:disabled{opacity:.5;cursor:not-allowed}
+.topbar{display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin-bottom:12px}
+.status-chip{font-size:11px;padding:3px 8px;border-radius:10px;background:#1e232c;color:var(--muted)}
+.status-chip.ok{background:#1a3c2b;color:#6ce0a0}
+.status-chip.err{background:#3c1a1a;color:#ff8a8a}
+.shot{border:1px solid var(--border);border-radius:10px;padding:12px;margin-top:10px;background:#0f1218}
+.shot-header{display:flex;gap:10px;align-items:center;justify-content:space-between;margin-bottom:8px}
+.shot-title{font-weight:600;font-size:14px}
+.grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+@media(max-width:900px){.grid-2,.grid-3{grid-template-columns:1fr}}
+.shot img{max-width:140px;max-height:100px;border-radius:6px;border:1px solid var(--border);background:#000;display:block}
+.preview-audio{width:100%;height:28px;margin-top:4px}
+.progress-wrap{display:none;margin-top:10px}
+.progress-bar{height:16px;background:#22262e;border-radius:8px;overflow:hidden}
+.progress-fill{height:100%;width:0%;background:linear-gradient(90deg,var(--accent),#78aaff);transition:width .3s}
+.progress-meta{color:var(--muted);font-size:12px;margin-top:4px}
+.log-panel{display:none;margin-top:10px;background:#0a0c10;border:1px solid var(--border);border-radius:8px;max-height:320px;overflow:auto;padding:8px;font-size:12px}
+.log-line{margin-bottom:3px}
+.log-time{color:var(--muted)}
+.result-video{border:1px solid var(--border);border-radius:8px;padding:8px;margin-top:8px;background:#0f1218}
+video{width:100%;max-height:240px;border-radius:6px;background:#000}
+#toast{position:fixed;bottom:14px;right:14px;background:var(--panel);border:1px solid var(--border);border-radius:8px;padding:9px 14px;display:none;z-index:9999;font-size:13px}
+#statusBar{position:fixed;top:12px;left:50%;transform:translateX(-50%);background:var(--panel);border:1px solid var(--accent);border-radius:10px;padding:8px 16px;display:none;z-index:9998;font-size:13px;align-items:center;gap:10px;box-shadow:0 4px 20px rgba(0,0,0,.5);max-width:90vw}
+.spinner{width:14px;height:14px;border:2px solid var(--muted);border-top-color:var(--accent);border-radius:50%;animation:spin .8s linear infinite;flex:none}
+@keyframes spin{to{transform:rotate(360deg)}}
+#statusTime{color:var(--muted);font-size:12px;min-width:34px;text-align:right}
+</style>
+</head>
+<body class="tiled">
+<div class="page-full">
+<div class="container">
+  <h2 style="margin:0 0 12px">🎬 S2V 分镜控制台 V2
+    <a href="/fast" style="float:right;font-size:13px;font-weight:500;color:#6ce0a0;text-decoration:none;margin-left:12px">快速版 →</a>
+    <a href="/" style="float:right;font-size:13px;font-weight:500;color:var(--accent);text-decoration:none;margin-left:12px">入口 →</a>
+    <a href="/t2i" style="float:right;font-size:13px;font-weight:500;color:var(--accent);text-decoration:none;margin-left:12px">文生图 →</a>
+    <a href="/i2v" style="float:right;font-size:13px;font-weight:500;color:var(--accent);text-decoration:none;margin-left:12px">I2V →</a>
+    <a href="/s2v" style="float:right;font-size:13px;font-weight:500;color:var(--accent);text-decoration:none;margin-left:12px">口播 →</a>
+    <a href="/f2v" style="float:right;font-size:13px;font-weight:500;color:var(--accent);text-decoration:none">F2V →</a>
+  </h2>
+
+  <div class="card">
+    <div class="topbar" id="sysStatus"></div>
+    <div class="row">
+      <div class="col"><label>项目标题</label><input id="titleInp" value="未命名项目" /></div>
+      <div class="col"><label>生成模式</label>
+        <select id="modeSel"><option value="s2v">🗣 口播数字人 (S2V)</option><option value="i2v" selected>🎭 动作短剧 (I2V)</option></select>
+      </div>
+      <div class="col"><label>目标秒数</label><input id="targetSec" type="number" min="6" max="60" step="1" value="16" /></div>
+      <div class="col"><label>建议镜头数</label><input id="prefShots" type="number" min="2" max="10" value="8" /></div>
+    </div>
+    <div style="margin-top:10px">
+      <div class="row" style="justify-content:space-between;align-items:flex-end;margin-bottom:6px">
+        <label style="margin:0">剧本 / 需求（支持一次上传多个文案 Excel）</label>
+        <a href="/static/video_template.xlsx" download style="font-size:12px;color:var(--accent)">⬇ 下载文案模板</a>
+      </div>
+      <div class="row" style="margin-bottom:8px;gap:8px;align-items:center">
+        <input type="file" id="briefFileInp" accept=".xlsx,.xls,.csv" multiple style="width:auto;min-width:240px;padding:4px 8px" />
+        <button type="button" id="importBriefBtn" class="secondary">📂 导入到输入框</button>
+        <button type="button" id="loadExampleBtn" class="secondary">📝 加载案例</button>
+        <span id="briefFileStatus" style="color:var(--muted);font-size:12px">未选择文件</span>
+      </div>
+      <textarea id="briefArea" placeholder="输入你的短视频需求，或直接上传文案 Excel..."></textarea>
+    </div>
+    <div class="row" style="margin-top:10px">
+      <button id="optBtn">✨ 优化需求</button>
+      <button id="storyBtn" class="secondary">📋 AI 生成分镜</button>
+      <button id="genAllImgBtn" class="secondary">🖼 一键生成参考图</button>
+      <button id="ttsAllBtn" class="secondary">🎙 一键生成全部音频</button>
+      <button id="fullPipelineBtn" style="background:#2dd36f">🚀 一键跑完全程</button>
+      <button id="saveBtn" class="secondary">💾 保存项目</button>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="row">
+      <div class="col"><label>分辨率</label><select id="resSel"></select></div>
+      <div class="col"><label>画质</label><select id="qualitySel"></select></div>
+      <div class="col"><label>成片条数</label><input id="videoCount" type="number" min="1" max="4" value="1" /></div>
+      <div class="col"><label>Seed 基数（空=随机）</label><input id="seedInp" type="number" value="" placeholder="随机" /></div>
+      <div class="col"><label>音色</label><select id="voiceSel"></select></div>
+    </div>
+    <div class="row" style="margin-top:8px">
+      <label style="display:flex;align-items:center;gap:6px;cursor:pointer"><input type="checkbox" id="skipTTS" checked style="width:auto" /> 已有音频则跳过 TTS</label>
+    </div>
+    <div class="row" style="margin-top:10px">
+      <button id="genBtn" style="font-size:15px;padding:9px 18px">🚀 生成视频</button>
+      <button id="logBtn" class="secondary">📜 查看日志</button>
+    </div>
+    <div class="progress-wrap" id="progressWrap">
+      <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+      <div class="progress-meta" id="progressMeta"></div>
+    </div>
+  </div>
+
+  <div id="shotsWrap"></div>
+
+  <div class="card" id="resultCard" style="display:none">
+    <h3 style="margin:0 0 10px">生成结果</h3>
+    <div id="results"></div>
+    <div class="log-panel" id="logPanel"></div>
+  </div>
+</div>
+</div>
+<div id="toast"></div>
+<div id="statusBar"><span class="spinner"></span><span id="statusText"></span><span id="statusTime"></span></div>
+
+<script>
+const $=id=>document.getElementById(id);
+const API='';
+let project={id:'',title:'未命名项目',shots:[],mode:'i2v'};
+let sys={};
+
+function toast(msg){const t=$('toast');t.textContent=msg;t.style.display='block';setTimeout(()=>t.style.display='none',2800);}
+function fmtTime(s){if(!isFinite(s)||s<0)return'--';const m=Math.floor(s/60),sec=Math.floor(s%60);return `${m}分${sec}秒`;}
+async function jpost(path,json,timeoutMs=300000){
+  const controller=new AbortController();
+  const timer=setTimeout(()=>controller.abort(),timeoutMs);
+  try{
+    const r=await fetch(API+path,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(json),signal:controller.signal});
+    const d=await r.json();
+    if(!r.ok)throw new Error(typeof d.detail==='string'?d.detail:(d.error||JSON.stringify(d.detail)||`HTTP ${r.status}`));
+    return d;
+  }finally{clearTimeout(timer);}
+}
+
+// ---- 顶部状态条：显示当前操作 + 已耗时 ----
+let _statusTimer=null,_statusT0=0;
+function setStatus(msg){
+  const bar=$('statusBar');bar.style.display='flex';
+  _statusT0=Date.now();
+  const tick=()=>{$('statusText').textContent=msg;$('statusTime').textContent=((Date.now()-_statusT0)/1000).toFixed(0)+'s';};
+  tick();clearInterval(_statusTimer);_statusTimer=setInterval(tick,500);
+}
+function updateStatus(msg){$('statusText').textContent=msg;}
+function clearStatus(){clearInterval(_statusTimer);_statusTimer=null;$('statusBar').style.display='none';}
+
+// ---- 按钮忙碌状态：禁用并换文案，返回恢复函数 ----
+function busy(btn,text){const old=btn.textContent;btn.disabled=true;btn.textContent=text;return()=>{btn.disabled=false;btn.textContent=old;};}
+function currentRes(){
+  const presets=(sys&&sys.presets)||{};
+  const k=$('resSel')&&$('resSel').value;
+  const p=presets[k]||{width:1080,height:1920};
+  return {width:p.width||1080,height:p.height||1920};
+}
+
+// ---- 通用任务轮询：等后端任务完成，期间更新状态条 ----
+function waitTask(tid,label,onProgress){
+  return new Promise((resolve,reject)=>{
+    const poll=async()=>{
+      try{
+        const d=await fetch(API+'/api/generate/status/'+tid).then(r=>r.json());
+        updateStatus(`${label}：${d.message||'处理中'}${d.progress!=null?' ('+d.progress+'%)':''}`);
+        if(onProgress)onProgress(d);
+        if(d.status==='done'){resolve(d);}
+        else if(d.status==='error'){reject(new Error(d.message||d.error||'任务失败'));}
+        else setTimeout(poll,1200);
+      }catch(e){setTimeout(poll,2500);}
+    };
+    poll();
+  });
+}
+
+async function loadSys(){
+  const h=await fetch(API+'/api/health').then(r=>r.json());
+  sys=h;
+  const serverUrl=window.location.origin||API||'http://localhost:6010';
+  const gpu=h.gpu||{};
+  const gpuTxt=gpu.name?`${gpu.name} ${gpu.vram_gb||'?'}GB ×${gpu.count||1} · 高清 ${gpu.hq_label||''}`:'GPU 未知';
+  $('sysStatus').innerHTML=`<span class="status-chip" title="当前服务地址">🌐 ${serverUrl}</span><span class="status-chip ${h.deepseek_configured?'ok':''}">DeepSeek ${h.deepseek_configured?'OK':'未配置'}</span><span class="status-chip">Comfy ${h.comfy}</span><span class="status-chip">TTS ${h.tts}</span><span class="status-chip" title="高清档按单卡显存自动升fp16/原生1080">${gpuTxt}</span><span class="status-chip">镜头 ${h.min_shots}-${h.max_shots}</span>`;
+  // resolutions
+  const rsel=$('resSel');rsel.innerHTML='';
+  Object.entries(h.presets||{}).forEach(([k,v])=>{const o=document.createElement('option');o.value=k;o.textContent=`${v.label} (${v.width}×${v.height})`;rsel.appendChild(o);});
+  const qsel=$('qualitySel');
+  if(qsel){
+    qsel.innerHTML='';
+    Object.entries(h.quality_presets||{hq:{label:'高清 14B（20步 + 超分）'},fast:{label:'加速 14B（4步 LoRA）'}}).forEach(([k,v])=>{
+      const o=document.createElement('option');o.value=k;o.textContent=v.label||k;qsel.appendChild(o);
+    });
+    if(qsel.querySelector('option[value="fast"]')) qsel.value='fast';
+  }
+  if(rsel.querySelector('option[value="flux_1280"]')) rsel.value='flux_1280';
+  else if(rsel.querySelector('option[value="vertical_1080"]')) rsel.value='vertical_1080';
+  // voices
+  const v=await fetch(API+'/api/voices').then(r=>r.json());
+  const vsel=$('voiceSel');vsel.innerHTML='';
+  (v.voices||[]).forEach(voice=>{const o=document.createElement('option');o.value=voice;o.textContent=voice;vsel.appendChild(o);});
+}
+
+function renderShots(){
+  const w=$('shotsWrap');w.innerHTML='';
+  (project.shots||[]).forEach((s,i)=>{
+    const d=document.createElement('div');d.className='shot';
+    const img=s.image_name?`<img src="${API}/files/${s.image_name}?t=${Date.now()}" />`:'<span class="status-chip">无参考图</span>';
+    const aud=s.audio_name?`<audio class="preview-audio" controls src="${API}/files/${s.audio_name}"></audio>`:'<span class="status-chip">无音频</span>';
+    d.innerHTML=`<div class="shot-header"><span class="shot-title">镜头 ${s.index}</span><span class="status-chip">${s.duration_s||3}s</span></div>
+    <div class="grid-3">
+      <div class="col"><label>中文台词</label><textarea class="dialogue" data-i="${i}">${s.dialogue||''}</textarea></div>
+      <div class="col"><label>英文正提示词</label><textarea class="pos" data-i="${i}">${s.positive_prompt||''}</textarea></div>
+      <div class="col"><label>英文负提示词</label><textarea class="neg" data-i="${i}">${s.negative_prompt||''}</textarea></div>
+    </div>
+    <div class="grid-2" style="margin-top:8px">
+      <div class="col"><label>参考图描述</label><textarea class="imgPrompt" data-i="${i}">${s.image_prompt||''}</textarea></div>
+      <div class="col"><label>运镜 / 备注</label><textarea class="camera" data-i="${i}">${s.camera||''}</textarea></div>
+    </div>
+    <div class="row" style="margin-top:8px">
+      <div class="col"><label>时长(秒)</label><input class="dur" data-i="${i}" type="number" step="0.5" value="${s.duration_s||3}" /></div>
+      <div class="col">
+        <label>参考图</label>
+        <div class="row">${img}<input type="file" accept="image/*" class="uploadInp" data-i="${i}" /></div>
+      </div>
+      <div class="col">
+        <label>音频</label>
+        <div class="row">${aud}<button class="genImgBtn secondary" data-i="${i}">🖼 生图</button><button class="ttsBtn secondary" data-i="${i}">🎙 TTS</button></div>
+      </div>
+    </div>`;
+    w.appendChild(d);
+  });
+  bindShot();
+}
+function bindShot(){
+  document.querySelectorAll('.dialogue,.pos,.neg,.imgPrompt,.camera,.dur').forEach(el=>{
+    el.addEventListener('change',()=>{
+      const i=+el.dataset.i;const s=project.shots[i];
+      if(el.classList.contains('dialogue')) s.dialogue=el.value;
+      if(el.classList.contains('pos')) s.positive_prompt=el.value;
+      if(el.classList.contains('neg')) s.negative_prompt=el.value;
+      if(el.classList.contains('imgPrompt')) s.image_prompt=el.value;
+      if(el.classList.contains('camera')) s.camera=el.value;
+      if(el.classList.contains('dur')) s.duration_s=parseFloat(el.value)||3;
+    });
+  });
+  document.querySelectorAll('.uploadInp').forEach(el=>el.addEventListener('change',()=>uploadImage(el)));
+  document.querySelectorAll('.genImgBtn').forEach(el=>el.addEventListener('click',()=>genImage(+el.dataset.i)));
+  document.querySelectorAll('.ttsBtn').forEach(el=>el.addEventListener('click',()=>genTTS(+el.dataset.i)));
+}
+async function uploadImage(el){
+  const i=+el.dataset.i;const s=project.shots[i];if(!el.files.length)return;
+  setStatus(`⬆ 正在上传镜头 ${s.index} 图片...`);
+  try{
+    const fd=new FormData();fd.append('files',new File([el.files[0]],`shot${s.index}_${el.files[0].name}`,{type:el.files[0].type}));fd.append('shot_index',s.index);fd.append('project_id',project.id);
+    const r=await fetch(API+'/api/upload/image',{method:'POST',body:fd}).then(x=>x.json());
+    if(r.error){toast(r.error);return;}
+    const ok=(r.results||[]).find(x=>x.shot_index==s.index);
+    if(ok){s.image_name=ok.image_name;s.image_source='upload';renderShots();toast('图片已上传，可点「生图」做图生图');}
+  }catch(e){toast('上传失败: '+e.message);}
+  finally{clearStatus();}
+}
+async function genImage(i){
+  const s=project.shots[i];const pid=project.id;
+  const isI2I=!!s.image_name && s.image_source==='upload';
+  setStatus(`🖼 正在生成镜头 ${s.index} 参考图${isI2I?'（图生图）':''}...`);
+  try{
+    const res=currentRes();
+    const body={mode:isI2I?'i2i':'t2i',prompt:s.image_prompt||s.positive_prompt,prompt_en:s.image_prompt_en||s.positive_prompt,negative:s.negative_prompt,width:res.width,height:res.height,shot_index:s.index,project_id:pid};
+    if(isI2I){body.source_image_name=s.image_name; body.denoise=0.65;}
+    const r=await jpost('/api/image/generate',body);
+    s.image_name=r.image_name;s.image_source='gen';renderShots();toast('参考图已生成');
+  }catch(e){toast('生图失败: '+e.message);}
+  finally{clearStatus();}
+}
+async function genTTS(i){
+  const s=project.shots[i];if(!s.dialogue){toast('请先填写台词');return;}
+  setStatus(`🎙 正在合成镜头 ${s.index} 配音...`);
+  try{
+    const r=await jpost('/api/tts/shot',{dialogue:s.dialogue,voice:$('voiceSel').value,target_duration_s:s.duration_s||3,shot_index:s.index,project_id:project.id});
+    s.audio_name=r.audio_name;s.audio_duration_s=r.duration_s;renderShots();toast('音频已合成');
+  }catch(e){toast('TTS 失败: '+e.message);}
+  finally{clearStatus();}
+}
+
+// ---- 上传文案 Excel，自动解析并回填到需求框 ----
+async function uploadBriefFiles(){
+  const inp=$('briefFileInp');
+  const area=$('briefArea');
+  if(!inp||!area){alert('页面元素缺失，请刷新后重试');return;}
+  if(!inp.files||!inp.files.length){alert('请先选择文案 Excel 文件');return;}
+  const files=Array.from(inp.files).filter(f=>f.name.match(/\.(xlsx|xls|csv)$/i));
+  if(!files.length){alert('请选择 .xlsx / .xls / .csv 文件');return;}
+  $('briefFileStatus').textContent=`正在解析 ${files.length} 个文件...`;
+  setStatus('⬆ 上传并解析文案中...');
+  try{
+    const fd=new FormData();
+    files.forEach(f=>fd.append('files',f,f.name));
+    const resp=await fetch(API+'/api/upload/scripts',{method:'POST',body:fd});
+    let d={};
+    try{d=await resp.json();}catch(e){throw new Error('服务器返回非 JSON，HTTP '+resp.status);}
+    if(!resp.ok){
+      const detail=typeof d.detail==='string'?d.detail:(d.error||JSON.stringify(d.detail)||('HTTP '+resp.status));
+      throw new Error(detail);
+    }
+    if(d.error && !(d.results&&d.results.length)) throw new Error(d.error);
+    const results=d.results||[];
+    const texts=results.map(x=>x.text||'').filter(Boolean);
+    if(!texts.length) throw new Error(d.error||'未解析到有效文案');
+    area.value=texts.join('\n\n'+'='.repeat(30)+'\n\n');
+    area.focus();
+    area.scrollIntoView({behavior:'smooth',block:'center'});
+    $('briefFileStatus').textContent=`已导入 ${results.map(x=>x.filename).join('、')}，共 ${texts.length} 条文案`;
+    toast('文案已填入下方输入框，可直接编辑');
+  }catch(e){
+    const msg='上传解析失败: '+(e.message||e);
+    $('briefFileStatus').textContent=msg;
+    toast(msg);
+    alert(msg);
+  }finally{clearStatus();}
+}
+
+async function optimizeBrief(){
+  if(!$('briefArea').value.trim()){toast('请先填写需求');return;}
+  const restore=busy($('optBtn'),'⏳ 优化中...');
+  setStatus('✨ 正在优化需求（DeepSeek，约 10-20 秒）...');
+  try{
+    const r=await jpost('/api/optimize',{brief:$('briefArea').value,target_seconds:+ $('targetSec').value,preferred_shots:+ $('prefShots').value,mode:$('modeSel').value});
+    $('briefArea').value=r.optimized;toast('需求已优化');
+  }catch(e){toast('优化失败: '+e.message);}
+  finally{restore();clearStatus();}
+}
+async function genStoryboard(){
+  if(!$('briefArea').value.trim()){toast('请先填写需求');return;}
+  const restore=busy($('storyBtn'),'⏳ 生成中...');
+  setStatus('📋 AI 正在编写分镜（Kimi，约 30-90 秒，请勿关闭页面）...');
+  try{
+    const r=await jpost('/api/storyboard',{brief:$('briefArea').value,target_seconds:+ $('targetSec').value,preferred_shots:+ $('prefShots').value,mode:$('modeSel').value,project:project,revise:false},300000);
+    project=r;project.mode=$('modeSel').value;$('titleInp').value=project.title||$('titleInp').value;renderShots();toast(`已生成 ${project.shots.length} 个镜头`);
+  }catch(e){toast('生成分镜失败: '+e.message);}
+  finally{restore();clearStatus();}
+}
+async function genAllImages(){
+  if(!project.shots||!project.shots.length){toast('请先生成分镜');return;}
+  const restore=busy($('genAllImgBtn'),'⏳ 生成中...');
+  setStatus('🖼 提交批量参考图任务...');
+  try{
+    const res=currentRes();
+    const r=await jpost('/api/images/generate_all',{project:project,width:res.width,height:res.height});
+    const d=await waitTask(r.task_id,'🖼 生成参考图');
+    if(d.project){project=d.project;renderShots();}
+    if(d.errors&&d.errors.length){toast('部分图片失败: '+d.errors.join('; '));}
+    else{toast('全部参考图已生成');}
+  }catch(e){toast('生成参考图失败: '+e.message);}
+  finally{restore();clearStatus();}
+}
+async function saveProject(){
+  project.title=$('titleInp').value;project.mode=$('modeSel').value;
+  const restore=busy($('saveBtn'),'⏳ 保存中...');
+  try{
+    const r=await jpost('/api/project/save',{project:project});
+    project=r.project;toast('项目已保存');
+  }catch(e){toast('保存失败: '+e.message);}
+  finally{restore();}
+}
+async function ttsAll(){
+  if(!project.shots||!project.shots.length){toast('请先生成分镜');return;}
+  project.title=$('titleInp').value;
+  const restore=busy($('ttsAllBtn'),'⏳ 合成中...');
+  setStatus('🎙 提交批量配音任务...');
+  try{
+    const r=await jpost('/api/tts/all',{project:project,voice:$('voiceSel').value,skip_existing:$('skipTTS').checked});
+    const d=await waitTask(r.task_id,'🎙 合成配音');
+    if(d.project){project=d.project;renderShots();}
+    if(d.errors&&d.errors.length){toast('部分音频失败: '+d.errors.join('; '));}
+    else{toast('全部音频已生成');}
+  }catch(e){toast('配音失败: '+e.message);}
+  finally{restore();clearStatus();}
+}
+async function fullPipeline(){
+  if(!$('briefArea').value.trim()){toast('请先填写需求或上传文案 Excel');return;}
+  toast('一键跑全程已开始，预计需要 5-8 分钟，请保持页面打开');
+  const restore=busy($('fullPipelineBtn'),'⏳ 跑全程中...');
+  $('progressWrap').style.display='block';$('resultCard').style.display='none';$('progressFill').style.width='0%';$('progressMeta').textContent='第 1/4 步：准备中...';
+  try{
+    // Step 1: storyboard (skip optimize; uploaded copywriting is already final)
+    setStatus('第 1/4 步：📋 AI 正在编写分镜（约 30-90 秒）...');
+    const story=await jpost('/api/storyboard',{
+      brief:$('briefArea').value,
+      target_seconds:+ $('targetSec').value,
+      preferred_shots:+ $('prefShots').value,
+      mode:$('modeSel').value,
+      project:project,
+      revise:false
+    },300000);
+    project=story;project.mode=$('modeSel').value;
+    $('titleInp').value=project.title||$('titleInp').value;
+    renderShots();
+    toast(`已生成 ${project.shots.length} 个镜头`);
+
+    // Step 2: images
+    setStatus('第 2/4 步：🖼 提交批量参考图任务...');
+    const res=currentRes();
+    const imgTask=await jpost('/api/images/generate_all',{project:project,width:res.width,height:res.height});
+    const imgs=await waitTask(imgTask.task_id,'第 2/4 步：🖼 生成参考图');
+    if(imgs.project){project=imgs.project;renderShots();}
+    if(imgs.errors&&imgs.errors.length){toast('部分图片失败: '+imgs.errors.join('; '));}
+
+    // Step 3: tts
+    setStatus('第 3/4 步：🎙 提交批量配音任务...');
+    const ttsTask=await jpost('/api/tts/all',{project:project,voice:$('voiceSel').value,skip_existing:false});
+    const audios=await waitTask(ttsTask.task_id,'第 3/4 步：🎙 合成配音');
+    if(audios.project){project=audios.project;renderShots();}
+    if(audios.errors&&audios.errors.length){toast('部分音频失败: '+audios.errors.join('; '));}
+
+    // Step 4: videos
+    project.title=$('titleInp').value;
+    setStatus('第 4/4 步：🎬 提交视频生成任务...');
+    const r=await jpost('/api/generate/videos',{
+      project:project,
+      resolution:$('resSel').value,
+      quality:$('qualitySel')?$('qualitySel').value:'fast',
+      video_count:+ $('videoCount').value,
+      seed_base:$('seedInp').value?+ $('seedInp').value:null,
+      voice:$('voiceSel').value,
+      skip_tts_if_audio:true,
+      mode:$('modeSel').value
+    },300000);
+    $('progressWrap').style.display='block';$('resultCard').style.display='none';$('progressFill').style.width='0%';$('progressMeta').textContent='';
+    const d=await waitTask(r.task_id,'第 4/4 步：🎬 生成视频',st=>{
+      $('progressFill').style.width=(st.progress||0)+'%';
+      $('progressMeta').textContent=`${st.message||''} (${st.progress||0}%)`;
+    });
+    renderResults(d.results,d.logs);toast('✅ 全程完成，视频已生成');
+  }catch(e){
+    const msg='流程失败: '+(e.message||e);
+    toast(msg);
+    console.error(e);
+    $('progressMeta').textContent=msg;
+    $('progressFill').style.width='0%';
+  }finally{
+    restore();
+    clearStatus();
+  }
+}
+
+async function generateVideos(){
+  project.title=$('titleInp').value;project.mode=$('modeSel').value;
+  if(!project.shots||!project.shots.length){toast('请先生成分镜');return;}
+  if(!project.shots.every(s=>s.image_name)){toast('请为每个镜头生成或上传参考图');return;}
+
+  // Auto-generate TTS audio for any shot that has dialogue but no audio
+  const needTTS=project.shots.filter(s=>s.dialogue && !s.audio_name);
+  if(needTTS.length){
+    const restore=busy($('genBtn'),`⏳ 先合成 ${needTTS.length} 条配音...`);
+    try{
+      setStatus(`🎙 检测到 ${needTTS.length} 条镜头无音频，自动合成配音...`);
+      const ttsTask=await jpost('/api/tts/all',{project:project,voice:$('voiceSel').value,skip_existing:true});
+      const audios=await waitTask(ttsTask.task_id,'🎙 自动合成配音');
+      if(audios.project){project=audios.project;renderShots();}
+    }catch(e){toast('自动配音失败: '+e.message);return;}
+    finally{restore();clearStatus();}
+  }
+
+  const restore=busy($('genBtn'),'⏳ 生成中...');
+  setStatus('🎬 提交视频生成任务...');
+  try{
+    const r=await jpost('/api/generate/videos',{project:project,resolution:$('resSel').value,quality:$('qualitySel')?$('qualitySel').value:'fast',video_count:+ $('videoCount').value,seed_base:$('seedInp').value?+ $('seedInp').value:null,voice:$('voiceSel').value,skip_tts_if_audio:true,mode:$('modeSel').value},300000);
+    $('progressWrap').style.display='block';$('resultCard').style.display='none';$('progressFill').style.width='0%';$('progressMeta').textContent='';
+    const d=await waitTask(r.task_id,'🎬 生成视频');
+    renderResults(d.results,d.logs);toast('视频生成完成');
+  }catch(e){toast('生成失败: '+e.message);}
+  finally{restore();clearStatus();}
+}
+function renderResults(results,logs){
+  $('resultCard').style.display='block';$('progressWrap').style.display='none';
+  const box=$('results');box.innerHTML='';
+
+  const serverUrl = window.location.origin || API || 'http://localhost:6010';
+
+  // 找出所有视频，第一个通常是最主要的拼接成片
+  const allVideos=[];
+  (results||[]).forEach((r,ri)=>{
+    (r.videos||[]).forEach((v,vi)=>{allVideos.push({v,ri,vi});});
+  });
+
+  if(!allVideos.length){
+    box.innerHTML=`<div class="result-video" style="background:#3c1a1a;border-color:#ff5a5a;">
+      <b>⚠️ 未生成视频文件</b><div style="font-size:12px;color:var(--muted);margin-top:4px">请检查日志，确认是否已生成分镜图/配音。</div>
+    </div>`;
+  } else {
+    const first=allVideos[0].v;
+    const firstUrl=`${serverUrl}/comfy-output/${first.filename}`;
+    const top=document.createElement('div');
+    top.className='result-video';
+    top.style.cssText='background:#1a3c2b;border-color:#2dd36f;';
+    top.innerHTML=`<div class="row" style="justify-content:space-between;align-items:center;flex-wrap:nowrap">
+      <div style="min-width:0"><b style="color:#6ce0a0;font-size:15px">🎉 成片已生成</b>
+        <div style="font-size:12px;color:#8b93a7;margin-top:2px;word-break:break-all">${first.filename}</div>
+        <div style="font-size:11px;color:#6ce0a0;margin-top:2px;word-break:break-all">${firstUrl}</div>
+      </div>
+      <div class="row" style="gap:8px;flex:none">
+        <button onclick="navigator.clipboard.writeText('${firstUrl}').then(()=>toast('链接已复制'))" class="secondary" style="font-size:13px;padding:8px 12px">📋 复制链接</button>
+        <a href="${API}/comfy-output/${first.filename}?download=true" download="${first.filename}"><button style="background:#2dd36f;font-size:14px;padding:8px 16px">⬇ 下载成片</button></a>
+      </div>
+    </div>
+    <video controls src="${API}/comfy-output/${first.filename}?t=${Date.now()}" preload="metadata" style="margin-top:10px"></video>`;
+    box.appendChild(top);
+
+    if(allVideos.length>1){
+      const subTitle=document.createElement('div');
+      subTitle.innerHTML=`<b style="display:block;margin:14px 0 8px">分镜视频</b>`;
+      box.appendChild(subTitle);
+    }
+  }
+
+  (results||[]).forEach((r,ri)=>{
+    (r.videos||[]).forEach((v,vi)=>{
+      // 第一个已在顶部展示，这里不再重复显示
+      if(ri===0 && vi===0) return;
+      const url=`${serverUrl}/comfy-output/${v.filename}`;
+      const div=document.createElement('div');div.className='result-video';
+      div.innerHTML=`<div class="row" style="justify-content:space-between;align-items:center"><b>分镜视频 ${ri+1}-${vi+1}</b>
+        <div class="row" style="gap:6px">
+          <button onclick="navigator.clipboard.writeText('${url}').then(()=>toast('链接已复制'))" class="secondary" style="font-size:12px;padding:5px 10px">📋</button>
+          <a href="${API}/comfy-output/${v.filename}?download=true" download="${v.filename}"><button style="font-size:12px;padding:5px 10px">⬇ 下载</button></a>
+        </div>
+      </div>
+      <div style="font-size:11px;color:var(--muted);word-break:break-all;margin-top:4px">${url}</div>
+      <video controls src="${API}/comfy-output/${v.filename}?t=${Date.now()}" preload="metadata"></video>`;
+      box.appendChild(div);
+    });
+  });
+  renderLogs(logs);
+}
+function renderLogs(logs){
+  const p=$('logPanel');p.style.display='block';
+  p.innerHTML=(logs||[]).map(l=>`<div class="log-line"><span class="log-time">[${l.ts}]</span> <span class="log-msg">${l.level||'info'} | ${l.message}${l.data?': '+JSON.stringify(l.data):''}</span></div>`).join('');
+}
+function toggleLogs(){const p=$('logPanel');p.style.display=p.style.display==='none'?'block':'none';}
+
+// ---- 全局错误捕获 + 强制显示 ----
+window.onerror=function(msg,src,line,col,err){
+  const detail=`JS 错误 [${line}:${col}]: ${msg}\n${err&&err.stack?err.stack:''}`;
+  console.error(detail);
+  alert('页面脚本出错，请刷新重试：\n'+detail.slice(0,400));
+};
+window.addEventListener('unhandledrejection',function(ev){
+  const reason=ev.reason||{};
+  const detail=`未处理 Promise 错误: ${reason.message||reason}`;
+  console.error(detail, reason);
+  alert('请求出错：\n'+detail.slice(0,400));
+});
+
+function loadExample(){
+  // 内置案例：年轻女孩在咖啡馆收到好消息，动作丰富、镜头运动明确
+  $('titleInp').value='咖啡馆里的好消息';
+  $('briefArea').value='竖屏短视频：一位年轻中国女孩坐在温馨明亮的咖啡馆里，手机突然响起好消息通知。她先是愣了一下，随即眼睛发亮、露出灿烂笑容，举起咖啡杯开心地向镜头示意庆祝，最后满足地喝了一口咖啡。画面要有自然的摄影机运动，女孩的表情和动作要有流畅的变化，适合 I2V 视频生成。';
+  $('targetSec').value='8';
+  $('prefShots').value='4';
+  $('modeSel').value='i2v';
+  if($('resSel').querySelector('option[value="draft_480"]')) $('resSel').value='draft_480';
+  toast('案例已加载：咖啡馆里的好消息');
+}
+
+$('briefFileInp').addEventListener('change',uploadBriefFiles);
+$('briefFileInp').addEventListener('input',uploadBriefFiles);
+$('importBriefBtn').addEventListener('click',uploadBriefFiles);
+$('loadExampleBtn').addEventListener('click',loadExample);
+$('optBtn').addEventListener('click',optimizeBrief);
+$('storyBtn').addEventListener('click',genStoryboard);
+$('genAllImgBtn').addEventListener('click',genAllImages);
+$('ttsAllBtn').addEventListener('click',ttsAll);
+$('fullPipelineBtn').addEventListener('click',fullPipeline);
+$('saveBtn').addEventListener('click',saveProject);
+$('genBtn').addEventListener('click',generateVideos);
+$('logBtn').addEventListener('click',toggleLogs);
+
+loadSys().catch(e=>{console.error(e);alert('加载系统状态失败: '+(e.message||e));});
+</script>
+</body>
+</html>

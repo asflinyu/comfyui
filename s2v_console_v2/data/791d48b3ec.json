@@ -1,0 +1,69 @@
+{
+  "id": "791d48b3ec",
+  "title": "咖啡馆里的好消息",
+  "summary": "年轻女孩在咖啡馆收到好消息，从惊喜到开心举杯庆祝的温暖瞬间。",
+  "mode": "i2v",
+  "shots": [
+    {
+      "index": 1,
+      "duration_s": 2.0,
+      "dialogue": "哇，终于来了！",
+      "positive_prompt": "Vertical 9:16 cinematic slow push-in, a photorealistic young Chinese woman sitting at a cozy cafe table, her eyes widening as she reads a message on her smartphone, lips slowly curving into surprise and joy, her fingers tightening slightly around the phone, warm afternoon light streaming through window, steam rising from coffee cup, background patrons softly blurred, smooth continuous motion, fluid facial expression transition, cinematic motion, shallow depth of field, 24fps film grain",
+      "negative_prompt": "cat, kitten, dog, animal, cartoon, anime, extra limbs, deformed face, blurry, low quality, distorted features, ugly, bad anatomy, weird eyes, double chin",
+      "image_prompt": "竖屏中景，年轻中国女性坐在咖啡馆靠窗座位，低头看手机，眼神逐渐发亮露出惊喜表情，暖黄色午后阳光透过窗户洒落，桌上一杯冒着热气的咖啡，背景其他顾客虚化，温馨文艺氛围",
+      "image_prompt_en": "Vertical 9:16 medium shot, photorealistic young Chinese woman sitting by window in cozy cafe, looking down at smartphone with eyes lighting up in pleasant surprise, warm afternoon sunlight streaming through window, steaming coffee cup on table, blurred patrons in background, warm literary atmosphere",
+      "camera": "慢速前推，聚焦面部表情",
+      "image_name": "console_791d48b3ec_shot1_621945.png",
+      "image_source": "gen",
+      "audio_name": "console_tts_839890.wav",
+      "audio_duration_s": 1.52,
+      "length": 0
+    },
+    {
+      "index": 2,
+      "duration_s": 1.5,
+      "dialogue": "太棒了！",
+      "positive_prompt": "Vertical 9:16 cinematic gentle dolly in, extreme close-up of a photorealistic young Chinese woman's face, her eyes sparkling and smile widening from surprise to pure delight, cheeks lifting, head tilting back slightly, natural laughter forming, soft bokeh cafe lights in background, warm golden hour glow, smooth continuous motion, fluid emotional transition, cinematic motion, shallow depth of field, 35mm film look",
+      "negative_prompt": "cat, kitten, dog, animal, cartoon, anime, extra limbs, deformed face, blurry, low quality, distorted features, ugly, bad anatomy, weird eyes, scary face",
+      "image_prompt": "竖屏特写，年轻中国女性脸部特写，眼睛明亮有神，笑容从嘴角逐渐绽放，脸颊微红，背景咖啡馆暖光虚化成光斑，金色柔光打在脸上，幸福喜悦的表情",
+      "image_prompt_en": "Vertical 9:16 extreme close-up, photorealistic young Chinese woman's face with bright sparkling eyes and a growing joyful smile, slightly blushing cheeks, warm cafe lights blurred into bokeh balls, golden soft light on face, expression of happiness and delight",
+      "camera": "轻柔前推特写",
+      "image_name": "console_791d48b3ec_shot2_639881.png",
+      "image_source": "gen",
+      "audio_name": "console_tts_552533.wav",
+      "audio_duration_s": 0.8,
+      "length": 0
+    },
+    {
+      "index": 3,
+      "duration_s": 2.5,
+      "dialogue": "来，干杯！",
+      "positive_prompt": "Vertical 9:16 cinematic handheld medium shot, a photorealistic young Chinese woman raising her coffee cup high in celebration, her arm lifting smoothly upward, body leaning slightly forward, bright genuine laughter, hair swaying gently with the motion, other cafe customers in soft motion blur, warm ambient light, steam trailing from cup, smooth continuous motion, dynamic celebratory action, cinematic motion, shallow depth of field, subtle camera shake",
+      "negative_prompt": "cat, kitten, dog, animal, cartoon, anime, extra limbs, deformed face, blurry, low quality, distorted features, ugly, bad anatomy, broken cup, spilled coffee",
+      "image_prompt": "竖屏中景，年轻中国女性开心地从桌上举起咖啡杯，手臂向上伸展，身体微微前倾，笑容灿烂，咖啡馆暖色调环境，其他顾客虚化处理，杯口有袅袅热气",
+      "image_prompt_en": "Vertical 9:16 medium shot, photorealistic young Chinese woman happily raising a coffee cup from the table in celebration, arm extended upward, body leaning slightly forward, bright radiant smile, warm-toned cafe interior, other customers softly blurred, steam rising from cup rim",
+      "camera": "手持中景，跟随举杯动作轻微上扬",
+      "image_name": "console_791d48b3ec_shot3_155029.png",
+      "image_source": "gen",
+      "audio_name": "console_tts_698162.wav",
+      "audio_duration_s": 1.12,
+      "length": 0
+    },
+    {
+      "index": 4,
+      "duration_s": 2.0,
+      "dialogue": "敬好消息！",
+      "positive_prompt": "Vertical 9:16 cinematic slow orbit around subject, a photorealistic young Chinese woman holding her coffee cup up near her face, taking a small celebratory sip, eyes closing briefly in satisfaction then opening with a bright smile, golden afternoon light creating soft lens flare, floating dust particles drifting through sunbeams, background cafe gently rotating, smooth continuous motion, fluid celebratory gesture, cinematic motion, shallow depth of field, elegant film grain",
+      "negative_prompt": "cat, kitten, dog, animal, cartoon, anime, extra limbs, deformed face, blurry, low quality, distorted features, ugly, bad anatomy, double face, scary eyes",
+      "image_prompt": "竖屏近景，年轻中国女性双手捧着咖啡杯举到脸侧，闭眼轻抿一口后满足微笑，金色午后阳光形成光晕，空气中漂浮着细小尘埃，背景咖啡馆虚化旋转感，温暖治愈氛围",
+      "image_prompt_en": "Vertical 9:16 close-up, photorealistic young Chinese woman holding coffee cup with both hands near her face, eyes closed taking a satisfied sip then opening them with a warm smile, golden afternoon light creating soft lens flare, tiny dust particles floating in sunbeams, blurred cafe background with gentle rotating feel, warm healing atmosphere",
+      "camera": "缓慢环绕主体，定格庆祝瞬间",
+      "image_name": "console_791d48b3ec_shot4_843295.png",
+      "image_source": "gen",
+      "audio_name": "console_tts_248432.wav",
+      "audio_duration_s": 1.2,
+      "length": 0
+    }
+  ],
+  "updated_at": "2026-09-17T01:55:07.942079+00:00"
+}

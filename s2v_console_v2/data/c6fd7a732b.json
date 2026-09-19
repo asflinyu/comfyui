@@ -1,0 +1,69 @@
+{
+  "id": "c6fd7a732b",
+  "title": "咖啡馆里的好消息",
+  "summary": "年轻女孩在咖啡馆收到喜讯，笑容绽放，举杯庆祝。",
+  "mode": "i2v",
+  "shots": [
+    {
+      "index": 1,
+      "duration_s": 2.0,
+      "dialogue": "（手机提示音响起）",
+      "positive_prompt": "Vertical 9:16 medium shot inside a cozy sunlit cafe, a young Chinese woman sitting at a wooden table pauses with her coffee, reaches for her phone, her expression shifts from calm to surprised delight as she reads the screen, gentle handheld camera slowly pushing in, soft natural window light, background cafe patrons and warm bokeh lights blurred in motion, steam drifting from her cup, smooth continuous motion, cinematic motion, 24fps film grain",
+      "negative_prompt": "deformed hands, extra fingers, blurry face, distorted features, static image, watermark, text, oversaturated, harsh shadows, ugly, bad anatomy",
+      "image_prompt": "竖屏中景，温馨明亮的咖啡馆内，年轻中国女孩坐在木质桌前，手握手机，表情由平静转为惊喜，自然窗光柔和，背景顾客与暖光灯晕虚化，咖啡杯冒着热气，暖色调",
+      "image_prompt_en": "Vertical 9:16 medium shot, inside a cozy bright cafe, young Chinese girl sitting at a wooden table holding a phone, expression shifting from calm to surprised delight, soft natural window light, background patrons and warm bokeh lights blurred, coffee cup steaming, warm color tone",
+      "camera": "手持慢推",
+      "image_name": "",
+      "image_source": "",
+      "audio_name": "",
+      "audio_duration_s": 0.0,
+      "length": 0
+    },
+    {
+      "index": 2,
+      "duration_s": 2.0,
+      "dialogue": "太好了！",
+      "positive_prompt": "Vertical 9:16 close-up, young Chinese woman's face lighting up with pure joy, eyes sparkling, she laughs and glances back at her phone, handheld subtle push-in focusing on her bright smile, soft golden cafe light, shallow depth of field, background motion blur of the cafe environment, hair gently moving, smooth continuous motion, fluid emotional movement, cinematic motion, 24fps film grain",
+      "negative_prompt": "deformed face, extra limbs, closed eyes, blank expression, static image, watermark, text, overexposed, harsh shadows, bad anatomy",
+      "image_prompt": "竖屏近景特写，年轻中国女孩面露灿烂笑容，眼睛明亮，手握手机，柔和咖啡馆侧逆光，浅景深，背景温暖虚化，暖金色调",
+      "image_prompt_en": "Vertical 9:16 close-up, young Chinese girl with bright joyful smile, sparkling eyes, holding phone, soft side backlight from cafe window, shallow depth of field, warm blurred background, golden warm tones",
+      "camera": "手持缓推近景",
+      "image_name": "",
+      "image_source": "",
+      "audio_name": "",
+      "audio_duration_s": 0.0,
+      "length": 0
+    },
+    {
+      "index": 3,
+      "duration_s": 2.0,
+      "dialogue": "干杯！",
+      "positive_prompt": "Vertical 9:16 medium close-up, young Chinese woman raising a ceramic coffee cup high in celebration, her arm moving upward fluidly, cheerful expression, gentle dolly backward revealing more of the cafe table, warm ambient light, bokeh string lights swaying subtly in background, steam rising, smooth continuous motion, dynamic celebratory action, cinematic motion, 24fps film grain",
+      "negative_prompt": "deformed arm, missing fingers, spilled liquid, static pose, watermark, text, oversaturated, harsh flash, bad anatomy, blurry cup",
+      "image_prompt": "竖屏中近景，年轻中国女孩单手持咖啡杯举高庆祝，笑容甜美，咖啡馆暖光环绕，桌面隐约可见，背景灯串虚化成暖色光斑，温馨色调",
+      "image_prompt_en": "Vertical 9:16 medium close-up, young Chinese girl raising a coffee cup high with one hand in celebration, sweet smile, warm cafe ambient light, table slightly visible, background string lights blurred into warm bokeh, cozy color tone",
+      "camera": "后拉展示",
+      "image_name": "",
+      "image_source": "",
+      "audio_name": "",
+      "audio_duration_s": 0.0,
+      "length": 0
+    },
+    {
+      "index": 4,
+      "duration_s": 2.0,
+      "dialogue": "庆祝一下！",
+      "positive_prompt": "Vertical 9:16 close-up, young Chinese woman bringing the cup to her lips for a sip, then lowering it while smiling toward the camera, subtle slow orbit around her, soft cafe light catching her eyes, shallow depth of field, background blurred with gentle movement of other patrons, smooth continuous motion, fluid movement, cinematic motion, 24fps film grain",
+      "negative_prompt": "deformed lips, closed eyes, stiff pose, static image, watermark, text, overexposed, harsh shadows, bad anatomy, extra fingers",
+      "image_prompt": "竖屏近景，年轻中国女孩轻抿咖啡后放下杯子，眉眼带笑看向镜头，柔和侧光，背景咖啡馆环境虚化，暖棕与米色调",
+      "image_prompt_en": "Vertical 9:16 close-up, young Chinese girl taking a sip of coffee then lowering the cup, smiling toward camera, soft side light, background cafe environment blurred, warm brown and cream tones",
+      "camera": "缓慢环绕",
+      "image_name": "",
+      "image_source": "",
+      "audio_name": "",
+      "audio_duration_s": 0.0,
+      "length": 0
+    }
+  ],
+  "updated_at": "2026-09-17T01:47:22.764285+00:00"
+}
