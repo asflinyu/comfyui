@@ -1,0 +1,88 @@
+## ComfyUI-Manager: installing dependencies done.
+[2024-12-19 16:50:41.555] ** ComfyUI startup time: 2024-12-19 16:50:41.555983
+[2024-12-19 16:50:41.556] ** Platform: Linux
+[2024-12-19 16:50:41.556] ** Python version: 3.10.16 (main, Dec 11 2024, 16:24:50) [GCC 11.2.0]
+[2024-12-19 16:50:41.556] ** Python executable: /root/miniconda3/bin/python
+[2024-12-19 16:50:41.556] ** ComfyUI Path: /root/autodl-tmp/ComfyUI
+[2024-12-19 16:50:41.556] ** Log path: /root/autodl-tmp/ComfyUI/comfyui.log
+[2024-12-19 16:50:42.672] 
+Prestartup times for custom nodes:
+[2024-12-19 16:50:42.672]    0.0 seconds: /root/autodl-tmp/ComfyUI/custom_nodes/rgthree-comfy
+[2024-12-19 16:50:42.672]    2.2 seconds: /root/autodl-tmp/ComfyUI/custom_nodes/ComfyUI-Manager
+[2024-12-19 16:50:42.672] 
+Total VRAM 20181 MB, total RAM 515593 MB
+[2024-12-19 16:50:44.818] pytorch version: 2.5.1+cu121
+[2024-12-19 16:50:47.112] xformers version: 0.0.28.post3
+[2024-12-19 16:50:47.112] Set vram state to: NORMAL_VRAM
+[2024-12-19 16:50:47.112] Device: cuda:0 NVIDIA GeForce RTX 3080 : cudaMallocAsync
+[2024-12-19 16:50:47.228] Using xformers attention
+[2024-12-19 16:50:48.143] [Prompt Server] web root: /root/autodl-tmp/ComfyUI/web
+[2024-12-19 16:50:48.498] 
+[2024-12-19 16:50:48.498] [92m[rgthree-comfy] Loaded 42 epic nodes. 🎉[00m
+[2024-12-19 16:50:48.498] 
+[2024-12-19 16:50:48.536] [36;20m[comfyui_controlnet_aux] | INFO -> Using ckpts path: /root/autodl-tmp/ComfyUI/custom_nodes/comfyui_controlnet_aux/ckpts[0m
+[2024-12-19 16:50:48.536] [36;20m[comfyui_controlnet_aux] | INFO -> Using symlinks: False[0m
+[2024-12-19 16:50:48.537] [36;20m[comfyui_controlnet_aux] | INFO -> Using ort providers: ['CUDAExecutionProvider', 'DirectMLExecutionProvider', 'OpenVINOExecutionProvider', 'ROCMExecutionProvider', 'CPUExecutionProvider', 'CoreMLExecutionProvider'][0m
+[2024-12-19 16:50:49.085] DWPose: Onnxruntime with acceleration providers detected
+[2024-12-19 16:50:49.174] ### Loading: ComfyUI-Impact-Pack (V8.0.1)
+[2024-12-19 16:50:49.208] [Impact Pack] Wildcards loading done.
+[2024-12-19 16:50:49.210] ### Loading: ComfyUI-Manager (V2.55.5)
+[2024-12-19 16:50:49.263] ### ComfyUI Version: v0.3.8 | Released on '2024-12-18'
+[2024-12-19 16:50:49.279] Total VRAM 20181 MB, total RAM 515593 MB
+[2024-12-19 16:50:49.279] pytorch version: 2.5.1+cu121
+[2024-12-19 16:50:49.279] xformers version: 0.0.28.post3
+[2024-12-19 16:50:49.279] Set vram state to: NORMAL_VRAM
+[2024-12-19 16:50:49.279] Device: cuda:0 NVIDIA GeForce RTX 3080 : cudaMallocAsync
+[2024-12-19 16:50:50.412] [ComfyUI-Manager] default cache updated: https://raw.githubusercontent.com/ltdrdata/ComfyUI-Manager/main/alter-list.json
+[2024-12-19 16:50:50.510] [ComfyUI-Manager] default cache updated: https://raw.githubusercontent.com/ltdrdata/ComfyUI-Manager/main/model-list.json
+[2024-12-19 16:50:50.901] [ComfyUI-Manager] default cache updated: https://raw.githubusercontent.com/ltdrdata/ComfyUI-Manager/main/github-stats.json
+[2024-12-19 16:50:50.978] [ComfyUI-Manager] default cache updated: https://raw.githubusercontent.com/ltdrdata/ComfyUI-Manager/main/extension-node-map.json
+[2024-12-19 16:50:52.354] [ComfyUI-Manager] default cache updated: https://raw.githubusercontent.com/ltdrdata/ComfyUI-Manager/main/custom-node-list.json
+[2024-12-19 16:50:52.833] ### Loading: ComfyUI-Impact-Subpack (V1.1)
+[2024-12-19 16:50:53.077] Creating new Ultralytics Settings v0.0.6 file ✅ 
+View Ultralytics Settings with 'yolo settings' or at '/root/.config/Ultralytics/settings.json'
+Update Settings with 'yolo settings key=value', i.e. 'yolo settings runs_dir=path/to/dir'. For help see https://docs.ultralytics.com/quickstart/#ultralytics-settings.
+[2024-12-19 16:50:53.116] [Impact Subpack] ultralytics_bbox: /root/autodl-tmp/ComfyUI/models/ultralytics/bbox
+[2024-12-19 16:50:53.116] [Impact Subpack] ultralytics_segm: /root/autodl-tmp/ComfyUI/models/ultralytics/segm
+[2024-12-19 16:50:53.116] 
+Import times for custom nodes:
+[2024-12-19 16:50:53.116]    0.0 seconds: /root/autodl-tmp/ComfyUI/custom_nodes/websocket_image_save.py
+[2024-12-19 16:50:53.116]    0.0 seconds: /root/autodl-tmp/ComfyUI/custom_nodes/AIGODLIKE-ComfyUI-Translation
+[2024-12-19 16:50:53.116]    0.0 seconds: /root/autodl-tmp/ComfyUI/custom_nodes/ComfyUI-Custom-Scripts
+[2024-12-19 16:50:53.116]    0.0 seconds: /root/autodl-tmp/ComfyUI/custom_nodes/rgthree-comfy
+[2024-12-19 16:50:53.116]    0.0 seconds: /root/autodl-tmp/ComfyUI/custom_nodes/ComfyUI-IC-Light
+[2024-12-19 16:50:53.117]    0.0 seconds: /root/autodl-tmp/ComfyUI/custom_nodes/ComfyUI_IPAdapter_plus
+[2024-12-19 16:50:53.117]    0.0 seconds: /root/autodl-tmp/ComfyUI/custom_nodes/ComfyUI-Impact-Pack
+[2024-12-19 16:50:53.117]    0.1 seconds: /root/autodl-tmp/ComfyUI/custom_nodes/ComfyUI-Manager
+[2024-12-19 16:50:53.117]    0.1 seconds: /root/autodl-tmp/ComfyUI/custom_nodes/ComfyUI-VideoHelperSuite
+[2024-12-19 16:50:53.117]    0.2 seconds: /root/autodl-tmp/ComfyUI/custom_nodes/ComfyUI_LayerStyle
+[2024-12-19 16:50:53.117]    0.3 seconds: /root/autodl-tmp/ComfyUI/custom_nodes/ComfyUI_LayerStyle_Advance
+[2024-12-19 16:50:53.117]    0.3 seconds: /root/autodl-tmp/ComfyUI/custom_nodes/ComfyUI-Impact-Subpack
+[2024-12-19 16:50:53.117]    0.6 seconds: /root/autodl-tmp/ComfyUI/custom_nodes/comfyui_controlnet_aux
+[2024-12-19 16:50:53.117]    3.1 seconds: /root/autodl-tmp/ComfyUI/custom_nodes/ComfyUI_InstantID
+[2024-12-19 16:50:53.117] 
+[2024-12-19 16:50:53.142] Starting server
+
+[2024-12-19 16:50:53.142] To see the GUI go to: http://127.0.0.1:6006
+[2024-12-19 16:53:22.812] FETCH DATA from: /root/autodl-tmp/ComfyUI/custom_nodes/ComfyUI-Manager/extension-node-map.json [DONE]
+[2024-12-19 16:54:07.360] got prompt
+[2024-12-19 16:54:07.483] model weight dtype torch.float16, manual cast: None
+[2024-12-19 16:54:07.506] model_type EPS
+[2024-12-19 16:54:07.710] Using xformers attention in VAE
+[2024-12-19 16:54:07.712] Using xformers attention in VAE
+[2024-12-19 16:54:08.098] Requested to load SD1ClipModel
+[2024-12-19 16:54:08.213] loaded completely 9.5367431640625e+25 235.84423828125 True
+[2024-12-19 16:54:08.438] Requested to load BaseModel
+[2024-12-19 16:54:08.766] loaded completely 9.5367431640625e+25 1639.406135559082 True
+[2024-12-19 16:54:10.659] 100%|██████████| 20/20 [00:01<00:00, 10.82it/s]
+[2024-12-19 16:54:10.661] Requested to load AutoencoderKL
+[2024-12-19 16:54:10.700] loaded completely 9.5367431640625e+25 159.55708122253418 True
+[2024-12-19 16:54:10.937] Prompt executed in 3.57 seconds
+[2024-12-19 16:54:23.558] got prompt
+[2024-12-19 16:54:25.230] 100%|██████████| 20/20 [00:01<00:00, 11.86it/s]100%|██████████| 20/20 [00:01<00:00, 12.19it/s]
+[2024-12-19 16:54:25.403] Prompt executed in 1.84 seconds
+[2024-12-19 16:54:33.241] got prompt
+[2024-12-19 16:54:34.829] 100%|██████████| 20/20 [00:01<00:00, 12.79it/s]100%|██████████| 20/20 [00:01<00:00, 12.73it/s]
+[2024-12-19 16:54:34.998] Prompt executed in 1.75 seconds
+[2024-12-19 16:55:27.022] 
+Stopped server
