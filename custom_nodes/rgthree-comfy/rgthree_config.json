@@ -1,0 +1,18 @@
+{
+  "features": {
+    "group_header_fast_toggle": {
+      "enabled": true,
+      "show": "always"
+    },
+    "import_individual_nodes": {
+      "enabled": false
+    },
+    "menu_auto_nest": {
+      "subdirs": false
+    },
+    "progress_bar": {
+      "height": 6,
+      "position": "top"
+    }
+  }
+}
