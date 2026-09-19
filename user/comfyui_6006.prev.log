@@ -1,0 +1,706 @@
+## ComfyUI-Manager: installing dependencies done.
+[2026-09-14 08:53:17.068] ** ComfyUI startup time: 2026-09-14 08:53:17.068
+[2026-09-14 08:53:17.069] ** Platform: Linux
+[2026-09-14 08:53:17.069] ** Python version: 3.11.13 (main, Jun  5 2025, 13:12:00) [GCC 11.2.0]
+[2026-09-14 08:53:17.069] ** Python executable: /root/miniconda3/bin/python
+[2026-09-14 08:53:17.069] ** ComfyUI Path: /root/ComfyUI
+[2026-09-14 08:53:17.069] ** ComfyUI Base Folder Path: /root/ComfyUI
+[2026-09-14 08:53:17.069] ** User directory: /root/ComfyUI/user
+[2026-09-14 08:53:17.069] ** ComfyUI-Manager config path: /root/ComfyUI/user/default/ComfyUI-Manager/config.ini
+[2026-09-14 08:53:17.069] ** Log path: /root/ComfyUI/user/comfyui.log
+
+Prestartup times for custom nodes:
+[2026-09-14 08:53:17.752]    0.0 seconds: /root/ComfyUI/custom_nodes/rgthree-comfy
+[2026-09-14 08:53:17.752]    1.5 seconds: /root/ComfyUI/custom_nodes/ComfyUI-Manager
+[2026-09-14 08:53:17.752] 
+[2026-09-14 08:53:18.857] Checkpoint files will always be loaded safely.
+[2026-09-14 08:53:19.180] Total VRAM 32109 MB, total RAM 772649 MB
+[2026-09-14 08:53:19.181] pytorch version: 2.7.1+cu128
+[2026-09-14 08:53:19.181] Set vram state to: NORMAL_VRAM
+[2026-09-14 08:53:19.181] Device: cuda:0 NVIDIA GeForce RTX 5090 : cudaMallocAsync
+[2026-09-14 08:53:19.952] Using pytorch attention
+[2026-09-14 08:53:20.467] Python version: 3.11.13 (main, Jun  5 2025, 13:12:00) [GCC 11.2.0]
+[2026-09-14 08:53:20.467] ComfyUI version: 0.3.66
+[2026-09-14 08:53:20.469] ComfyUI frontend version: 1.28.7
+[2026-09-14 08:53:20.470] [Prompt Server] web root: /root/miniconda3/lib/python3.11/site-packages/comfyui_frontend_package/static
+[2026-09-14 08:53:21.178] ======================================== ComfyUI-nunchaku Initialization ========================================
+[2026-09-14 08:53:21.180] Nunchaku version: 1.0.0
+[2026-09-14 08:53:21.180] ComfyUI-nunchaku version: 1.0.1
+[2026-09-14 08:53:23.604] /root/miniconda3/lib/python3.11/site-packages/timm/models/layers/__init__.py:48: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
+[2026-09-14 08:53:23.609] 'nunchaku_versions.json' not found. Node will start in minimal mode.
+[2026-09-14 08:53:23.609] =================================================================================================================
+[2026-09-14 08:53:23.808] ### Loading: ComfyUI-Impact-Subpack (V1.3.5)
+[2026-09-14 08:53:23.809] [Impact Pack/Subpack] Using folder_paths to determine whitelist path: /root/ComfyUI/user/default/ComfyUI-Impact-Subpack/model-whitelist.txt
+[2026-09-14 08:53:23.809] [Impact Pack/Subpack] Ensured whitelist directory exists: /root/ComfyUI/user/default/ComfyUI-Impact-Subpack
+[2026-09-14 08:53:23.809] [Impact Pack/Subpack] Loaded 0 model(s) from whitelist: /root/ComfyUI/user/default/ComfyUI-Impact-Subpack/model-whitelist.txt
+[2026-09-14 08:53:23.833] [Impact Subpack] ultralytics_bbox: /root/ComfyUI/models/ultralytics/bbox
+[2026-09-14 08:53:23.833] [Impact Subpack] ultralytics_segm: /root/ComfyUI/models/ultralytics/segm
+[2026-09-14 08:53:23.869] ComfyUI-GGUF: Partial torch compile only, consider updating pytorch
+[2026-09-14 08:53:23.872] ### Loading: ComfyUI-Manager (V3.37)
+[2026-09-14 08:53:23.872] [ComfyUI-Manager] network_mode: public
+[2026-09-14 08:53:23.940] ### ComfyUI Version: v0.3.66-14-gc170fd2d | Released on '2025-10-26'
+[2026-09-14 08:53:24.082] (pysssss:WD14Tagger) [DEBUG] Available ORT providers: AzureExecutionProvider, CPUExecutionProvider
+[2026-09-14 08:53:24.082] (pysssss:WD14Tagger) [DEBUG] Using ORT providers: CUDAExecutionProvider, CPUExecutionProvider
+[2026-09-14 08:53:24.470] [34mWAS Node Suite: [0mOpenCV Python FFMPEG support is enabled[0m
+[2026-09-14 08:53:24.471] [34mWAS Node Suite: [0m`ffmpeg_bin_path` is set to: /usr/bin/ffmpeg[0m
+[2026-09-14 08:53:24.739] [34mWAS Node Suite: [0mFinished.[0m [32mLoaded[0m [0m220[0m [32mnodes successfully.[0m
+[2026-09-14 08:53:24.740] 
+	[3m[93m"The future depends on what you do today."[0m[3m - Mahatma Gandhi[0m
+[2026-09-14 08:53:24.740] 
+[2026-09-14 08:53:24.746] ### Loading: ComfyUI-Impact-Pack (V8.25.1)
+[2026-09-14 08:53:24.862] [ComfyUI-Manager] default cache updated: https://raw.githubusercontent.com/ltdrdata/ComfyUI-Manager/main/alter-list.json
+[2026-09-14 08:53:24.900] [Impact Pack] custom_wildcards path not found: /root/autodl-tmp/ComfyUI/custom_nodes/ComfyUI-Impact-Pack/custom_wildcards. Using default path.
+[2026-09-14 08:53:24.900] [Impact Pack] Wildcards loading done.
+[2026-09-14 08:53:24.903] [36;20m[/root/ComfyUI/custom_nodes/comfyui_controlnet_aux] | INFO -> Using ckpts path: /root/ComfyUI/custom_nodes/comfyui_controlnet_aux/ckpts[0m
+[2026-09-14 08:53:24.903] [36;20m[/root/ComfyUI/custom_nodes/comfyui_controlnet_aux] | INFO -> Using symlinks: False[0m
+[2026-09-14 08:53:24.903] [36;20m[/root/ComfyUI/custom_nodes/comfyui_controlnet_aux] | INFO -> Using ort providers: ['CUDAExecutionProvider', 'DirectMLExecutionProvider', 'OpenVINOExecutionProvider', 'ROCMExecutionProvider', 'CPUExecutionProvider', 'CoreMLExecutionProvider'][0m
+[2026-09-14 08:53:24.915] [ComfyUI-Manager] default cache updated: https://raw.githubusercontent.com/ltdrdata/ComfyUI-Manager/main/model-list.json
+[2026-09-14 08:53:24.929] /root/ComfyUI/custom_nodes/comfyui_controlnet_aux/node_wrappers/dwpose.py:26: UserWarning: DWPose: Onnxruntime not found or doesn't come with acceleration providers, switch to OpenCV with CPU device. DWPose might run very slowly
+  warnings.warn("DWPose: Onnxruntime not found or doesn't come with acceleration providers, switch to OpenCV with CPU device. DWPose might run very slowly")
+[2026-09-14 08:53:24.940] 
+[0;33m[ReActor][0m - [38;5;173mSTATUS[0m - [0;32mRunning v0.6.2-b1 in ComfyUI[0m
+[2026-09-14 08:53:24.994] Torch version: 2.7.1+cu128
+[2026-09-14 08:53:25.013] [Crystools [0;32mINFO[0m] Crystools version: 1.27.4
+[2026-09-14 08:53:25.024] [Crystools [0;32mINFO[0m] Platform release: 5.15.0-119-generic
+[2026-09-14 08:53:25.024] [Crystools [0;32mINFO[0m] JETSON: Not detected.
+[2026-09-14 08:53:25.028] [Crystools [0;32mINFO[0m] CPU: Intel(R) Xeon(R) Gold 6459C - Arch: x86_64 - OS: Linux 5.15.0-119-generic
+[2026-09-14 08:53:25.028] [Crystools [0;32mINFO[0m] pynvml (NVIDIA) initialized.
+[2026-09-14 08:53:25.029] [Crystools [0;32mINFO[0m] GPU/s:
+[2026-09-14 08:53:25.029] [Crystools [0;32mINFO[0m] 0) NVIDIA GeForce RTX 5090
+[2026-09-14 08:53:25.029] [Crystools [0;32mINFO[0m] NVIDIA Driver: 580.76.05
+[2026-09-14 08:53:25.134] 
+[2026-09-14 08:53:25.135] [92m[rgthree-comfy] Loaded 48 epic nodes. 🎉[0m
+[2026-09-14 08:53:25.135] 
+[2026-09-14 08:53:25.152] [ComfyUI-Manager] default cache updated: https://raw.githubusercontent.com/ltdrdata/ComfyUI-Manager/main/github-stats.json
+[2026-09-14 08:53:25.157] Total VRAM 32109 MB, total RAM 772649 MB
+[2026-09-14 08:53:25.157] pytorch version: 2.7.1+cu128
+[2026-09-14 08:53:25.158] Set vram state to: NORMAL_VRAM
+[2026-09-14 08:53:25.158] Device: cuda:0 NVIDIA GeForce RTX 5090 : cudaMallocAsync
+[2026-09-14 08:53:25.486] [ComfyUI-Manager] default cache updated: https://raw.githubusercontent.com/ltdrdata/ComfyUI-Manager/main/extension-node-map.json
+[2026-09-14 08:53:25.491] 
+Import times for custom nodes:
+[2026-09-14 08:53:25.491]    0.0 seconds: /root/ComfyUI/custom_nodes/websocket_image_save.py
+[2026-09-14 08:53:25.492]    0.0 seconds: /root/ComfyUI/custom_nodes/ComfyUI-DD-Translation
+[2026-09-14 08:53:25.492]    0.0 seconds: /root/ComfyUI/custom_nodes/ComfyUI-WD14-Tagger
+[2026-09-14 08:53:25.492]    0.0 seconds: /root/ComfyUI/custom_nodes/ComfyUI-GGUF
+[2026-09-14 08:53:25.492]    0.0 seconds: /root/ComfyUI/custom_nodes/ComfyUI_IPAdapter_plus
+[2026-09-14 08:53:25.492]    0.0 seconds: /root/ComfyUI/custom_nodes/ComfyUI-ReplenishNodes
+[2026-09-14 08:53:25.492]    0.0 seconds: /root/ComfyUI/custom_nodes/ComfyUI-Custom-Scripts
+[2026-09-14 08:53:25.492]    0.0 seconds: /root/ComfyUI/custom_nodes/ComfyUI-segment-anything-2
+[2026-09-14 08:53:25.492]    0.0 seconds: /root/ComfyUI/custom_nodes/ComfyUI_essentials
+[2026-09-14 08:53:25.492]    0.0 seconds: /root/ComfyUI/custom_nodes/ComfyUI-Advanced-ControlNet
+[2026-09-14 08:53:25.492]    0.0 seconds: /root/ComfyUI/custom_nodes/ComfyUI-KJNodes
+[2026-09-14 08:53:25.492]    0.0 seconds: /root/ComfyUI/custom_nodes/ComfyUI_InstantID
+[2026-09-14 08:53:25.492]    0.0 seconds: /root/ComfyUI/custom_nodes/ComfyUI_UltimateSDUpscale
+[2026-09-14 08:53:25.492]    0.0 seconds: /root/ComfyUI/custom_nodes/ComfyUI_LayerStyle
+[2026-09-14 08:53:25.492]    0.0 seconds: /root/ComfyUI/custom_nodes/ComfyUI-IC-Light
+[2026-09-14 08:53:25.492]    0.0 seconds: /root/ComfyUI/custom_nodes/ComfyUI-Impact-Subpack
+[2026-09-14 08:53:25.492]    0.0 seconds: /root/ComfyUI/custom_nodes/ComfyUI-Crystools
+[2026-09-14 08:53:25.492]    0.0 seconds: /root/ComfyUI/custom_nodes/ComfyUI-FluxTrainer
+[2026-09-14 08:53:25.492]    0.0 seconds: /root/ComfyUI/custom_nodes/comfyui_controlnet_aux
+[2026-09-14 08:53:25.492]    0.1 seconds: /root/ComfyUI/custom_nodes/ComfyUI-VideoHelperSuite
+[2026-09-14 08:53:25.492]    0.1 seconds: /root/ComfyUI/custom_nodes/ComfyUI-ReActor
+[2026-09-14 08:53:25.492]    0.1 seconds: /root/ComfyUI/custom_nodes/ComfyUI-WanVideoWrapper
+[2026-09-14 08:53:25.492]    0.1 seconds: /root/ComfyUI/custom_nodes/rgthree-comfy
+[2026-09-14 08:53:25.492]    0.1 seconds: /root/ComfyUI/custom_nodes/Comfyui_CXH_joy_caption
+[2026-09-14 08:53:25.492]    0.1 seconds: /root/ComfyUI/custom_nodes/ComfyUI-Manager
+[2026-09-14 08:53:25.492]    0.2 seconds: /root/ComfyUI/custom_nodes/ComfyUI-Impact-Pack
+[2026-09-14 08:53:25.492]    0.2 seconds: /root/ComfyUI/custom_nodes/ComfyUI_LayerStyle_Advance
+[2026-09-14 08:53:25.492]    0.2 seconds: /root/ComfyUI/custom_nodes/ComfyUI-LBMWrapper
+[2026-09-14 08:53:25.492]    0.7 seconds: /root/ComfyUI/custom_nodes/was-node-suite-comfyui
+[2026-09-14 08:53:25.492]    2.4 seconds: /root/ComfyUI/custom_nodes/ComfyUI-nunchaku
+[2026-09-14 08:53:25.492] 
+[2026-09-14 08:53:25.733] Context impl SQLiteImpl.
+[2026-09-14 08:53:25.733] Will assume non-transactional DDL.
+[2026-09-14 08:53:25.735] No target revision found.
+[2026-09-14 08:53:25.785] Starting server
+
+[2026-09-14 08:53:25.786] To see the GUI go to: http://0.0.0.0:6006
+[2026-09-14 08:53:25.808] [ComfyUI-Manager] default cache updated: https://raw.githubusercontent.com/ltdrdata/ComfyUI-Manager/main/custom-node-list.json
+[2026-09-14 08:53:34.320] FETCH ComfyRegistry Data: 5/187
+[2026-09-14 08:53:43.545] FETCH ComfyRegistry Data: 10/187
+[2026-09-14 08:53:52.584] FETCH ComfyRegistry Data: 15/187
+[2026-09-14 08:54:01.258] FETCH ComfyRegistry Data: 20/187
+[2026-09-14 08:54:10.234] FETCH ComfyRegistry Data: 25/187
+[2026-09-14 08:54:19.728] FETCH ComfyRegistry Data: 30/187
+[2026-09-14 08:54:28.731] FETCH ComfyRegistry Data: 35/187
+[2026-09-14 08:54:37.439] FETCH ComfyRegistry Data: 40/187
+[2026-09-14 08:54:46.871] FETCH ComfyRegistry Data: 45/187
+[2026-09-14 08:54:55.218] FETCH ComfyRegistry Data: 50/187
+[2026-09-14 08:55:03.843] FETCH ComfyRegistry Data: 55/187
+[2026-09-14 08:55:12.475] FETCH ComfyRegistry Data: 60/187
+[2026-09-14 08:55:21.138] FETCH ComfyRegistry Data: 65/187
+[2026-09-14 08:55:29.721] FETCH ComfyRegistry Data: 70/187
+[2026-09-14 08:55:38.822] FETCH ComfyRegistry Data: 75/187
+[2026-09-14 08:55:47.443] FETCH ComfyRegistry Data: 80/187
+[2026-09-14 08:55:55.997] FETCH ComfyRegistry Data: 85/187
+[2026-09-14 08:56:05.131] FETCH ComfyRegistry Data: 90/187
+[2026-09-14 08:56:14.027] FETCH ComfyRegistry Data: 95/187
+[2026-09-14 08:56:22.987] FETCH ComfyRegistry Data: 100/187
+[2026-09-14 08:56:32.468] FETCH ComfyRegistry Data: 105/187
+[2026-09-14 08:56:41.517] FETCH ComfyRegistry Data: 110/187
+[2026-09-14 08:56:50.163] FETCH ComfyRegistry Data: 115/187
+[2026-09-14 08:56:59.979] FETCH ComfyRegistry Data: 120/187
+[2026-09-14 08:57:09.218] FETCH ComfyRegistry Data: 125/187
+[2026-09-14 08:57:17.508] FETCH ComfyRegistry Data: 130/187
+[2026-09-14 08:57:26.311] FETCH ComfyRegistry Data: 135/187
+[2026-09-14 08:57:34.859] FETCH ComfyRegistry Data: 140/187
+[2026-09-14 08:57:43.617] FETCH ComfyRegistry Data: 145/187
+[2026-09-14 08:57:52.303] FETCH ComfyRegistry Data: 150/187
+[2026-09-14 08:58:01.421] FETCH ComfyRegistry Data: 155/187
+[2026-09-14 08:58:10.668] FETCH ComfyRegistry Data: 160/187
+[2026-09-14 08:58:19.704] FETCH ComfyRegistry Data: 165/187
+[2026-09-14 08:58:28.782] FETCH ComfyRegistry Data: 170/187
+[2026-09-14 08:58:37.823] FETCH ComfyRegistry Data: 175/187
+[2026-09-14 08:58:47.483] FETCH ComfyRegistry Data: 180/187
+[2026-09-14 08:58:56.179] FETCH ComfyRegistry Data: 185/187
+[2026-09-14 08:58:59.887] FETCH ComfyRegistry Data [DONE]
+[2026-09-14 08:59:00.144] [ComfyUI-Manager] default cache updated: https://api.comfy.org/nodes
+[2026-09-14 08:59:00.242] FETCH DATA from: https://raw.githubusercontent.com/ltdrdata/ComfyUI-Manager/main/custom-node-list.json[2026-09-14 09:03:56.375] [DEPRECATION WARNING] Detected import of deprecated legacy API: /scripts/ui.js. This is likely caused by a custom node extension using outdated APIs. Please update your extensions or contact the extension author for an updated version.
+[2026-09-14 09:03:56.423] [DEPRECATION WARNING] Detected import of deprecated legacy API: /extensions/core/groupNode.js. This is likely caused by a custom node extension using outdated APIs. Please update your extensions or contact the extension author for an updated version.
+[2026-09-14 09:03:56.425] [DEPRECATION WARNING] Detected import of deprecated legacy API: /extensions/core/widgetInputs.js. This is likely caused by a custom node extension using outdated APIs. Please update your extensions or contact the extension author for an updated version.
+[2026-09-14 09:03:56.476] [DEPRECATION WARNING] Detected import of deprecated legacy API: /extensions/core/clipspace.js. This is likely caused by a custom node extension using outdated APIs. Please update your extensions or contact the extension author for an updated version.
+[2026-09-14 09:03:56.487] [DEPRECATION WARNING] Detected import of deprecated legacy API: /scripts/ui/components/buttonGroup.js. This is likely caused by a custom node extension using outdated APIs. Please update your extensions or contact the extension author for an updated version.
+[2026-09-14 09:03:56.630] [DEPRECATION WARNING] Detected import of deprecated legacy API: /scripts/ui/components/button.js. This is likely caused by a custom node extension using outdated APIs. Please update your extensions or contact the extension author for an updated version.
+[2026-09-14 09:03:56.634] [DEPRECATION WARNING] Detected import of deprecated legacy API: /scripts/ui/components/popup.js. This is likely caused by a custom node extension using outdated APIs. Please update your extensions or contact the extension author for an updated version.
+[ComfyUI-Manager] Due to a network error, 
+switching to local mode.
+=> custom-node-list.json
+=> 
+[2026-09-14 09:04:00.831] FETCH DATA from: /root/ComfyUI/custom_nodes/ComfyUI-Manager/custom-node-list.json [DONE]
+[2026-09-14 09:04:00.892] [ComfyUI-Manager] All startup tasks have been completed.
+[2026-09-14 09:24:47.415] got prompt
+[2026-09-14 09:24:47.716] Using pytorch attention in VAE
+[2026-09-14 09:24:47.717] Using pytorch attention in VAE
+[2026-09-14 09:24:47.939] VAE load device: cuda:0, offload device: cpu, dtype: torch.bfloat16
+[2026-09-14 09:24:49.272] unexpected audio encoder: ['lm_head.bias', 'lm_head.weight']
+[2026-09-14 09:24:49.288] Requested to load Wav2Vec2Model
+[2026-09-14 09:24:49.400] loaded completely 30383.8625 617.64794921875 True
+[2026-09-14 09:24:53.436] Using scaled fp8: fp8 matrix mult: False, scale input: False
+[2026-09-14 09:24:53.967] CLIP/text encoder model load device: cuda:0, offload device: cpu, current: cpu, dtype: torch.float16
+[2026-09-14 09:25:06.347] Requested to load WanTEModel
+[2026-09-14 09:25:07.982] loaded completely 29573.68134765625 6419.477203369141 True
+[2026-09-14 09:25:08.601] Requested to load WanVAE
+[2026-09-14 09:25:08.686] loaded completely 13410.513515472412 242.02829551696777 True
+[2026-09-14 09:25:37.461] Using scaled fp8: fp8 matrix mult: True, scale input: True
+[2026-09-14 09:25:37.533] model weight dtype torch.float16, manual cast: None
+[2026-09-14 09:25:37.533] model_type FLOW
+[2026-09-14 09:26:25.792] Requested to load WAN22_S2V
+[2026-09-14 09:26:38.654] loaded completely 23038.52104514231 15630.699424743652 True
+[2026-09-14 09:27:26.354] 100%|███████████████| 4/4 [00:47<00:00, 12.16s/it]100%|███████████████| 4/4 [00:47<00:00, 11.91s/it]
+[2026-09-14 09:27:26.358] Requested to load WanVAE
+[2026-09-14 09:27:26.457] loaded completely 2996.177572250366 242.02829551696777 True
+[2026-09-14 09:27:30.595] Requested to load Wav2Vec2Model
+[2026-09-14 09:27:30.829] loaded completely 14239.636776733398 617.64794921875 True
+[2026-09-14 09:27:30.851] Requested to load WanTEModel
+[2026-09-14 09:27:32.790] loaded completely 13604.893124389648 6419.477203369141 True
+[2026-09-14 09:28:50.595] 100%|███████████████| 4/4 [01:15<00:00, 19.40s/it]100%|███████████████| 4/4 [01:15<00:00, 18.85s/it]
+[2026-09-14 09:28:50.600] Requested to load WanVAE
+[2026-09-14 09:28:50.704] loaded completely 2967.368978500366 242.02829551696777 True
+[2026-09-14 09:28:56.383] Requested to load Wav2Vec2Model
+[2026-09-14 09:28:56.619] loaded completely 14210.828182983398 617.64794921875 True
+[2026-09-14 09:28:56.640] Requested to load WanTEModel
+[2026-09-14 09:28:58.466] loaded completely 13577.256405639648 6419.477203369141 True
+[2026-09-14 09:30:08.740] 100%|███████████████| 4/4 [01:08<00:00, 17.64s/it]100%|███████████████| 4/4 [01:08<00:00, 17.16s/it]
+[2026-09-14 09:30:08.744] Requested to load WanVAE
+[2026-09-14 09:30:08.847] loaded completely 2940.513509750366 242.02829551696777 True
+[2026-09-14 09:30:14.087] Requested to load Wav2Vec2Model
+[2026-09-14 09:30:14.318] loaded completely 14183.972714233398 617.64794921875 True
+[2026-09-14 09:30:14.339] Requested to load WanTEModel
+[2026-09-14 09:30:16.212] loaded completely 13548.057186889648 6419.477203369141 True
+[2026-09-14 09:31:42.353] 100%|███████████████| 4/4 [01:24<00:00, 21.76s/it]100%|███████████████| 4/4 [01:24<00:00, 21.15s/it]
+[2026-09-14 09:31:42.358] Requested to load WanVAE
+[2026-09-14 09:31:42.472] loaded completely 2907.751791000366 242.02829551696777 True
+[2026-09-14 09:31:48.537] Requested to load Wav2Vec2Model
+[2026-09-14 09:31:48.774] loaded completely 14151.210995483398 617.64794921875 True
+[2026-09-14 09:31:48.791] Requested to load WanTEModel
+[2026-09-14 09:31:50.692] loaded completely 13515.295468139648 6419.477203369141 True
+[2026-09-14 09:33:16.509] 100%|███| 4/4 [01:24<00:00, 21.72s/it]100%|███| 4/4 [01:24<00:00, 21.07s/it]
+[2026-09-14 09:33:16.514] Requested to load WanVAE
+[2026-09-14 09:33:16.622] loaded completely 2876.990072250366 242.02829551696777 True
+[2026-09-14 09:33:26.680] Prompt executed in 519.25 seconds
+[2026-09-14 10:44:03.351] got prompt
+[2026-09-14 10:44:03.866] Requested to load Wav2Vec2Model
+[2026-09-14 10:44:04.054] loaded completely 9409.320370483398 617.64794921875 True
+[2026-09-14 10:44:04.077] Requested to load WanTEModel
+[2026-09-14 10:44:05.859] loaded completely 8779.654843139648 6419.477203369141 True
+[2026-09-14 10:44:06.141]   0%| | 0/4  25%|▎| 1/4  75%|▊| 3/4 100%|█| 4/4 100%|█| 4/4 
+[2026-09-14 10:44:07.596]   0%| | 0/4  25%|▎| 1/4  50%|▌| 2/4  75%|▊| 3/4 100%|█| 4/4 100%|█| 4/4 
+[2026-09-14 10:44:09.133] Prompt executed in 5.76 seconds
+[2026-09-14 12:13:12.063] got prompt
+[2026-09-14 12:13:14.219] model weight dtype torch.float16, manual cast: None
+[2026-09-14 12:13:14.240] model_type EPS
+[2026-09-14 12:13:15.602] Using pytorch attention in VAE
+[2026-09-14 12:13:15.604] Using pytorch attention in VAE
+[2026-09-14 12:13:15.759] VAE load device: cuda:0, offload device: cpu, dtype: torch.bfloat16
+[2026-09-14 12:13:15.802] CLIP/text encoder model load device: cuda:0, offload device: cpu, current: cpu, dtype: torch.float16
+[2026-09-14 12:13:16.107] Requested to load SD1ClipModel
+[2026-09-14 12:13:16.525] loaded completely 25308.35810546875 235.84423828125 True
+[2026-09-14 12:13:16.665] Requested to load BaseModel
+[2026-09-14 12:13:16.933] loaded completely 25072.51379852295 1639.406135559082 True
+[2026-09-14 12:13:18.522] 100%|███████████████████████████████████████████| 16/16 [00:01<00:00, 10.10it/s]
+[2026-09-14 12:13:18.526] Requested to load AutoencoderKL
+[2026-09-14 12:13:18.576] loaded completely 23163.30009841919 159.55708122253418 True
+[2026-09-14 12:13:18.685] Prompt executed in 6.62 seconds
+[2026-09-14 12:13:19.599] got prompt
+[2026-09-14 12:13:20.059] 100%|███████████████████████████████████████████| 16/16 [00:00<00:00, 37.31it/s]
+[2026-09-14 12:13:20.178] Prompt executed in 0.58 seconds
+[2026-09-14 12:13:20.999] got prompt
+[2026-09-14 12:13:21.468] 100%|███████████████████████████████████████████| 16/16 [00:00<00:00, 36.68it/s]
+[2026-09-14 12:13:21.563] Prompt executed in 0.56 seconds
+[2026-09-14 12:13:22.380] got prompt
+[2026-09-14 12:13:22.855] 100%|███████████████████████████████████████████| 16/16 [00:00<00:00, 36.05it/s]
+[2026-09-14 12:13:22.942] Prompt executed in 0.56 seconds
+[2026-09-14 12:13:23.796] got prompt
+[2026-09-14 12:13:24.259] 100%|███████████████████████████████████████████| 16/16 [00:00<00:00, 36.62it/s]
+[2026-09-14 12:13:24.335] Prompt executed in 0.54 seconds
+[2026-09-14 12:13:55.445] got prompt
+[2026-09-14 12:13:55.977] Using pytorch attention in VAE
+[2026-09-14 12:13:55.979] Using pytorch attention in VAE
+[2026-09-14 12:13:56.189] VAE load device: cuda:0, offload device: cpu, dtype: torch.bfloat16
+[2026-09-14 12:13:57.783] unexpected audio encoder: ['lm_head.bias', 'lm_head.weight']
+[2026-09-14 12:13:57.801] Requested to load Wav2Vec2Model
+[2026-09-14 12:13:57.875] loaded completely 25340.3625 617.64794921875 True
+[2026-09-14 12:13:59.778] Using scaled fp8: fp8 matrix mult: False, scale input: False
+[2026-09-14 12:14:00.205] CLIP/text encoder model load device: cuda:0, offload device: cpu, current: cpu, dtype: torch.float16
+[2026-09-14 12:14:12.710] Requested to load WanTEModel
+[2026-09-14 12:14:13.723] loaded completely 24706.00947265625 6419.477203369141 True
+[2026-09-14 12:14:13.980] Requested to load WanVAE
+[2026-09-14 12:14:14.057] loaded completely 18264.85257797241 242.02829551696777 True
+[2026-09-14 12:14:20.268] Using scaled fp8: fp8 matrix mult: True, scale input: True
+[2026-09-14 12:14:20.343] model weight dtype torch.float16, manual cast: None
+[2026-09-14 12:14:20.343] model_type FLOW
+[2026-09-14 12:15:07.358] Requested to load WAN22_S2V
+[2026-09-14 12:15:15.397] loaded completely 18032.785200881957 15630.699424743652 True
+[2026-09-14 12:15:16.631] 100%|█████████████████████████████████████████████| 4/4 [00:01<00:00,  4.46it/s]100%|█████████████████████████████████████████████| 4/4 [00:01<00:00,  3.27it/s]
+[2026-09-14 12:15:17.412] 100%|█████████████████████████████████████████████| 4/4 [00:00<00:00,  7.96it/s]100%|█████████████████████████████████████████████| 4/4 [00:00<00:00,  8.18it/s]
+[2026-09-14 12:15:18.953] 100%|█████████████████████████████████████████████| 4/4 [00:01<00:00,  4.31it/s]100%|█████████████████████████████████████████████| 4/4 [00:01<00:00,  3.21it/s]
+[2026-09-14 12:15:20.439] 100%|█████████████████████████████████████████████| 4/4 [00:01<00:00,  4.64it/s]100%|█████████████████████████████████████████████| 4/4 [00:01<00:00,  3.39it/s]
+[2026-09-14 12:15:22.021] 100%|█████████████████████████████████████████████| 4/4 [00:01<00:00,  4.01it/s]100%|█████████████████████████████████████████████| 4/4 [00:01<00:00,  3.05it/s]
+[2026-09-14 12:15:23.100] Prompt executed in 87.64 seconds
+[2026-09-14 12:19:16.518] got prompt
+[2026-09-14 12:19:39.214] 100%|█████████████████████████████████████████████| 4/4 [00:20<00:00,  5.17s/it]100%|█████████████████████████████████████████████| 4/4 [00:20<00:00,  5.08s/it]
+[2026-09-14 12:20:01.655] 100%|█████████████████████████████████████████████| 4/4 [00:19<00:00,  5.14s/it]100%|█████████████████████████████████████████████| 4/4 [00:19<00:00,  4.98s/it]
+[2026-09-14 12:20:26.879] 100%|█████████████████████████████████████████████| 4/4 [00:22<00:00,  5.78s/it]100%|█████████████████████████████████████████████| 4/4 [00:22<00:00,  5.67s/it]
+[2026-09-14 12:20:45.218] 100%|█████████████████████████████████████████████| 4/4 [00:15<00:00,  3.95s/it]100%|█████████████████████████████████████████████| 4/4 [00:15<00:00,  3.91s/it]
+[2026-09-14 12:21:12.097] 100%|█████████████████████████████████████████████| 4/4 [00:24<00:00,  6.32s/it]100%|█████████████████████████████████████████████| 4/4 [00:24<00:00,  6.20s/it]
+[2026-09-14 12:21:12.180] loaded completely 5046.802572250366 242.02829551696777 True
+[2026-09-14 12:21:16.966] Prompt executed in 120.43 seconds
+[2026-09-14 12:30:42.029] got prompt
+[2026-09-14 12:30:42.633] model weight dtype torch.float16, manual cast: None
+[2026-09-14 12:30:42.633] model_type EPS
+[2026-09-14 12:30:42.722] Using pytorch attention in VAE
+[2026-09-14 12:30:42.723] Using pytorch attention in VAE
+[2026-09-14 12:30:42.748] VAE load device: cuda:0, offload device: cpu, dtype: torch.bfloat16
+[2026-09-14 12:30:42.788] CLIP/text encoder model load device: cuda:0, offload device: cpu, current: cpu, dtype: torch.float16
+[2026-09-14 12:30:42.892] Requested to load SD1ClipModel
+[2026-09-14 12:30:43.310] loaded completely 25334.3625 235.84423828125 True
+[2026-09-14 12:30:43.327] Requested to load BaseModel
+[2026-09-14 12:30:43.522] loaded completely 25098.5181930542 1639.406135559082 True
+[2026-09-14 12:30:43.854] 100%|███████████████████████████████████████████| 16/16 [00:00<00:00, 48.77it/s]
+[2026-09-14 12:30:43.857] Requested to load AutoencoderKL
+[2026-09-14 12:30:43.883] loaded completely 23189.30449295044 159.55708122253418 True
+[2026-09-14 12:30:43.948] Prompt executed in 1.92 seconds
+[2026-09-14 12:30:44.646] got prompt
+[2026-09-14 12:30:45.070] 100%|███████████████████████████████████████████| 16/16 [00:00<00:00, 41.80it/s]
+[2026-09-14 12:30:45.147] Prompt executed in 0.50 seconds
+[2026-09-14 12:30:46.131] got prompt
+[2026-09-14 12:30:46.501] 100%|███████████████████████████████████████████| 16/16 [00:00<00:00, 49.34it/s]100%|███████████████████████████████████████████| 16/16 [00:00<00:00, 46.77it/s]
+[2026-09-14 12:30:46.585] Prompt executed in 0.45 seconds
+[2026-09-14 12:30:47.474] got prompt
+[2026-09-14 12:30:47.872] 100%|███████████████████████████████████████████| 16/16 [00:00<00:00, 42.32it/s]
+[2026-09-14 12:30:47.954] Prompt executed in 0.48 seconds
+[2026-09-14 12:30:48.801] got prompt
+[2026-09-14 12:30:49.178] 100%|███████████████████████████████████████████| 16/16 [00:00<00:00, 44.23it/s]
+[2026-09-14 12:30:49.256] Prompt executed in 0.45 seconds
+[2026-09-14 12:31:30.580] got prompt
+[2026-09-14 12:31:30.635] Using pytorch attention in VAE
+[2026-09-14 12:31:30.636] Using pytorch attention in VAE
+[2026-09-14 12:31:30.701] VAE load device: cuda:0, offload device: cpu, dtype: torch.bfloat16
+[2026-09-14 12:31:30.828] unexpected audio encoder: ['lm_head.bias', 'lm_head.weight']
+[2026-09-14 12:31:30.855] Requested to load Wav2Vec2Model
+[2026-09-14 12:31:30.932] loaded completely 25288.3625 617.64794921875 True
+[2026-09-14 12:31:30.957] Using scaled fp8: fp8 matrix mult: False, scale input: False
+[2026-09-14 12:31:31.385] CLIP/text encoder model load device: cuda:0, offload device: cpu, current: cpu, dtype: torch.float16
+[2026-09-14 12:31:32.006] Requested to load WanTEModel
+[2026-09-14 12:31:32.688] loaded completely 24651.66572265625 6419.477203369141 True
+[2026-09-14 12:31:32.946] Requested to load WanVAE
+[2026-09-14 12:31:32.978] loaded completely 14456.368984222412 242.02829551696777 True
+[2026-09-14 12:31:33.048] Using scaled fp8: fp8 matrix mult: True, scale input: True
+[2026-09-14 12:31:33.073] model weight dtype torch.float16, manual cast: None
+[2026-09-14 12:31:33.073] model_type FLOW
+[2026-09-14 12:31:34.795] Requested to load WAN22_S2V
+[2026-09-14 12:31:39.183] loaded completely 20899.015039854283 15630.699424743652 True
+[2026-09-14 12:32:03.021] 100%|█████████████████████████████████████████████| 4/4 [00:23<00:00,  6.15s/it]100%|█████████████████████████████████████████████| 4/4 [00:23<00:00,  5.96s/it]
+[2026-09-14 12:32:03.023] Requested to load WanVAE
+[2026-09-14 12:32:03.068] loaded completely 5110.130697250366 242.02829551696777 True
+[2026-09-14 12:32:05.785] Requested to load Wav2Vec2Model
+[2026-09-14 12:32:05.918] loaded completely 9380.933651733398 617.64794921875 True
+[2026-09-14 12:32:05.940] Requested to load WanTEModel
+[2026-09-14 12:32:06.816] loaded completely 8745.408749389648 6419.477203369141 True
+[2026-09-14 12:32:07.173] got prompt
+[2026-09-14 12:32:28.271] 100%|█████████████████████████████████████████████| 4/4 [00:20<00:00,  5.16s/it]100%|█████████████████████████████████████████████| 4/4 [00:20<00:00,  5.00s/it]
+[2026-09-14 12:32:30.710] Requested to load Wav2Vec2Model
+[2026-09-14 12:32:30.818] loaded completely 9351.3438041687 617.64794921875 True
+[2026-09-14 12:32:31.629] loaded completely 8710.350155639648 6419.477203369141 True
+[2026-09-14 12:33:04.101] 100%|█████████████████████████████████████████████| 4/4 [00:31<00:00,  7.95s/it]100%|█████████████████████████████████████████████| 4/4 [00:31<00:00,  7.77s/it]
+[2026-09-14 12:33:04.105] Requested to load WanVAE
+[2026-09-14 12:33:04.188] loaded completely 5041.576009750366 242.02829551696777 True
+[2026-09-14 12:33:06.201] got prompt
+[2026-09-14 12:33:07.454] Requested to load Wav2Vec2Model
+[2026-09-14 12:33:07.624] loaded completely 9312.378964233398 617.64794921875 True
+[2026-09-14 12:33:07.641] Requested to load WanTEModel
+[2026-09-14 12:33:08.727] loaded completely 8677.635311889648 6419.477203369141 True
+[2026-09-14 12:33:10.192] got prompt
+[2026-09-14 12:33:24.553] got prompt
+[2026-09-14 12:33:30.306] 100%|█████████████████████████████████████████████| 4/4 [00:20<00:00,  5.19s/it]100%|█████████████████████████████████████████████| 4/4 [00:20<00:00,  5.03s/it]
+[2026-09-14 12:33:32.753] Requested to load Wav2Vec2Model
+[2026-09-14 12:33:32.872] loaded completely 9283.5703666687 617.64794921875 True
+[2026-09-14 12:33:34.014] loaded completely 8645.701718139648 6419.477203369141 True
+[2026-09-14 12:33:59.765] 100%|█████████████████████████████████████████████| 4/4 [00:24<00:00,  6.24s/it]100%|█████████████████████████████████████████████| 4/4 [00:24<00:00,  6.05s/it]
+[2026-09-14 12:33:59.767] Requested to load WanVAE
+[2026-09-14 12:33:59.812] loaded completely 4979.271322250366 242.02829551696777 True
+[2026-09-14 12:34:05.111] Prompt executed in 154.52 seconds
+[2026-09-14 12:34:05.983] model weight dtype torch.float16, manual cast: None
+[2026-09-14 12:34:05.983] model_type EPS
+[2026-09-14 12:34:06.045] Using pytorch attention in VAE
+[2026-09-14 12:34:06.045] Using pytorch attention in VAE
+[2026-09-14 12:34:06.066] VAE load device: cuda:0, offload device: cpu, dtype: torch.bfloat16
+[2026-09-14 12:34:06.105] CLIP/text encoder model load device: cuda:0, offload device: cpu, current: cpu, dtype: torch.float16
+[2026-09-14 12:34:06.168] Requested to load SD1ClipModel
+[2026-09-14 12:34:06.260] loaded completely 25288.3625 235.84423828125 True
+[2026-09-14 12:34:06.277] Requested to load BaseModel
+[2026-09-14 12:34:06.473] loaded completely 25052.5181930542 1639.406135559082 True
+[2026-09-14 12:34:06.819] 100%|███████████████████████████████████████████| 16/16 [00:00<00:00, 46.72it/s]
+[2026-09-14 12:34:06.823] Requested to load AutoencoderKL
+[2026-09-14 12:34:06.849] loaded completely 23143.30449295044 159.55708122253418 True
+[2026-09-14 12:34:06.921] Prompt executed in 1.38 seconds
+[2026-09-14 12:34:07.256] 100%|███████████████████████████████████████████| 16/16 [00:00<00:00, 48.53it/s]
+[2026-09-14 12:34:07.330] Prompt executed in 0.41 seconds
+[2026-09-14 12:34:07.663] 100%|███████████████████████████████████████████| 16/16 [00:00<00:00, 48.99it/s]
+[2026-09-14 12:34:07.737] Prompt executed in 0.41 seconds
+[2026-09-14 12:34:08.036] got prompt
+[2026-09-14 12:34:08.101] 100%|███████████████████████████████████████████| 16/16 [00:00<00:00, 44.56it/s]
+[2026-09-14 12:34:08.175] Prompt executed in 0.44 seconds
+[2026-09-14 12:34:08.516] 100%|███████████████████████████████████████████| 16/16 [00:00<00:00, 48.47it/s]
+[2026-09-14 12:34:08.592] Prompt executed in 0.42 seconds
+[2026-09-14 12:34:09.503] got prompt
+[2026-09-14 12:34:09.902] 100%|███████████████████████████████████████████| 16/16 [00:00<00:00, 43.54it/s]
+[2026-09-14 12:34:09.982] Prompt executed in 0.48 seconds
+[2026-09-14 12:34:10.918] got prompt
+[2026-09-14 12:34:11.409] 100%|███████████████████████████████████████████| 16/16 [00:00<00:00, 34.35it/s]
+[2026-09-14 12:34:11.481] Prompt executed in 0.56 seconds
+[2026-09-14 12:34:12.324] got prompt
+[2026-09-14 12:34:12.755] 100%|███████████████████████████████████████████| 16/16 [00:00<00:00, 39.70it/s]
+[2026-09-14 12:34:12.827] Prompt executed in 0.50 seconds
+[2026-09-14 12:35:45.117] got prompt
+[2026-09-14 12:35:45.192] Using pytorch attention in VAE
+[2026-09-14 12:35:45.192] Using pytorch attention in VAE
+[2026-09-14 12:35:45.227] VAE load device: cuda:0, offload device: cpu, dtype: torch.bfloat16
+[2026-09-14 12:35:45.341] unexpected audio encoder: ['lm_head.bias', 'lm_head.weight']
+[2026-09-14 12:35:45.356] Requested to load Wav2Vec2Model
+[2026-09-14 12:35:45.429] loaded completely 25214.3625 617.64794921875 True
+[2026-09-14 12:35:45.456] Using scaled fp8: fp8 matrix mult: False, scale input: False
+[2026-09-14 12:35:45.859] CLIP/text encoder model load device: cuda:0, offload device: cpu, current: cpu, dtype: torch.float16
+[2026-09-14 12:35:46.303] Requested to load WanTEModel
+[2026-09-14 12:35:46.990] loaded completely 24574.54072265625 6419.477203369141 True
+[2026-09-14 12:35:47.247] Requested to load WanVAE
+[2026-09-14 12:35:47.280] loaded completely 18126.93851547241 242.02829551696777 True
+[2026-09-14 12:35:47.334] Using scaled fp8: fp8 matrix mult: True, scale input: True
+[2026-09-14 12:35:47.359] model weight dtype torch.float16, manual cast: None
+[2026-09-14 12:35:47.359] model_type FLOW
+[2026-09-14 12:35:48.591] Requested to load WAN22_S2V
+[2026-09-14 12:35:51.399] loaded completely 18140.945832308298 15630.699424743652 True
+[2026-09-14 12:35:54.630] 100%|█████████████████████████████████████████████| 4/4 [00:03<00:00,  1.34it/s]100%|█████████████████████████████████████████████| 4/4 [00:03<00:00,  1.24it/s]
+[2026-09-14 12:35:54.632] Requested to load WanVAE
+[2026-09-14 12:35:54.667] loaded completely 2576.6822986602783 242.02829551696777 True
+[2026-09-14 12:35:55.168] loaded completely 2882.7689445495607 617.64794921875 True
+[2026-09-14 12:35:58.874] 100%|█████████████████████████████████████████████| 4/4 [00:03<00:00,  1.21it/s]100%|█████████████████████████████████████████████| 4/4 [00:03<00:00,  1.13it/s]
+[2026-09-14 12:36:02.553] 100%|█████████████████████████████████████████████| 4/4 [00:02<00:00,  1.48it/s]100%|█████████████████████████████████████████████| 4/4 [00:02<00:00,  1.35it/s]
+[2026-09-14 12:36:05.677] 100%|█████████████████████████████████████████████| 4/4 [00:02<00:00,  1.53it/s]100%|█████████████████████████████████████████████| 4/4 [00:02<00:00,  1.58it/s]
+[2026-09-14 12:36:09.003] 100%|█████████████████████████████████████████████| 4/4 [00:02<00:00,  1.67it/s]100%|█████████████████████████████████████████████| 4/4 [00:02<00:00,  1.51it/s]
+[2026-09-14 12:36:10.747] Prompt executed in 25.61 seconds
+[2026-09-14 12:40:10.964] got prompt
+[2026-09-14 12:40:11.347] model weight dtype torch.float16, manual cast: None
+[2026-09-14 12:40:11.347] model_type EPS
+[2026-09-14 12:40:11.479] Using pytorch attention in VAE
+[2026-09-14 12:40:11.480] Using pytorch attention in VAE
+[2026-09-14 12:40:11.517] VAE load device: cuda:0, offload device: cpu, dtype: torch.bfloat16
+[2026-09-14 12:40:11.556] CLIP/text encoder model load device: cuda:0, offload device: cpu, current: cpu, dtype: torch.float16
+[2026-09-14 12:40:11.620] Requested to load SD1ClipModel
+[2026-09-14 12:40:11.935] loaded completely 25182.35810546875 235.84423828125 True
+[2026-09-14 12:40:11.979] Requested to load BaseModel
+[2026-09-14 12:40:12.207] loaded completely 24946.51379852295 1639.406135559082 True
+[2026-09-14 12:40:13.004] 100%|███████████████████████████████████████████| 16/16 [00:00<00:00, 28.88it/s]100%|███████████████████████████████████████████| 16/16 [00:00<00:00, 20.19it/s]
+[2026-09-14 12:40:13.006] Requested to load AutoencoderKL
+[2026-09-14 12:40:13.034] loaded completely 23037.30009841919 159.55708122253418 True
+[2026-09-14 12:40:13.108] Prompt executed in 2.14 seconds
+[2026-09-14 12:40:13.548] got prompt
+[2026-09-14 12:40:14.011] 100%|███████████████████████████████████████████| 16/16 [00:00<00:00, 38.59it/s]
+[2026-09-14 12:40:14.092] Prompt executed in 0.54 seconds
+[2026-09-14 12:40:14.947] got prompt
+[2026-09-14 12:40:15.412] 100%|███████████████████████████████████████████| 16/16 [00:00<00:00, 37.49it/s]
+[2026-09-14 12:40:15.488] Prompt executed in 0.54 seconds
+[2026-09-14 12:40:16.344] got prompt
+[2026-09-14 12:40:16.781] 100%|███████████████████████████████████████████| 16/16 [00:00<00:00, 40.38it/s]
+[2026-09-14 12:40:16.862] Prompt executed in 0.52 seconds
+[2026-09-14 12:40:17.709] got prompt
+[2026-09-14 12:40:18.131] 100%|███████████████████████████████████████████| 16/16 [00:00<00:00, 40.78it/s]
+[2026-09-14 12:40:18.209] Prompt executed in 0.50 seconds
+[2026-09-14 12:41:42.294] got prompt
+[2026-09-14 12:41:42.401] Using pytorch attention in VAE
+[2026-09-14 12:41:42.402] Using pytorch attention in VAE
+[2026-09-14 12:41:42.459] VAE load device: cuda:0, offload device: cpu, dtype: torch.bfloat16
+[2026-09-14 12:41:42.582] unexpected audio encoder: ['lm_head.bias', 'lm_head.weight']
+[2026-09-14 12:41:42.595] Requested to load Wav2Vec2Model
+[2026-09-14 12:41:42.668] loaded completely 24918.3625 617.64794921875 True
+[2026-09-14 12:41:42.700] Using scaled fp8: fp8 matrix mult: False, scale input: False
+[2026-09-14 12:41:43.118] CLIP/text encoder model load device: cuda:0, offload device: cpu, current: cpu, dtype: torch.float16
+[2026-09-14 12:41:43.581] Requested to load WanTEModel
+[2026-09-14 12:41:44.249] loaded completely 24246.50947265625 6419.477203369141 True
+[2026-09-14 12:41:44.510] Requested to load WanVAE
+[2026-09-14 12:41:44.541] loaded completely 17759.35648422241 242.02829551696777 True
+[2026-09-14 12:41:44.583] Using scaled fp8: fp8 matrix mult: True, scale input: True
+[2026-09-14 12:41:44.608] model weight dtype torch.float16, manual cast: None
+[2026-09-14 12:41:44.608] model_type FLOW
+[2026-09-14 12:41:45.699] Requested to load WAN22_S2V
+[2026-09-14 12:41:48.783] loaded completely 19394.437413057865 15630.699424743652 True
+[2026-09-14 12:41:56.558] 100%|█████████████████████████████████████████████| 4/4 [00:07<00:00,  1.92s/it]100%|█████████████████████████████████████████████| 4/4 [00:07<00:00,  1.94s/it]
+[2026-09-14 12:41:56.559] Requested to load WanVAE
+[2026-09-14 12:41:56.610] loaded completely 5057.130495071411 242.02829551696777 True
+[2026-09-14 12:41:57.753] Requested to load Wav2Vec2Model
+[2026-09-14 12:41:57.844] loaded completely 4870.9021995544435 617.64794921875 True
+[2026-09-14 12:41:58.109] loaded completely 8314.080624389648 6419.477203369141 True
+[2026-09-14 12:42:00.898] 100%|█████████████████████████████████████████████| 4/4 [00:02<00:00,  1.54it/s]100%|█████████████████████████████████████████████| 4/4 [00:02<00:00,  1.59it/s]
+[2026-09-14 12:42:05.360] 100%|█████████████████████████████████████████████| 4/4 [00:03<00:00,  1.16it/s]100%|█████████████████████████████████████████████| 4/4 [00:03<00:00,  1.09it/s]
+[2026-09-14 12:42:08.449] 100%|█████████████████████████████████████████████| 4/4 [00:02<00:00,  1.74it/s]100%|█████████████████████████████████████████████| 4/4 [00:02<00:00,  1.80it/s]
+[2026-09-14 12:42:11.220] 100%|█████████████████████████████████████████████| 4/4 [00:02<00:00,  2.24it/s]100%|█████████████████████████████████████████████| 4/4 [00:02<00:00,  1.93it/s]
+[2026-09-14 12:42:12.804] Prompt executed in 30.48 seconds
+[2026-09-14 12:48:44.692] got prompt
+[2026-09-14 12:48:52.206] 100%|█████████████████████████████████████████████| 4/4 [00:07<00:00,  1.82s/it]100%|█████████████████████████████████████████████| 4/4 [00:07<00:00,  1.77s/it]
+[2026-09-14 12:48:52.207] Requested to load WanVAE
+[2026-09-14 12:48:52.246] loaded completely 3466.755262374878 242.02829551696777 True
+[2026-09-14 12:48:55.904] 100%|█████████████████████████████████████████████| 4/4 [00:02<00:00,  1.54it/s]100%|█████████████████████████████████████████████| 4/4 [00:02<00:00,  1.59it/s]
+[2026-09-14 12:48:59.345] 100%|█████████████████████████████████████████████| 4/4 [00:02<00:00,  1.31it/s]100%|█████████████████████████████████████████████| 4/4 [00:02<00:00,  1.35it/s]
+[2026-09-14 12:49:02.119] 100%|█████████████████████████████████████████████| 4/4 [00:02<00:00,  1.75it/s]100%|█████████████████████████████████████████████| 4/4 [00:02<00:00,  1.80it/s]
+[2026-09-14 12:49:03.856] 100%|█████████████████████████████████████████████| 4/4 [00:01<00:00,  2.88it/s]100%|█████████████████████████████████████████████| 4/4 [00:01<00:00,  2.97it/s]
+[2026-09-14 12:49:05.384] Prompt executed in 20.67 seconds
+[2026-09-14 12:59:36.506] got prompt
+[2026-09-14 12:59:36.818] model weight dtype torch.float16, manual cast: None
+[2026-09-14 12:59:36.819] model_type EPS
+[2026-09-14 12:59:36.917] Using pytorch attention in VAE
+[2026-09-14 12:59:36.918] Using pytorch attention in VAE
+[2026-09-14 12:59:36.945] VAE load device: cuda:0, offload device: cpu, dtype: torch.bfloat16
+[2026-09-14 12:59:36.983] CLIP/text encoder model load device: cuda:0, offload device: cpu, current: cpu, dtype: torch.float16
+[2026-09-14 12:59:37.047] Requested to load SD1ClipModel
+[2026-09-14 12:59:37.490] loaded completely 24918.3625 235.84423828125 True
+[2026-09-14 12:59:37.507] Requested to load BaseModel
+[2026-09-14 12:59:37.706] loaded completely 24682.5181930542 1639.406135559082 True
+[2026-09-14 12:59:38.023] 100%|███████████████████████████████████████████| 16/16 [00:00<00:00, 51.15it/s]
+[2026-09-14 12:59:38.026] Requested to load AutoencoderKL
+[2026-09-14 12:59:38.052] loaded completely 22773.30449295044 159.55708122253418 True
+[2026-09-14 12:59:38.120] Prompt executed in 1.61 seconds
+[2026-09-14 12:59:39.107] got prompt
+[2026-09-14 12:59:39.574] 100%|███████████████████████████████████████████| 16/16 [00:00<00:00, 36.56it/s]
+[2026-09-14 12:59:39.642] Prompt executed in 0.53 seconds
+[2026-09-14 12:59:40.502] got prompt
+[2026-09-14 12:59:40.979] 100%|███████████████████████████████████████████| 16/16 [00:00<00:00, 37.10it/s]
+[2026-09-14 12:59:41.055] Prompt executed in 0.55 seconds
+[2026-09-14 12:59:41.982] got prompt
+[2026-09-14 12:59:42.478] 100%|███████████████████████████████████████████| 16/16 [00:00<00:00, 33.92it/s]
+[2026-09-14 12:59:42.545] Prompt executed in 0.56 seconds
+[2026-09-14 12:59:43.944] got prompt
+[2026-09-14 12:59:44.302] 100%|███████████████████████████████████████████| 16/16 [00:00<00:00, 46.93it/s]
+[2026-09-14 12:59:44.374] Prompt executed in 0.43 seconds
+[2026-09-14 13:10:04.255] got prompt
+[2026-09-14 13:10:04.379] Using pytorch attention in VAE
+[2026-09-14 13:10:04.380] Using pytorch attention in VAE
+[2026-09-14 13:10:04.427] VAE load device: cuda:0, offload device: cpu, dtype: torch.bfloat16
+[2026-09-14 13:10:04.546] unexpected audio encoder: ['lm_head.bias', 'lm_head.weight']
+[2026-09-14 13:10:04.560] Requested to load Wav2Vec2Model
+[2026-09-14 13:10:04.637] loaded completely 24918.3625 617.64794921875 True
+[2026-09-14 13:10:04.664] Using scaled fp8: fp8 matrix mult: False, scale input: False
+[2026-09-14 13:10:05.084] CLIP/text encoder model load device: cuda:0, offload device: cpu, current: cpu, dtype: torch.float16
+[2026-09-14 13:10:05.538] Requested to load WanTEModel
+[2026-09-14 13:10:06.273] loaded completely 24276.19697265625 6419.477203369141 True
+[2026-09-14 13:10:06.529] Requested to load WanVAE
+[2026-09-14 13:10:06.561] loaded completely 17825.66507797241 242.02829551696777 True
+[2026-09-14 13:10:06.602] Using scaled fp8: fp8 matrix mult: True, scale input: True
+[2026-09-14 13:10:06.626] model weight dtype torch.float16, manual cast: None
+[2026-09-14 13:10:06.627] model_type FLOW
+[2026-09-14 13:10:07.944] Requested to load WAN22_S2V
+[2026-09-14 13:10:10.955] loaded completely 18238.967386211734 15630.699424743652 True
+[2026-09-14 13:10:13.787] 100%|█████████████████████████████████████████████| 4/4 [00:02<00:00,  1.37it/s]100%|█████████████████████████████████████████████| 4/4 [00:02<00:00,  1.42it/s]
+[2026-09-14 13:10:13.789] Requested to load WanVAE
+[2026-09-14 13:10:13.822] loaded completely 2769.0851306915283 242.02829551696777 True
+[2026-09-14 13:10:14.437] loaded completely 2582.8626945495607 617.64794921875 True
+[2026-09-14 13:10:16.809] 100%|█████████████████████████████████████████████| 4/4 [00:02<00:00,  1.75it/s]100%|█████████████████████████████████████████████| 4/4 [00:02<00:00,  1.80it/s]
+[2026-09-14 13:10:19.932] 100%|█████████████████████████████████████████████| 4/4 [00:02<00:00,  1.54it/s]100%|█████████████████████████████████████████████| 4/4 [00:02<00:00,  1.59it/s]
+[2026-09-14 13:10:23.285] 100%|█████████████████████████████████████████████| 4/4 [00:02<00:00,  1.75it/s]100%|█████████████████████████████████████████████| 4/4 [00:02<00:00,  1.56it/s]
+[2026-09-14 13:10:26.159] 100%|█████████████████████████████████████████████| 4/4 [00:02<00:00,  2.04it/s]100%|█████████████████████████████████████████████| 4/4 [00:02<00:00,  1.78it/s]
+[2026-09-14 13:10:27.530] Prompt executed in 23.25 seconds
+[2026-09-14 13:20:49.056] got prompt
+[2026-09-14 13:20:49.374] model weight dtype torch.float16, manual cast: None
+[2026-09-14 13:20:49.374] model_type EPS
+[2026-09-14 13:20:49.449] Using pytorch attention in VAE
+[2026-09-14 13:20:49.449] Using pytorch attention in VAE
+[2026-09-14 13:20:49.471] VAE load device: cuda:0, offload device: cpu, dtype: torch.bfloat16
+[2026-09-14 13:20:49.509] CLIP/text encoder model load device: cuda:0, offload device: cpu, current: cpu, dtype: torch.float16
+[2026-09-14 13:20:49.574] Requested to load SD1ClipModel
+[2026-09-14 13:20:49.905] loaded completely 24886.35810546875 235.84423828125 True
+[2026-09-14 13:20:49.923] Requested to load BaseModel
+[2026-09-14 13:20:50.186] loaded completely 24650.51379852295 1639.406135559082 True
+[2026-09-14 13:20:50.532] 100%|███████████████████████████████████████████| 16/16 [00:00<00:00, 46.87it/s]
+[2026-09-14 13:20:50.535] Requested to load AutoencoderKL
+[2026-09-14 13:20:50.561] loaded completely 22741.30009841919 159.55708122253418 True
+[2026-09-14 13:20:50.630] Prompt executed in 1.57 seconds
+[2026-09-14 13:22:16.358] got prompt
+[2026-09-14 13:22:16.420] Using pytorch attention in VAE
+[2026-09-14 13:22:16.421] Using pytorch attention in VAE
+[2026-09-14 13:22:16.457] VAE load device: cuda:0, offload device: cpu, dtype: torch.bfloat16
+[2026-09-14 13:22:16.517] !!! Exception during processing !!! cannot identify image file '/root/ComfyUI/input/console_batchverify_shot1_a4da89.png'
+[2026-09-14 13:22:16.523] Traceback (most recent call last):
+  File "/root/ComfyUI/node_helpers.py", line 27, in pillow
+    x = fn(arg)
+        ^^^^^^^
+  File "/root/miniconda3/lib/python3.11/site-packages/PIL/Image.py", line 3536, in open
+    raise UnidentifiedImageError(msg)
+PIL.UnidentifiedImageError: cannot identify image file '/root/ComfyUI/input/console_batchverify_shot1_a4da89.png'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/root/ComfyUI/execution.py", line 498, in execute
+    output_data, output_ui, has_subgraph, has_pending_tasks = await get_output_data(prompt_id, unique_id, obj, input_data_all, execution_block_cb=execution_block_cb, pre_execute_cb=pre_execute_cb, hidden_inputs=hidden_inputs)
+                                                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/ComfyUI/execution.py", line 316, in get_output_data
+    return_values = await _async_map_node_over_list(prompt_id, unique_id, obj, input_data_all, obj.FUNCTION, allow_interrupt=True, execution_block_cb=execution_block_cb, pre_execute_cb=pre_execute_cb, hidden_inputs=hidden_inputs)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/ComfyUI/execution.py", line 290, in _async_map_node_over_list
+    await process_inputs(input_dict, i)
+  File "/root/ComfyUI/execution.py", line 278, in process_inputs
+    result = f(**inputs)
+             ^^^^^^^^^^^
+  File "/root/ComfyUI/nodes.py", line 1647, in load_image
+    img = node_helpers.pillow(Image.open, image_path)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/ComfyUI/node_helpers.py", line 31, in pillow
+    x = fn(arg)
+        ^^^^^^^
+  File "/root/miniconda3/lib/python3.11/site-packages/PIL/Image.py", line 3536, in open
+    raise UnidentifiedImageError(msg)
+PIL.UnidentifiedImageError: cannot identify image file '/root/ComfyUI/input/console_batchverify_shot1_a4da89.png'
+
+[2026-09-14 13:22:16.525] Prompt executed in 0.15 seconds
+[2026-09-14 13:23:15.650] got prompt
+[2026-09-14 13:23:15.765] model weight dtype torch.float16, manual cast: None
+[2026-09-14 13:23:15.766] model_type EPS
+[2026-09-14 13:23:15.861] Using pytorch attention in VAE
+[2026-09-14 13:23:15.861] Using pytorch attention in VAE
+[2026-09-14 13:23:15.882] VAE load device: cuda:0, offload device: cpu, dtype: torch.bfloat16
+[2026-09-14 13:23:15.922] CLIP/text encoder model load device: cuda:0, offload device: cpu, current: cpu, dtype: torch.float16
+[2026-09-14 13:23:15.988] Requested to load SD1ClipModel
+[2026-09-14 13:23:16.034] loaded completely 24918.3625 235.84423828125 True
+[2026-09-14 13:23:16.053] Requested to load BaseModel
+[2026-09-14 13:23:16.245] loaded completely 24682.5181930542 1639.406135559082 True
+[2026-09-14 13:23:16.582] 100%|███████████████████████████████████████████| 16/16 [00:00<00:00, 48.04it/s]
+[2026-09-14 13:23:16.582] Requested to load AutoencoderKL
+[2026-09-14 13:23:16.609] loaded completely 22773.30449295044 159.55708122253418 True
+[2026-09-14 13:23:16.674] Prompt executed in 1.02 seconds
+[2026-09-14 13:23:17.086] got prompt
+[2026-09-14 13:23:17.532] 100%|███████████████████████████████████████████| 16/16 [00:00<00:00, 39.80it/s]
+[2026-09-14 13:23:17.607] Prompt executed in 0.52 seconds
+[2026-09-14 13:23:18.473] got prompt
+[2026-09-14 13:23:18.929] 100%|███████████████████████████████████████████| 16/16 [00:00<00:00, 37.12it/s]
+[2026-09-14 13:23:18.998] Prompt executed in 0.52 seconds
+[2026-09-14 13:23:19.852] got prompt
+[2026-09-14 13:23:20.338] 100%|███████████████████████████████████████████| 16/16 [00:00<00:00, 36.67it/s]
+[2026-09-14 13:23:20.409] Prompt executed in 0.56 seconds
+[2026-09-14 13:23:21.242] got prompt
+[2026-09-14 13:23:21.700] 100%|███████████████████████████████████████████| 16/16 [00:00<00:00, 38.61it/s]
+[2026-09-14 13:23:21.767] Prompt executed in 0.52 seconds
+[2026-09-14 13:23:42.725] got prompt
+[2026-09-14 13:23:43.190] 100%|███████████████████████████████████████████| 16/16 [00:00<00:00, 39.31it/s]
+[2026-09-14 13:23:43.265] Prompt executed in 0.54 seconds
+[2026-09-14 13:23:44.382] got prompt
+[2026-09-14 13:23:44.853] 100%|███████████████████████████████████████████| 16/16 [00:00<00:00, 37.35it/s]
+[2026-09-14 13:23:44.921] Prompt executed in 0.54 seconds
+[2026-09-14 13:23:45.756] got prompt
+[2026-09-14 13:23:46.223] 100%|███████████████████████████████████████████| 16/16 [00:00<00:00, 37.91it/s]
+[2026-09-14 13:23:46.292] Prompt executed in 0.53 seconds
+[2026-09-14 13:23:47.083] got prompt
+[2026-09-14 13:23:47.562] 100%|███████████████████████████████████████████| 16/16 [00:00<00:00, 37.22it/s]
+[2026-09-14 13:23:47.628] Prompt executed in 0.54 seconds
+[2026-09-14 13:24:08.356] got prompt
+[2026-09-14 13:24:08.777] 100%|███████████████████████████████████████████| 16/16 [00:00<00:00, 41.34it/s]
+[2026-09-14 13:24:08.853] Prompt executed in 0.50 seconds
+[2026-09-14 13:24:09.736] got prompt
+[2026-09-14 13:24:10.089] 100%|███████████████████████████████████████████| 16/16 [00:00<00:00, 48.21it/s]
+[2026-09-14 13:24:10.166] Prompt executed in 0.43 seconds
+[2026-09-14 13:24:11.125] got prompt
+[2026-09-14 13:24:11.515] 100%|███████████████████████████████████████████| 16/16 [00:00<00:00, 44.40it/s]
+[2026-09-14 13:24:11.590] Prompt executed in 0.46 seconds
+[2026-09-14 13:24:12.501] got prompt
+[2026-09-14 13:24:12.879] 100%|███████████████████████████████████████████| 16/16 [00:00<00:00, 45.54it/s]
+[2026-09-14 13:24:12.956] Prompt executed in 0.45 seconds
+[2026-09-14 13:24:25.297] got prompt
+[2026-09-14 13:24:25.747] 100%|███████████████████████████████████████████| 16/16 [00:00<00:00, 39.40it/s]
+[2026-09-14 13:24:25.820] Prompt executed in 0.52 seconds
+[2026-09-14 13:24:26.691] got prompt
+[2026-09-14 13:24:27.122] 100%|███████████████████████████████████████████| 16/16 [00:00<00:00, 39.70it/s]
+[2026-09-14 13:24:27.193] Prompt executed in 0.50 seconds
+[2026-09-14 13:24:28.070] got prompt
+[2026-09-14 13:24:28.543] 100%|███████████████████████████████████████████| 16/16 [00:00<00:00, 36.52it/s]
+[2026-09-14 13:24:28.610] Prompt executed in 0.54 seconds
+[2026-09-14 13:24:29.462] got prompt
+[2026-09-14 13:24:29.928] 100%|███████████████████████████████████████████| 16/16 [00:00<00:00, 37.47it/s]
+[2026-09-14 13:24:29.998] Prompt executed in 0.53 seconds
+[2026-09-14 13:25:04.279] got prompt
+[2026-09-14 13:25:04.405] Using pytorch attention in VAE
+[2026-09-14 13:25:04.407] Using pytorch attention in VAE
+[2026-09-14 13:25:04.478] VAE load device: cuda:0, offload device: cpu, dtype: torch.bfloat16
+[2026-09-14 13:25:04.591] unexpected audio encoder: ['lm_head.bias', 'lm_head.weight']
+[2026-09-14 13:25:04.606] Requested to load Wav2Vec2Model
+[2026-09-14 13:25:04.685] loaded completely 24918.3625 617.64794921875 True
+[2026-09-14 13:25:04.714] Using scaled fp8: fp8 matrix mult: False, scale input: False
+[2026-09-14 13:25:05.158] CLIP/text encoder model load device: cuda:0, offload device: cpu, current: cpu, dtype: torch.float16
+[2026-09-14 13:25:05.702] Requested to load WanTEModel
+[2026-09-14 13:25:06.614] loaded completely 24279.71259765625 6419.477203369141 True
+[2026-09-14 13:25:06.871] Requested to load WanVAE
+[2026-09-14 13:25:06.903] loaded completely 17833.57523422241 242.02829551696777 True
+[2026-09-14 13:25:06.945] Using scaled fp8: fp8 matrix mult: True, scale input: True
+[2026-09-14 13:25:06.973] model weight dtype torch.float16, manual cast: None
+[2026-09-14 13:25:06.973] model_type FLOW
+[2026-09-14 13:25:08.193] Requested to load WAN22_S2V
+[2026-09-14 13:25:11.315] loaded completely 18098.195065122203 15630.699424743652 True
+[2026-09-14 13:25:14.404] 100%|█████████████████████████████████████████████| 4/4 [00:03<00:00,  1.42it/s]100%|█████████████████████████████████████████████| 4/4 [00:03<00:00,  1.30it/s]
+[2026-09-14 13:25:14.405] Requested to load WanVAE
+[2026-09-14 13:25:14.440] loaded completely 2484.7408924102783 242.02829551696777 True
+[2026-09-14 13:25:14.945] loaded completely 2586.7220695495607 617.64794921875 True
+[2026-09-14 13:25:17.595] 100%|█████████████████████████████████████████████| 4/4 [00:02<00:00,  1.66it/s]100%|█████████████████████████████████████████████| 4/4 [00:02<00:00,  1.71it/s]
+[2026-09-14 13:25:21.190] 100%|█████████████████████████████████████████████| 4/4 [00:02<00:00,  1.37it/s]100%|█████████████████████████████████████████████| 4/4 [00:02<00:00,  1.41it/s]
+[2026-09-14 13:25:23.977] 100%|█████████████████████████████████████████████| 4/4 [00:01<00:00,  1.98it/s]100%|█████████████████████████████████████████████| 4/4 [00:01<00:00,  2.05it/s]
+[2026-09-14 13:25:28.003] 100%|█████████████████████████████████████████████| 4/4 [00:03<00:00,  1.28it/s]100%|█████████████████████████████████████████████| 4/4 [00:03<00:00,  1.19it/s]
+[2026-09-14 13:25:29.781] Prompt executed in 25.47 seconds
+[2026-09-14 13:27:39.400] got prompt
+[2026-09-14 13:27:41.197] 0 models unloaded.
+[2026-09-14 13:27:41.214] loaded partially 14874.953477954865 14874.949684143066 0
+[2026-09-14 13:28:27.297] got prompt
+[2026-09-14 13:29:42.976] 100%|█████████████████████████████████████████████| 4/4 [02:01<00:00, 31.05s/it]100%|█████████████████████████████████████████████| 4/4 [02:01<00:00, 30.44s/it]
+[2026-09-14 13:29:42.979] Requested to load WanVAE
+[2026-09-14 13:29:43.244] loaded completely 268.8615093231201 242.02829551696777 True
+[2026-09-14 13:29:51.578] Requested to load Wav2Vec2Model
+[2026-09-14 13:29:51.847] loaded completely 11512.320713806152 617.64794921875 True
+[2026-09-14 13:29:52.187] 0 models unloaded.
+[2026-09-14 13:29:52.204] loaded partially 13122.234237766266 13122.234237670898 0
+[2026-09-14 13:29:52.382] got prompt
+[2026-09-14 13:31:08.948] got prompt
+[2026-09-14 13:31:39.105] 100%|█████████████████████████████████████████████| 4/4 [01:46<00:00, 26.78s/it]100%|█████████████████████████████████████████████| 4/4 [01:46<00:00, 26.72s/it]
+[2026-09-14 13:31:39.112] Requested to load WanVAE
+[2026-09-14 13:31:39.258] loaded completely 284.2033214569092 242.02829551696777 True
+[2026-09-14 13:31:43.204] got prompt
+[2026-09-14 13:31:46.680] Requested to load Wav2Vec2Model
+[2026-09-14 13:31:46.944] loaded completely 11527.66252593994 617.64794921875 True
+[2026-09-14 13:31:47.175] 0 models unloaded.
+[2026-09-14 13:31:47.192] loaded partially 13072.224456882477 13072.22445678711 0
