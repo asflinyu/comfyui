@@ -1,0 +1,143 @@
+## ComfyUI-Manager: installing dependencies done.
+[2026-09-14 08:52:02.149] ** ComfyUI startup time: 2026-09-14 08:52:02.149
+[2026-09-14 08:52:02.149] ** Platform: Linux
+[2026-09-14 08:52:02.150] ** Python version: 3.11.13 (main, Jun  5 2025, 13:12:00) [GCC 11.2.0]
+[2026-09-14 08:52:02.150] ** Python executable: /root/miniconda3/bin/python
+[2026-09-14 08:52:02.150] ** ComfyUI Path: /root/ComfyUI
+[2026-09-14 08:52:02.150] ** ComfyUI Base Folder Path: /root/ComfyUI
+[2026-09-14 08:52:02.150] ** User directory: /root/ComfyUI/user
+[2026-09-14 08:52:02.150] ** ComfyUI-Manager config path: /root/ComfyUI/user/default/ComfyUI-Manager/config.ini
+[2026-09-14 08:52:02.150] ** Log path: /root/ComfyUI/user/comfyui.log
+
+Prestartup times for custom nodes:
+[2026-09-14 08:52:02.830]    0.0 seconds: /root/ComfyUI/custom_nodes/rgthree-comfy
+[2026-09-14 08:52:02.830]    1.5 seconds: /root/ComfyUI/custom_nodes/ComfyUI-Manager
+[2026-09-14 08:52:02.830] 
+[2026-09-14 08:52:03.924] Checkpoint files will always be loaded safely.
+[2026-09-14 08:52:04.130] Total VRAM 32109 MB, total RAM 772649 MB
+[2026-09-14 08:52:04.130] pytorch version: 2.7.1+cu128
+[2026-09-14 08:52:04.130] Set vram state to: NORMAL_VRAM
+[2026-09-14 08:52:04.130] Device: cuda:0 NVIDIA GeForce RTX 5090 : cudaMallocAsync
+[2026-09-14 08:52:04.882] Using pytorch attention
+[2026-09-14 08:52:05.415] Python version: 3.11.13 (main, Jun  5 2025, 13:12:00) [GCC 11.2.0]
+[2026-09-14 08:52:05.415] ComfyUI version: 0.3.66
+[2026-09-14 08:52:05.418] ComfyUI frontend version: 1.28.7
+[2026-09-14 08:52:05.418] [Prompt Server] web root: /root/miniconda3/lib/python3.11/site-packages/comfyui_frontend_package/static
+[2026-09-14 08:52:06.157] ======================================== ComfyUI-nunchaku Initialization ========================================
+[2026-09-14 08:52:06.159] Nunchaku version: 1.0.0
+[2026-09-14 08:52:06.160] ComfyUI-nunchaku version: 1.0.1
+[2026-09-14 08:52:08.618] /root/miniconda3/lib/python3.11/site-packages/timm/models/layers/__init__.py:48: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
+[2026-09-14 08:52:08.623] 'nunchaku_versions.json' not found. Node will start in minimal mode.
+[2026-09-14 08:52:08.623] =================================================================================================================
+[2026-09-14 08:52:08.818] ### Loading: ComfyUI-Impact-Subpack (V1.3.5)
+[2026-09-14 08:52:08.819] [Impact Pack/Subpack] Using folder_paths to determine whitelist path: /root/ComfyUI/user/default/ComfyUI-Impact-Subpack/model-whitelist.txt
+[2026-09-14 08:52:08.819] [Impact Pack/Subpack] Ensured whitelist directory exists: /root/ComfyUI/user/default/ComfyUI-Impact-Subpack
+[2026-09-14 08:52:08.819] [Impact Pack/Subpack] Loaded 0 model(s) from whitelist: /root/ComfyUI/user/default/ComfyUI-Impact-Subpack/model-whitelist.txt
+[2026-09-14 08:52:08.841] [Impact Subpack] ultralytics_bbox: /root/ComfyUI/models/ultralytics/bbox
+[2026-09-14 08:52:08.842] [Impact Subpack] ultralytics_segm: /root/ComfyUI/models/ultralytics/segm
+[2026-09-14 08:52:08.876] ComfyUI-GGUF: Partial torch compile only, consider updating pytorch
+[2026-09-14 08:52:08.879] ### Loading: ComfyUI-Manager (V3.37)
+[2026-09-14 08:52:08.880] [ComfyUI-Manager] network_mode: public
+[2026-09-14 08:52:08.943] ### ComfyUI Version: v0.3.66-14-gc170fd2d | Released on '2025-10-26'
+[2026-09-14 08:52:09.056] (pysssss:WD14Tagger) [DEBUG] Available ORT providers: AzureExecutionProvider, CPUExecutionProvider
+[2026-09-14 08:52:09.056] (pysssss:WD14Tagger) [DEBUG] Using ORT providers: CUDAExecutionProvider, CPUExecutionProvider
+[2026-09-14 08:52:09.423] [34mWAS Node Suite: [0mOpenCV Python FFMPEG support is enabled[0m
+[2026-09-14 08:52:09.423] [34mWAS Node Suite: [0m`ffmpeg_bin_path` is set to: /usr/bin/ffmpeg[0m
+[2026-09-14 08:52:09.595] [ComfyUI-Manager] default cache updated: https://raw.githubusercontent.com/ltdrdata/ComfyUI-Manager/main/alter-list.json
+[2026-09-14 08:52:09.691] [34mWAS Node Suite: [0mFinished.[0m [32mLoaded[0m [0m220[0m [32mnodes successfully.[0m
+[2026-09-14 08:52:09.692] 
+	[3m[93m"Art is the lie that enables us to realize the truth."[0m[3m - Pablo Picasso[0m
+[2026-09-14 08:52:09.692] 
+[2026-09-14 08:52:09.698] ### Loading: ComfyUI-Impact-Pack (V8.25.1)
+[2026-09-14 08:52:09.867] [Impact Pack] custom_wildcards path not found: /root/autodl-tmp/ComfyUI/custom_nodes/ComfyUI-Impact-Pack/custom_wildcards. Using default path.
+[2026-09-14 08:52:09.867] [Impact Pack] Wildcards loading done.
+[2026-09-14 08:52:09.870] [36;20m[/root/ComfyUI/custom_nodes/comfyui_controlnet_aux] | INFO -> Using ckpts path: /root/ComfyUI/custom_nodes/comfyui_controlnet_aux/ckpts[0m
+[2026-09-14 08:52:09.870] [36;20m[/root/ComfyUI/custom_nodes/comfyui_controlnet_aux] | INFO -> Using symlinks: False[0m
+[2026-09-14 08:52:09.870] [36;20m[/root/ComfyUI/custom_nodes/comfyui_controlnet_aux] | INFO -> Using ort providers: ['CUDAExecutionProvider', 'DirectMLExecutionProvider', 'OpenVINOExecutionProvider', 'ROCMExecutionProvider', 'CPUExecutionProvider', 'CoreMLExecutionProvider'][0m
+[2026-09-14 08:52:09.889] /root/ComfyUI/custom_nodes/comfyui_controlnet_aux/node_wrappers/dwpose.py:26: UserWarning: DWPose: Onnxruntime not found or doesn't come with acceleration providers, switch to OpenCV with CPU device. DWPose might run very slowly
+  warnings.warn("DWPose: Onnxruntime not found or doesn't come with acceleration providers, switch to OpenCV with CPU device. DWPose might run very slowly")
+[2026-09-14 08:52:09.899] 
+[0;33m[ReActor][0m - [38;5;173mSTATUS[0m - [0;32mRunning v0.6.2-b1 in ComfyUI[0m
+[2026-09-14 08:52:09.951] [ComfyUI-Manager] default cache updated: https://raw.githubusercontent.com/ltdrdata/ComfyUI-Manager/main/model-list.json
+[2026-09-14 08:52:09.979] Torch version: 2.7.1+cu128
+[2026-09-14 08:52:10.001] [Crystools [0;32mINFO[0m] Crystools version: 1.27.4
+[2026-09-14 08:52:10.012] [Crystools [0;32mINFO[0m] Platform release: 5.15.0-119-generic
+[2026-09-14 08:52:10.012] [Crystools [0;32mINFO[0m] JETSON: Not detected.
+[2026-09-14 08:52:10.018] [Crystools [0;32mINFO[0m] CPU: Intel(R) Xeon(R) Gold 6459C - Arch: x86_64 - OS: Linux 5.15.0-119-generic
+[2026-09-14 08:52:10.018] [Crystools [0;32mINFO[0m] pynvml (NVIDIA) initialized.
+[2026-09-14 08:52:10.018] [Crystools [0;32mINFO[0m] GPU/s:
+[2026-09-14 08:52:10.019] [Crystools [0;32mINFO[0m] 0) NVIDIA GeForce RTX 5090
+[2026-09-14 08:52:10.019] [Crystools [0;32mINFO[0m] NVIDIA Driver: 580.76.05
+[2026-09-14 08:52:10.131] 
+[2026-09-14 08:52:10.131] [92m[rgthree-comfy] Loaded 48 epic nodes. 🎉[0m
+[2026-09-14 08:52:10.131] 
+[2026-09-14 08:52:10.140] Total VRAM 32109 MB, total RAM 772649 MB
+[2026-09-14 08:52:10.140] pytorch version: 2.7.1+cu128
+[2026-09-14 08:52:10.140] Set vram state to: NORMAL_VRAM
+[2026-09-14 08:52:10.140] Device: cuda:0 NVIDIA GeForce RTX 5090 : cudaMallocAsync
+[2026-09-14 08:52:10.449] 
+Import times for custom nodes:
+[2026-09-14 08:52:10.450]    0.0 seconds: /root/ComfyUI/custom_nodes/websocket_image_save.py
+[2026-09-14 08:52:10.450]    0.0 seconds: /root/ComfyUI/custom_nodes/ComfyUI-DD-Translation
+[2026-09-14 08:52:10.450]    0.0 seconds: /root/ComfyUI/custom_nodes/ComfyUI-WD14-Tagger
+[2026-09-14 08:52:10.450]    0.0 seconds: /root/ComfyUI/custom_nodes/ComfyUI-GGUF
+[2026-09-14 08:52:10.450]    0.0 seconds: /root/ComfyUI/custom_nodes/ComfyUI_IPAdapter_plus
+[2026-09-14 08:52:10.450]    0.0 seconds: /root/ComfyUI/custom_nodes/ComfyUI-Custom-Scripts
+[2026-09-14 08:52:10.450]    0.0 seconds: /root/ComfyUI/custom_nodes/ComfyUI-ReplenishNodes
+[2026-09-14 08:52:10.450]    0.0 seconds: /root/ComfyUI/custom_nodes/ComfyUI-segment-anything-2
+[2026-09-14 08:52:10.450]    0.0 seconds: /root/ComfyUI/custom_nodes/ComfyUI_essentials
+[2026-09-14 08:52:10.450]    0.0 seconds: /root/ComfyUI/custom_nodes/ComfyUI-Advanced-ControlNet
+[2026-09-14 08:52:10.450]    0.0 seconds: /root/ComfyUI/custom_nodes/ComfyUI-KJNodes
+[2026-09-14 08:52:10.450]    0.0 seconds: /root/ComfyUI/custom_nodes/ComfyUI_UltimateSDUpscale
+[2026-09-14 08:52:10.450]    0.0 seconds: /root/ComfyUI/custom_nodes/ComfyUI_InstantID
+[2026-09-14 08:52:10.450]    0.0 seconds: /root/ComfyUI/custom_nodes/ComfyUI-IC-Light
+[2026-09-14 08:52:10.450]    0.0 seconds: /root/ComfyUI/custom_nodes/ComfyUI_LayerStyle
+[2026-09-14 08:52:10.450]    0.0 seconds: /root/ComfyUI/custom_nodes/comfyui_controlnet_aux
+[2026-09-14 08:52:10.450]    0.0 seconds: /root/ComfyUI/custom_nodes/ComfyUI-Impact-Subpack
+[2026-09-14 08:52:10.450]    0.0 seconds: /root/ComfyUI/custom_nodes/ComfyUI-Crystools
+[2026-09-14 08:52:10.450]    0.0 seconds: /root/ComfyUI/custom_nodes/ComfyUI-FluxTrainer
+[2026-09-14 08:52:10.450]    0.0 seconds: /root/ComfyUI/custom_nodes/Comfyui_CXH_joy_caption
+[2026-09-14 08:52:10.450]    0.0 seconds: /root/ComfyUI/custom_nodes/ComfyUI-WanVideoWrapper
+[2026-09-14 08:52:10.450]    0.1 seconds: /root/ComfyUI/custom_nodes/ComfyUI-VideoHelperSuite
+[2026-09-14 08:52:10.450]    0.1 seconds: /root/ComfyUI/custom_nodes/rgthree-comfy
+[2026-09-14 08:52:10.450]    0.1 seconds: /root/ComfyUI/custom_nodes/ComfyUI-Manager
+[2026-09-14 08:52:10.450]    0.1 seconds: /root/ComfyUI/custom_nodes/ComfyUI-ReActor
+[2026-09-14 08:52:10.450]    0.2 seconds: /root/ComfyUI/custom_nodes/ComfyUI-Impact-Pack
+[2026-09-14 08:52:10.450]    0.2 seconds: /root/ComfyUI/custom_nodes/ComfyUI_LayerStyle_Advance
+[2026-09-14 08:52:10.450]    0.3 seconds: /root/ComfyUI/custom_nodes/ComfyUI-LBMWrapper
+[2026-09-14 08:52:10.450]    0.6 seconds: /root/ComfyUI/custom_nodes/was-node-suite-comfyui
+[2026-09-14 08:52:10.450]    2.5 seconds: /root/ComfyUI/custom_nodes/ComfyUI-nunchaku
+[2026-09-14 08:52:10.450] 
+[2026-09-14 08:52:10.735] [ComfyUI-Manager] default cache updated: https://raw.githubusercontent.com/ltdrdata/ComfyUI-Manager/main/custom-node-list.json
+[2026-09-14 08:52:10.779] Context impl SQLiteImpl.
+[2026-09-14 08:52:10.779] Will assume non-transactional DDL.
+[2026-09-14 08:52:10.779] No target revision found.
+[2026-09-14 08:52:10.790] Starting server
+
+[2026-09-14 08:52:10.790] Traceback (most recent call last):
+[2026-09-14 08:52:10.790]   File "/root/ComfyUI/main.py", line 367, in <module>
+[2026-09-14 08:52:10.790]     event_loop.run_until_complete(x)
+[2026-09-14 08:52:10.790]   File "/root/miniconda3/lib/python3.11/asyncio/base_events.py", line 654, in run_until_complete
+[2026-09-14 08:52:10.791]     return future.result()
+[2026-09-14 08:52:10.791]            ^^^^^^^^^^^^^^^
+[2026-09-14 08:52:10.791]   File "/root/ComfyUI/main.py", line 349, in start_all
+[2026-09-14 08:52:10.791]     await run(prompt_server, address=args.listen, port=args.port, verbose=not args.dont_print_server, call_on_start=call_on_start)
+[2026-09-14 08:52:10.791]   File "/root/ComfyUI/main.py", line 243, in run
+[2026-09-14 08:52:10.791]     await asyncio.gather(
+[2026-09-14 08:52:10.791]   File "/root/ComfyUI/server.py", line 1003, in start_multi_address
+[2026-09-14 08:52:10.791]     await site.start()
+[2026-09-14 08:52:10.791]   File "/root/miniconda3/lib/python3.11/site-packages/aiohttp/web_runner.py", line 121, in start
+[2026-09-14 08:52:10.792]     self._server = await loop.create_server(
+[2026-09-14 08:52:10.792]                    ^^^^^^^^^^^^^^^^^^^^^^^^^
+[2026-09-14 08:52:10.793]   File "/root/miniconda3/lib/python3.11/asyncio/base_events.py", line 1536, in create_server
+[2026-09-14 08:52:10.793]     raise OSError(err.errno, msg) from None
+[2026-09-14 08:52:10.793] OSError: [Errno 98] error while attempting to bind on address ('0.0.0.0', 6006): address already in use
+[2026-09-14 08:52:10.909] [ComfyUI-Manager] default cache updated: https://raw.githubusercontent.com/ltdrdata/ComfyUI-Manager/main/github-stats.json
+[2026-09-14 08:52:11.161] [ComfyUI-Manager] default cache updated: https://raw.githubusercontent.com/ltdrdata/ComfyUI-Manager/main/extension-node-map.json
+[2026-09-14 08:52:11.176] Cannot connect to comfyregistry.
+[2026-09-14 08:52:11.183] FETCH DATA from: https://raw.githubusercontent.com/ltdrdata/ComfyUI-Manager/main/custom-node-list.json[ComfyUI-Manager] Due to a network error, switching to local mode.
+=> custom-node-list.json
+=> cannot schedule new futures after shutdown
+[2026-09-14 08:52:11.201] FETCH DATA from: /root/ComfyUI/custom_nodes/ComfyUI-Manager/custom-node-list.json [DONE]
+[2026-09-14 08:52:11.233] [ComfyUI-Manager] All startup tasks have been completed.
