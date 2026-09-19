@@ -1,0 +1,385 @@
+## ComfyUI-Manager: installing dependencies done.
+[2026-09-19 15:13:52.873] ** ComfyUI startup time: 2026-09-19 15:13:52.873
+[2026-09-19 15:13:52.873] ** Platform: Linux
+[2026-09-19 15:13:52.873] ** Python version: 3.11.13 (main, Jun  5 2025, 13:12:00) [GCC 11.2.0]
+[2026-09-19 15:13:52.873] ** Python executable: /root/miniconda3/bin/python
+[2026-09-19 15:13:52.873] ** ComfyUI Path: /root/ComfyUI
+[2026-09-19 15:13:52.873] ** ComfyUI Base Folder Path: /root/ComfyUI
+[2026-09-19 15:13:52.873] ** User directory: /root/ComfyUI/user
+[2026-09-19 15:13:52.874] ** ComfyUI-Manager config path: /root/ComfyUI/user/default/ComfyUI-Manager/config.ini
+[2026-09-19 15:13:52.874] ** Log path: /root/ComfyUI/user/comfyui.log
+
+Prestartup times for custom nodes:
+[2026-09-19 15:13:52.982]    0.0 seconds: /root/ComfyUI/custom_nodes/rgthree-comfy
+[2026-09-19 15:13:52.982]    1.4 seconds: /root/ComfyUI/custom_nodes/ComfyUI-Manager
+[2026-09-19 15:13:52.982] 
+[2026-09-19 15:13:59.660] Checkpoint files will always be loaded safely.
+[2026-09-19 15:14:00.073] Total VRAM 32111 MB, total RAM 772649 MB
+[2026-09-19 15:14:00.073] pytorch version: 2.7.1+cu128
+[2026-09-19 15:14:00.073] Set vram state to: NORMAL_VRAM
+[2026-09-19 15:14:00.073] Device: cuda:0 NVIDIA GeForce RTX 5090 : cudaMallocAsync
+[2026-09-19 15:14:04.403] Using pytorch attention
+[2026-09-19 15:14:07.267] Python version: 3.11.13 (main, Jun  5 2025, 13:12:00) [GCC 11.2.0]
+[2026-09-19 15:14:07.267] ComfyUI version: 0.3.66
+[2026-09-19 15:14:07.271] ComfyUI frontend version: 1.28.7
+[2026-09-19 15:14:07.271] [Prompt Server] web root: /root/miniconda3/lib/python3.11/site-packages/comfyui_frontend_package/static
+[2026-09-19 15:14:09.164] ======================================== ComfyUI-nunchaku Initialization ========================================
+[2026-09-19 15:14:09.169] Nunchaku version: 1.0.0
+[2026-09-19 15:14:09.170] ComfyUI-nunchaku version: 1.0.1
+[2026-09-19 15:14:13.286] /root/miniconda3/lib/python3.11/site-packages/timm/models/layers/__init__.py:48: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
+[2026-09-19 15:14:13.298] 'nunchaku_versions.json' not found. Node will start in minimal mode.
+[2026-09-19 15:14:13.298] =================================================================================================================
+[2026-09-19 15:14:14.143] ### Loading: ComfyUI-Impact-Subpack (V1.3.5)
+[2026-09-19 15:14:14.146] [Impact Pack/Subpack] Using folder_paths to determine whitelist path: /root/ComfyUI/user/default/ComfyUI-Impact-Subpack/model-whitelist.txt
+[2026-09-19 15:14:14.146] [Impact Pack/Subpack] Ensured whitelist directory exists: /root/ComfyUI/user/default/ComfyUI-Impact-Subpack
+[2026-09-19 15:14:14.147] [Impact Pack/Subpack] Loaded 0 model(s) from whitelist: /root/ComfyUI/user/default/ComfyUI-Impact-Subpack/model-whitelist.txt
+[2026-09-19 15:14:14.239] [Impact Subpack] ultralytics_bbox: /root/ComfyUI/models/ultralytics/bbox
+[2026-09-19 15:14:14.239] [Impact Subpack] ultralytics_segm: /root/ComfyUI/models/ultralytics/segm
+[2026-09-19 15:14:14.272] /root/miniconda3/bin/python
+[2026-09-19 15:14:14.281] Traceback (most recent call last):
+  File "/root/ComfyUI/nodes.py", line 2131, in load_custom_node
+    module_spec.loader.exec_module(module)
+  File "<frozen importlib._bootstrap_external>", line 940, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/root/ComfyUI/custom_nodes/ComfyUI-Apt_Preset/__init__.py", line 12, in <module>
+    from .NodeChx.main_nodes import *
+  File "/root/ComfyUI/custom_nodes/ComfyUI-Apt_Preset/NodeChx/main_nodes.py", line 43, in <module>
+    from comfy_extras.nodes_audio import vae_decode_audio
+ImportError: cannot import name 'vae_decode_audio' from 'comfy_extras.nodes_audio' (/root/ComfyUI/comfy_extras/nodes_audio.py)
+
+[2026-09-19 15:14:14.281] Cannot import /root/ComfyUI/custom_nodes/ComfyUI-Apt_Preset module for custom nodes: cannot import name 'vae_decode_audio' from 'comfy_extras.nodes_audio' (/root/ComfyUI/comfy_extras/nodes_audio.py)
+[2026-09-19 15:14:14.408] ComfyUI-GGUF: Partial torch compile only, consider updating pytorch
+[2026-09-19 15:14:14.418] ### Loading: ComfyUI-Manager (V3.37)
+[2026-09-19 15:14:14.418] [ComfyUI-Manager] network_mode: public
+[2026-09-19 15:14:14.662] ### ComfyUI Version: v0.3.66-14-gc170fd2d | Released on '2025-10-26'
+[2026-09-19 15:14:15.085] (pysssss:WD14Tagger) [DEBUG] Available ORT providers: AzureExecutionProvider, CPUExecutionProvider
+[2026-09-19 15:14:15.085] (pysssss:WD14Tagger) [DEBUG] Using ORT providers: CUDAExecutionProvider, CPUExecutionProvider
+[2026-09-19 15:14:16.318] [34mWAS Node Suite: [0mOpenCV Python FFMPEG support is enabled[0m
+[2026-09-19 15:14:16.318] [34mWAS Node Suite: [0m`ffmpeg_bin_path` is set to: /usr/bin/ffmpeg[0m
+[2026-09-19 15:14:16.534] [ComfyUI-Manager] default cache updated: https://raw.githubusercontent.com/ltdrdata/ComfyUI-Manager/main/model-list.json
+[2026-09-19 15:14:16.594] [34mWAS Node Suite: [0mFinished.[0m [32mLoaded[0m [0m220[0m [32mnodes successfully.[0m
+[2026-09-19 15:14:16.595] 
+	[3m[93m"You have within you right now, everything you need to deal with whatever the world can throw at you."[0m[3m - Brian Tracy[0m
+[2026-09-19 15:14:16.595] 
+[2026-09-19 15:14:16.606] ### Loading: ComfyUI-Impact-Pack (V8.25.1)
+[2026-09-19 15:14:16.816] [Impact Pack] custom_wildcards path not found: /root/autodl-tmp/ComfyUI/custom_nodes/ComfyUI-Impact-Pack/custom_wildcards. Using default path.
+[2026-09-19 15:14:16.817] [Impact Pack] Wildcards loading done.
+[2026-09-19 15:14:16.821] [36;20m[/root/ComfyUI/custom_nodes/comfyui_controlnet_aux] | INFO -> Using ckpts path: /root/ComfyUI/custom_nodes/comfyui_controlnet_aux/ckpts[0m
+[2026-09-19 15:14:16.821] [36;20m[/root/ComfyUI/custom_nodes/comfyui_controlnet_aux] | INFO -> Using symlinks: False[0m
+[2026-09-19 15:14:16.821] [36;20m[/root/ComfyUI/custom_nodes/comfyui_controlnet_aux] | INFO -> Using ort providers: ['CUDAExecutionProvider', 'DirectMLExecutionProvider', 'OpenVINOExecutionProvider', 'ROCMExecutionProvider', 'CPUExecutionProvider', 'CoreMLExecutionProvider'][0m
+[2026-09-19 15:14:16.859] /root/ComfyUI/custom_nodes/comfyui_controlnet_aux/node_wrappers/dwpose.py:26: UserWarning: DWPose: Onnxruntime not found or doesn't come with acceleration providers, switch to OpenCV with CPU device. DWPose might run very slowly
+  warnings.warn("DWPose: Onnxruntime not found or doesn't come with acceleration providers, switch to OpenCV with CPU device. DWPose might run very slowly")
+[2026-09-19 15:14:16.880] 
+[0;33m[ReActor][0m - [38;5;173mSTATUS[0m - [0;32mRunning v0.6.2-b1 in ComfyUI[0m
+[2026-09-19 15:14:17.028] Torch version: 2.7.1+cu128
+[2026-09-19 15:14:17.085] [Crystools [0;32mINFO[0m] Crystools version: 1.27.4
+[2026-09-19 15:14:17.110] [Crystools [0;32mINFO[0m] Platform release: 5.15.0-119-generic
+[2026-09-19 15:14:17.110] [Crystools [0;32mINFO[0m] JETSON: Not detected.
+[2026-09-19 15:14:17.135] [Crystools [0;32mINFO[0m] CPU: Intel(R) Xeon(R) Gold 6459C - Arch: x86_64 - OS: Linux 5.15.0-119-generic
+[2026-09-19 15:14:17.135] [Crystools [0;32mINFO[0m] pynvml (NVIDIA) initialized.
+[2026-09-19 15:14:17.135] [Crystools [0;32mINFO[0m] GPU/s:
+[2026-09-19 15:14:17.136] [Crystools [0;32mINFO[0m] 0) NVIDIA GeForce RTX 5090
+[2026-09-19 15:14:17.136] [Crystools [0;32mINFO[0m] NVIDIA Driver: 595.71.05
+[2026-09-19 15:14:17.312] 
+[2026-09-19 15:14:17.312] [92m[rgthree-comfy] Loaded 48 epic nodes. 🎉[0m
+[2026-09-19 15:14:17.312] 
+[2026-09-19 15:14:17.345] Total VRAM 32111 MB, total RAM 772649 MB
+[2026-09-19 15:14:17.345] pytorch version: 2.7.1+cu128
+[2026-09-19 15:14:17.346] Set vram state to: NORMAL_VRAM
+[2026-09-19 15:14:17.346] Device: cuda:0 NVIDIA GeForce RTX 5090 : cudaMallocAsync
+[2026-09-19 15:14:17.662] [ComfyUI-Manager] default cache updated: https://raw.githubusercontent.com/ltdrdata/ComfyUI-Manager/main/alter-list.json
+[2026-09-19 15:14:17.719] 
+Import times for custom nodes:
+[2026-09-19 15:14:17.719]    0.0 seconds: /root/ComfyUI/custom_nodes/websocket_image_save.py
+[2026-09-19 15:14:17.719]    0.0 seconds: /root/ComfyUI/custom_nodes/ComfyUI-DD-Translation
+[2026-09-19 15:14:17.719]    0.0 seconds: /root/ComfyUI/custom_nodes/ComfyUI-GGUF
+[2026-09-19 15:14:17.719]    0.0 seconds: /root/ComfyUI/custom_nodes/ComfyUI-ReplenishNodes
+[2026-09-19 15:14:17.719]    0.0 seconds: /root/ComfyUI/custom_nodes/ComfyUI_IPAdapter_plus
+[2026-09-19 15:14:17.719]    0.0 seconds: /root/ComfyUI/custom_nodes/ComfyUI-WD14-Tagger
+[2026-09-19 15:14:17.719]    0.0 seconds (IMPORT FAILED): /root/ComfyUI/custom_nodes/ComfyUI-Apt_Preset
+[2026-09-19 15:14:17.719]    0.0 seconds: /root/ComfyUI/custom_nodes/ComfyUI_essentials
+[2026-09-19 15:14:17.719]    0.0 seconds: /root/ComfyUI/custom_nodes/ComfyUI_UltimateSDUpscale
+[2026-09-19 15:14:17.720]    0.0 seconds: /root/ComfyUI/custom_nodes/ComfyUI-Custom-Scripts
+[2026-09-19 15:14:17.720]    0.0 seconds: /root/ComfyUI/custom_nodes/ComfyUI-segment-anything-2
+[2026-09-19 15:14:17.720]    0.0 seconds: /root/ComfyUI/custom_nodes/ComfyUI-KJNodes
+[2026-09-19 15:14:17.720]    0.0 seconds: /root/ComfyUI/custom_nodes/ComfyUI-Advanced-ControlNet
+[2026-09-19 15:14:17.720]    0.0 seconds: /root/ComfyUI/custom_nodes/ComfyUI_InstantID
+[2026-09-19 15:14:17.720]    0.0 seconds: /root/ComfyUI/custom_nodes/ComfyUI-IC-Light
+[2026-09-19 15:14:17.720]    0.0 seconds: /root/ComfyUI/custom_nodes/comfyui_controlnet_aux
+[2026-09-19 15:14:17.720]    0.1 seconds: /root/ComfyUI/custom_nodes/Comfyui_CXH_joy_caption
+[2026-09-19 15:14:17.720]    0.1 seconds: /root/ComfyUI/custom_nodes/ComfyUI-Crystools
+[2026-09-19 15:14:17.720]    0.1 seconds: /root/ComfyUI/custom_nodes/ComfyUI-FluxTrainer
+[2026-09-19 15:14:17.720]    0.1 seconds: /root/ComfyUI/custom_nodes/rgthree-comfy
+[2026-09-19 15:14:17.720]    0.1 seconds: /root/ComfyUI/custom_nodes/ComfyUI-Impact-Subpack
+[2026-09-19 15:14:17.720]    0.1 seconds: /root/ComfyUI/custom_nodes/ComfyUI_LayerStyle
+[2026-09-19 15:14:17.720]    0.1 seconds: /root/ComfyUI/custom_nodes/ComfyUI-WanVideoWrapper
+[2026-09-19 15:14:17.720]    0.2 seconds: /root/ComfyUI/custom_nodes/ComfyUI-ReActor
+[2026-09-19 15:14:17.720]    0.2 seconds: /root/ComfyUI/custom_nodes/ComfyUI-VideoHelperSuite
+[2026-09-19 15:14:17.720]    0.2 seconds: /root/ComfyUI/custom_nodes/ComfyUI-Impact-Pack
+[2026-09-19 15:14:17.720]    0.3 seconds: /root/ComfyUI/custom_nodes/ComfyUI-LBMWrapper
+[2026-09-19 15:14:17.720]    0.3 seconds: /root/ComfyUI/custom_nodes/ComfyUI-Manager
+[2026-09-19 15:14:17.720]    0.8 seconds: /root/ComfyUI/custom_nodes/ComfyUI_LayerStyle_Advance
+[2026-09-19 15:14:17.720]    1.5 seconds: /root/ComfyUI/custom_nodes/was-node-suite-comfyui
+[2026-09-19 15:14:17.720]    4.1 seconds: /root/ComfyUI/custom_nodes/ComfyUI-nunchaku
+[2026-09-19 15:14:17.720] 
+[2026-09-19 15:14:18.089] Context impl SQLiteImpl.
+[2026-09-19 15:14:18.089] Will assume non-transactional DDL.
+[2026-09-19 15:14:18.091] No target revision found.
+[2026-09-19 15:14:18.103] Starting server
+
+[2026-09-19 15:14:18.103] To see the GUI go to: http://127.0.0.1:6006
+[2026-09-19 15:14:18.666] [ComfyUI-Manager] default cache updated: https://raw.githubusercontent.com/ltdrdata/ComfyUI-Manager/main/custom-node-list.json
+[2026-09-19 15:14:18.710] [ComfyUI-Manager] default cache updated: https://raw.githubusercontent.com/ltdrdata/ComfyUI-Manager/main/extension-node-map.json
+[2026-09-19 15:14:18.729] [ComfyUI-Manager] default cache updated: https://raw.githubusercontent.com/ltdrdata/ComfyUI-Manager/main/github-stats.json
+[2026-09-19 15:15:06.947] FETCH ComfyRegistry Data: 5/188
+[2026-09-19 15:15:31.807] FETCH ComfyRegistry Data: 10/188
+[2026-09-19 15:16:04.685] FETCH ComfyRegistry Data: 15/188
+[2026-09-19 15:17:04.001] FETCH ComfyRegistry Data: 20/188
+[2026-09-19 15:18:01.588] FETCH ComfyRegistry Data: 25/188
+[2026-09-19 15:18:34.762] FETCH ComfyRegistry Data: 30/188
+[2026-09-19 15:19:09.967] [ComfyUI-Manager] An error occurred while fetching 'https://api.comfy.org/nodes?page=33&limit=30&comfyui_version=v0.3.66-14-gc170fd2d&form_factor=git-linux': Expecting value: line 1 column 1 (char 0)
+[2026-09-19 15:19:09.968] Cannot connect to comfyregistry.
+[2026-09-19 15:19:10.000] FETCH DATA from: https://raw.githubusercontent.com/ltdrdata/ComfyUI-Manager/main/custom-node-list.json [DONE]
+[2026-09-19 15:19:12.489] [ComfyUI-Manager] All startup tasks have been completed.
+[2026-09-19 15:35:58.879] got prompt
+[2026-09-19 15:35:59.418] Using pytorch attention in VAE
+[2026-09-19 15:35:59.423] Using pytorch attention in VAE
+[2026-09-19 15:35:59.680] VAE load device: cuda:0, offload device: cpu, dtype: torch.bfloat16
+[2026-09-19 15:35:59.927] Using scaled fp8: fp8 matrix mult: False, scale input: False
+[2026-09-19 15:36:00.094] CLIP/text encoder model load device: cuda:0, offload device: cpu, current: cpu, dtype: torch.float16
+[2026-09-19 15:36:00.353] clip missing: ['text_projection.weight']
+[2026-09-19 15:36:08.210] Requested to load FluxClipModel_
+[2026-09-19 15:36:09.350] loaded completely 25657.1125 4903.231597900391 True
+[2026-09-19 15:36:09.692] Requested to load AutoencodingEngine
+[2026-09-19 15:36:09.747] loaded completely 17846.995445251465 159.87335777282715 True
+[2026-09-19 15:36:21.929] Using scaled fp8: fp8 matrix mult: True, scale input: True
+[2026-09-19 15:36:21.972] model weight dtype torch.bfloat16, manual cast: None
+[2026-09-19 15:36:21.972] model_type FLUX
+[2026-09-19 15:36:54.214] Requested to load Flux
+[2026-09-19 15:36:58.641] loaded completely 19185.122456588746 11350.088394165039 True
+[2026-09-19 15:37:13.851] 100%|██████████| 20/20 [00:15<00:00,  1.41it/s]100%|██████████| 20/20 [00:15<00:00,  1.32it/s]
+[2026-09-19 15:37:14.349] Prompt executed in 75.30 seconds
+[2026-09-19 15:40:22.052] got prompt
+[2026-09-19 15:40:22.069] Using pytorch attention in VAE
+[2026-09-19 15:40:22.070] Using pytorch attention in VAE
+[2026-09-19 15:40:22.134] VAE load device: cuda:0, offload device: cpu, dtype: torch.bfloat16
+[2026-09-19 15:40:22.179] Using scaled fp8: fp8 matrix mult: False, scale input: False
+[2026-09-19 15:40:22.279] CLIP/text encoder model load device: cuda:0, offload device: cpu, current: cpu, dtype: torch.float16
+[2026-09-19 15:40:22.299] clip missing: ['text_projection.weight']
+[2026-09-19 15:40:22.910] Requested to load FluxClipModel_
+[2026-09-19 15:40:23.551] loaded completely 25448.9875 4903.231597900391 True
+[2026-09-19 15:40:23.644] Requested to load AutoencodingEngine
+[2026-09-19 15:40:23.671] loaded completely 17836.995445251465 159.87335777282715 True
+[2026-09-19 15:40:23.841] Using scaled fp8: fp8 matrix mult: True, scale input: True
+[2026-09-19 15:40:23.860] model weight dtype torch.bfloat16, manual cast: None
+[2026-09-19 15:40:23.861] model_type FLUX
+[2026-09-19 15:40:25.500] Requested to load Flux
+[2026-09-19 15:40:27.633] loaded completely 19185.122456588746 11350.088394165039 True
+[2026-09-19 15:40:41.506] 100%|██████████| 20/20 [00:13<00:00,  1.42it/s]100%|██████████| 20/20 [00:13<00:00,  1.44it/s]
+[2026-09-19 15:40:41.996] Prompt executed in 19.94 seconds
+[2026-09-19 15:41:22.022] got prompt
+[2026-09-19 15:41:22.112] Using pytorch attention in VAE
+[2026-09-19 15:41:22.113] Using pytorch attention in VAE
+[2026-09-19 15:41:22.344] VAE load device: cuda:0, offload device: cpu, dtype: torch.bfloat16
+[2026-09-19 15:41:26.794] Using scaled fp8: fp8 matrix mult: False, scale input: False
+[2026-09-19 15:41:26.978] CLIP/text encoder model load device: cuda:0, offload device: cpu, current: cpu, dtype: torch.float16
+[2026-09-19 15:41:41.759] Requested to load QwenImageTEModel_
+[2026-09-19 15:41:43.789] loaded completely 25448.9875 7909.737449645996 True
+[2026-09-19 15:41:43.910] Requested to load WanVAE
+[2026-09-19 15:41:43.991] loaded completely 6460.256687164307 242.02829551696777 True
+[2026-09-19 15:41:51.532] model weight dtype torch.float8_e4m3fn, manual cast: torch.bfloat16
+[2026-09-19 15:41:51.532] model_type FLUX
+[2026-09-19 15:42:21.427] Requested to load QwenImage
+[2026-09-19 15:42:32.374] loaded completely 22332.631393188476 19483.948791503906 True
+[2026-09-19 15:42:38.244] 100%|██████████| 4/4 [00:05<00:00,  1.46s/it]100%|██████████| 4/4 [00:05<00:00,  1.46s/it]
+[2026-09-19 15:42:38.465] Requested to load WanVAE
+[2026-09-19 15:42:40.218] loaded completely 296.5664978027344 242.02829551696777 True
+[2026-09-19 15:42:40.574] Prompt executed in 78.47 seconds
+[2026-09-19 15:44:21.744] got prompt
+[2026-09-19 15:44:21.769] Using pytorch attention in VAE
+[2026-09-19 15:44:21.770] Using pytorch attention in VAE
+[2026-09-19 15:44:21.838] VAE load device: cuda:0, offload device: cpu, dtype: torch.bfloat16
+[2026-09-19 15:44:21.861] Using scaled fp8: fp8 matrix mult: False, scale input: False
+[2026-09-19 15:44:21.957] CLIP/text encoder model load device: cuda:0, offload device: cpu, current: cpu, dtype: torch.float16
+[2026-09-19 15:44:21.983] clip missing: ['text_projection.weight']
+[2026-09-19 15:44:22.511] Requested to load FluxClipModel_
+[2026-09-19 15:44:23.178] loaded completely 25446.9875 4903.231597900391 True
+[2026-09-19 15:44:23.296] Requested to load AutoencodingEngine
+[2026-09-19 15:44:23.331] loaded completely 17834.995445251465 159.87335777282715 True
+[2026-09-19 15:44:23.528] Using scaled fp8: fp8 matrix mult: True, scale input: True
+[2026-09-19 15:44:23.556] model weight dtype torch.bfloat16, manual cast: None
+[2026-09-19 15:44:23.557] model_type FLUX
+[2026-09-19 15:44:24.921] Requested to load Flux
+[2026-09-19 15:44:26.568] loaded completely 19183.122456588746 11350.088394165039 True
+[2026-09-19 15:44:40.462] 100%|██████████| 20/20 [00:13<00:00,  1.41it/s]100%|██████████| 20/20 [00:13<00:00,  1.44it/s]
+[2026-09-19 15:44:40.969] Prompt executed in 19.22 seconds
+[2026-09-19 15:44:50.174] got prompt
+[2026-09-19 15:44:55.809] Using pytorch attention in VAE
+[2026-09-19 15:44:55.809] Using pytorch attention in VAE
+[2026-09-19 15:44:55.932] VAE load device: cuda:0, offload device: cpu, dtype: torch.bfloat16
+[2026-09-19 15:44:55.987] Using scaled fp8: fp8 matrix mult: False, scale input: False
+[2026-09-19 15:44:56.153] CLIP/text encoder model load device: cuda:0, offload device: cpu, current: cpu, dtype: torch.float16
+[2026-09-19 15:44:57.191] Requested to load QwenImageTEModel_
+[2026-09-19 15:44:58.344] loaded completely 25446.9875 7909.737449645996 True
+[2026-09-19 15:44:58.466] Requested to load WanVAE
+[2026-09-19 15:44:58.499] loaded completely 6458.256687164307 242.02829551696777 True
+[2026-09-19 15:44:59.773] model weight dtype torch.float8_e4m3fn, manual cast: torch.bfloat16
+[2026-09-19 15:44:59.773] model_type FLUX
+[2026-09-19 15:45:02.372] Requested to load QwenImage
+[2026-09-19 15:45:09.109] loaded completely 22332.631393188476 19483.948791503906 True
+[2026-09-19 15:45:14.904] 100%|██████████| 4/4 [00:05<00:00,  1.44s/it]100%|██████████| 4/4 [00:05<00:00,  1.45s/it]
+[2026-09-19 15:45:15.124] Requested to load WanVAE
+[2026-09-19 15:45:17.147] loaded completely 296.5664978027344 242.02829551696777 True
+[2026-09-19 15:45:17.508] Prompt executed in 21.71 seconds
+[2026-09-19 15:47:54.900] got prompt
+[2026-09-19 15:47:54.930] Using pytorch attention in VAE
+[2026-09-19 15:47:54.931] Using pytorch attention in VAE
+[2026-09-19 15:47:55.026] VAE load device: cuda:0, offload device: cpu, dtype: torch.bfloat16
+[2026-09-19 15:47:55.051] Using scaled fp8: fp8 matrix mult: False, scale input: False
+[2026-09-19 15:47:55.226] CLIP/text encoder model load device: cuda:0, offload device: cpu, current: cpu, dtype: torch.float16
+[2026-09-19 15:47:56.073] Requested to load QwenImageTEModel_
+[2026-09-19 15:47:57.256] loaded completely 25446.9875 7909.737449645996 True
+[2026-09-19 15:47:57.361] Requested to load WanVAE
+[2026-09-19 15:47:57.391] loaded completely 6458.256687164307 242.02829551696777 True
+[2026-09-19 15:47:58.643] model weight dtype torch.float8_e4m3fn, manual cast: torch.bfloat16
+[2026-09-19 15:47:58.643] model_type FLUX
+[2026-09-19 15:48:00.808] Requested to load QwenImage
+[2026-09-19 15:48:06.903] loaded completely 22332.631393188476 19483.948791503906 True
+[2026-09-19 15:48:12.782] 100%|██████████| 4/4 [00:05<00:00,  1.45s/it]100%|██████████| 4/4 [00:05<00:00,  1.47s/it]
+[2026-09-19 15:48:13.000] Requested to load WanVAE
+[2026-09-19 15:48:15.054] loaded completely 296.5664978027344 242.02829551696777 True
+[2026-09-19 15:48:15.409] Prompt executed in 20.50 seconds
+[2026-09-19 15:49:48.766] got prompt
+[2026-09-19 15:49:48.778] Using pytorch attention in VAE
+[2026-09-19 15:49:48.779] Using pytorch attention in VAE
+[2026-09-19 15:49:48.858] VAE load device: cuda:0, offload device: cpu, dtype: torch.bfloat16
+[2026-09-19 15:49:48.934] Using scaled fp8: fp8 matrix mult: False, scale input: False
+[2026-09-19 15:49:49.104] CLIP/text encoder model load device: cuda:0, offload device: cpu, current: cpu, dtype: torch.float16
+[2026-09-19 15:49:49.944] Requested to load QwenImageTEModel_
+[2026-09-19 15:49:50.996] loaded completely 25446.9875 7909.737449645996 True
+[2026-09-19 15:49:59.759] model weight dtype torch.float8_e4m3fn, manual cast: torch.bfloat16
+[2026-09-19 15:49:59.760] model_type FLUX
+[2026-09-19 15:50:38.202] Requested to load QwenImage
+[2026-09-19 15:50:53.480] loaded completely 22334.7013588562 19483.948791503906 True
+[2026-09-19 15:50:56.483] 100%|██████████| 4/4 [00:02<00:00,  1.38it/s]100%|██████████| 4/4 [00:02<00:00,  1.34it/s]
+[2026-09-19 15:50:56.586] Requested to load WanVAE
+[2026-09-19 15:50:58.914] loaded completely 296.5664978027344 242.02829551696777 True
+[2026-09-19 15:50:59.291] Prompt executed in 70.52 seconds
+[2026-09-19 15:51:29.702] got prompt
+[2026-09-19 15:51:29.725] Using pytorch attention in VAE
+[2026-09-19 15:51:29.729] Using pytorch attention in VAE
+[2026-09-19 15:51:29.839] VAE load device: cuda:0, offload device: cpu, dtype: torch.bfloat16
+[2026-09-19 15:51:29.874] Using scaled fp8: fp8 matrix mult: False, scale input: False
+[2026-09-19 15:51:30.053] CLIP/text encoder model load device: cuda:0, offload device: cpu, current: cpu, dtype: torch.float16
+[2026-09-19 15:51:31.005] Requested to load QwenImageTEModel_
+[2026-09-19 15:51:32.338] loaded completely 25446.9875 7909.737449645996 True
+[2026-09-19 15:51:32.843] model weight dtype torch.float8_e4m3fn, manual cast: torch.bfloat16
+[2026-09-19 15:51:32.844] model_type FLUX
+[2026-09-19 15:51:48.435] Requested to load QwenImage
+[2026-09-19 15:51:59.116] loaded completely 22334.7013588562 19483.948791503906 True
+[2026-09-19 15:52:02.099] 100%|██████████| 4/4 [00:02<00:00,  1.38it/s]100%|██████████| 4/4 [00:02<00:00,  1.35it/s]
+[2026-09-19 15:52:02.201] Requested to load WanVAE
+[2026-09-19 15:52:04.611] loaded completely 296.5664978027344 242.02829551696777 True
+[2026-09-19 15:52:05.003] Prompt executed in 35.30 seconds
+[2026-09-19 15:52:19.127] got prompt
+[2026-09-19 15:52:19.264] Using pytorch attention in VAE
+[2026-09-19 15:52:19.265] Using pytorch attention in VAE
+[2026-09-19 15:52:19.519] VAE load device: cuda:0, offload device: cpu, dtype: torch.bfloat16
+[2026-09-19 15:52:19.551] Using scaled fp8: fp8 matrix mult: False, scale input: False
+[2026-09-19 15:52:19.681] CLIP/text encoder model load device: cuda:0, offload device: cpu, current: cpu, dtype: torch.float16
+[2026-09-19 15:52:19.710] clip missing: ['text_projection.weight']
+[2026-09-19 15:52:25.029] Requested to load FluxClipModel_
+[2026-09-19 15:52:25.669] loaded completely 25446.9875 4903.231597900391 True
+[2026-09-19 15:52:28.534] model weight dtype torch.float8_e4m3fn, manual cast: torch.bfloat16
+[2026-09-19 15:52:28.536] model_type FLUX
+[2026-09-19 15:52:49.071] Requested to load Flux
+[2026-09-19 15:52:51.565] loaded completely 18505.995814361573 11350.067443847656 True
+[2026-09-19 15:53:19.750] 100%|██████████| 20/20 [00:28<00:00,  1.43s/it]100%|██████████| 20/20 [00:28<00:00,  1.41s/it]
+[2026-09-19 15:53:20.287] Requested to load AutoencodingEngine
+[2026-09-19 15:53:21.074] loaded completely 181.45669555664062 159.87335777282715 True
+[2026-09-19 15:53:21.821] Prompt executed in 62.62 seconds
+[2026-09-19 15:53:22.810] got prompt
+[2026-09-19 15:53:50.959] 100%|██████████| 20/20 [00:28<00:00,  1.44s/it]100%|██████████| 20/20 [00:28<00:00,  1.41s/it]
+[2026-09-19 15:53:52.213] Prompt executed in 29.40 seconds
+[2026-09-19 15:53:53.168] got prompt
+[2026-09-19 15:54:21.515] 100%|██████████| 20/20 [00:28<00:00,  1.45s/it]100%|██████████| 20/20 [00:28<00:00,  1.42s/it]
+[2026-09-19 15:54:22.842] Prompt executed in 29.67 seconds
+[2026-09-19 15:54:23.579] got prompt
+[2026-09-19 15:54:52.012] 100%|██████████| 20/20 [00:28<00:00,  1.45s/it]100%|██████████| 20/20 [00:28<00:00,  1.42s/it]
+[2026-09-19 15:54:53.346] Prompt executed in 29.76 seconds
+[2026-09-19 15:55:04.576] got prompt
+[2026-09-19 15:55:09.608] Using pytorch attention in VAE
+[2026-09-19 15:55:09.609] Using pytorch attention in VAE
+[2026-09-19 15:55:09.838] VAE load device: cuda:0, offload device: cpu, dtype: torch.bfloat16
+[2026-09-19 15:55:10.321] Using scaled fp8: fp8 matrix mult: False, scale input: False
+[2026-09-19 15:55:10.579] CLIP/text encoder model load device: cuda:0, offload device: cpu, current: cpu, dtype: torch.float16
+[2026-09-19 15:55:11.665] Requested to load QwenImageTEModel_
+[2026-09-19 15:55:12.992] loaded completely 25446.9875 7909.737449645996 True
+[2026-09-19 15:55:19.320] model weight dtype torch.float8_e4m3fn, manual cast: torch.bfloat16
+[2026-09-19 15:55:19.320] model_type FLUX
+[2026-09-19 15:55:56.260] Requested to load QwenImage
+[2026-09-19 15:56:08.149] loaded completely 22334.7013588562 19483.948791503906 True
+[2026-09-19 15:56:11.115] 100%|██████████| 4/4 [00:02<00:00,  1.39it/s]100%|██████████| 4/4 [00:02<00:00,  1.35it/s]
+[2026-09-19 15:56:11.218] Requested to load WanVAE
+[2026-09-19 15:56:13.630] loaded completely 296.5664978027344 242.02829551696777 True
+[2026-09-19 15:56:14.001] Prompt executed in 64.41 seconds
+[2026-09-19 15:56:14.445] got prompt
+[2026-09-19 15:56:18.173] loaded completely 25139.457517684936 19483.948791503906 True
+[2026-09-19 15:56:20.881] 100%|██████████| 4/4 [00:02<00:00,  1.46it/s]100%|██████████| 4/4 [00:02<00:00,  1.48it/s]
+[2026-09-19 15:56:22.132] Prompt executed in 7.69 seconds
+[2026-09-19 15:56:22.920] got prompt
+[2026-09-19 15:56:25.728] loaded completely 25139.457517684936 19483.948791503906 True
+[2026-09-19 15:56:28.438] 100%|██████████| 4/4 [00:02<00:00,  1.46it/s]100%|██████████| 4/4 [00:02<00:00,  1.48it/s]
+[2026-09-19 15:56:29.692] Prompt executed in 6.77 seconds
+[2026-09-19 15:56:30.312] got prompt
+[2026-09-19 15:56:32.946] loaded completely 25139.457517684936 19483.948791503906 True
+[2026-09-19 15:56:35.661] 100%|██████████| 4/4 [00:02<00:00,  1.45it/s]100%|██████████| 4/4 [00:02<00:00,  1.48it/s]
+[2026-09-19 15:56:37.031] Prompt executed in 6.72 seconds
+[2026-09-19 15:57:59.309] got prompt
+[2026-09-19 15:57:59.955] Using pytorch attention in VAE
+[2026-09-19 15:57:59.956] Using pytorch attention in VAE
+[2026-09-19 15:58:00.206] VAE load device: cuda:0, offload device: cpu, dtype: torch.bfloat16
+[2026-09-19 15:58:04.007] Using scaled fp8: fp8 matrix mult: False, scale input: False
+[2026-09-19 15:58:04.239] CLIP/text encoder model load device: cuda:0, offload device: cpu, current: cpu, dtype: torch.float16
+[2026-09-19 15:58:19.170] Requested to load QwenImageTEModel_
+[2026-09-19 15:58:20.541] loaded completely 25446.9875 7909.737449645996 True
+[2026-09-19 15:58:20.796] model weight dtype torch.float8_e4m3fn, manual cast: torch.bfloat16
+[2026-09-19 15:58:20.796] model_type FLUX
+[2026-09-19 15:58:23.791] Requested to load QwenImage
+[2026-09-19 15:58:29.258] loaded completely 22334.7013588562 19483.948791503906 True
+[2026-09-19 15:58:32.206] 100%|██████████| 4/4 [00:02<00:00,  1.39it/s]100%|██████████| 4/4 [00:02<00:00,  1.36it/s]
+[2026-09-19 15:58:32.309] Requested to load WanVAE
+[2026-09-19 15:58:34.548] loaded completely 294.5664978027344 242.02829551696777 True
+[2026-09-19 15:58:34.916] Prompt executed in 35.60 seconds
+[2026-09-19 15:58:42.201] got prompt
+[2026-09-19 15:58:42.207] Requested to load QwenImageTEModel_
+[2026-09-19 15:58:43.224] loaded completely 20233.338202285766 7909.737449645996 True
+[2026-09-19 15:58:48.166] loaded completely 21879.48566442871 19483.948791503906 True
+[2026-09-19 15:58:51.127] 100%|██████████| 4/4 [00:02<00:00,  1.39it/s]100%|██████████| 4/4 [00:02<00:00,  1.36it/s]
+[2026-09-19 15:58:51.230] Requested to load WanVAE
+[2026-09-19 15:58:53.676] loaded completely 294.5664978027344 242.02829551696777 True
+[2026-09-19 15:58:54.040] Prompt executed in 11.84 seconds
+[2026-09-19 15:59:19.087] got prompt
+[2026-09-19 15:59:19.119] Using pytorch attention in VAE
+[2026-09-19 15:59:19.122] Using pytorch attention in VAE
+[2026-09-19 15:59:19.220] VAE load device: cuda:0, offload device: cpu, dtype: torch.bfloat16
+[2026-09-19 15:59:19.273] Using scaled fp8: fp8 matrix mult: False, scale input: False
+[2026-09-19 15:59:19.446] CLIP/text encoder model load device: cuda:0, offload device: cpu, current: cpu, dtype: torch.float16
+[2026-09-19 15:59:20.500] Requested to load QwenImageTEModel_
+[2026-09-19 15:59:21.548] loaded completely 25444.9875 7909.737449645996 True
+[2026-09-19 15:59:21.837] model weight dtype torch.float8_e4m3fn, manual cast: torch.bfloat16
+[2026-09-19 15:59:21.837] model_type FLUX
+[2026-09-19 15:59:24.368] Requested to load QwenImage
+[2026-09-19 15:59:29.804] loaded completely 22332.7013588562 19483.948791503906 True
+[2026-09-19 15:59:32.796] 100%|██████████| 4/4 [00:02<00:00,  1.38it/s]100%|██████████| 4/4 [00:02<00:00,  1.34it/s]
+[2026-09-19 15:59:32.899] Requested to load WanVAE
+[2026-09-19 15:59:35.321] loaded completely 294.5664978027344 242.02829551696777 True
+[2026-09-19 15:59:35.693] Prompt executed in 16.60 seconds
+[2026-09-19 17:11:31.695] [DEPRECATION WARNING] Detected import of deprecated legacy API: /scripts/ui.js. This is likely caused by a custom node extension using outdated APIs. Please update your extensions or contact the extension author for an updated version.
+[2026-09-19 17:11:31.717] [DEPRECATION WARNING] Detected import of deprecated legacy API: /extensions/core/groupNode.js. This is likely caused by a custom node extension using outdated APIs. Please update your extensions or contact the extension author for an updated version.
+[2026-09-19 17:11:31.838] [DEPRECATION WARNING] Detected import of deprecated legacy API: /extensions/core/widgetInputs.js. This is likely caused by a custom node extension using outdated APIs. Please update your extensions or contact the extension author for an updated version.
+[2026-09-19 17:11:31.900] [DEPRECATION WARNING] Detected import of deprecated legacy API: /extensions/core/clipspace.js. This is likely caused by a custom node extension using outdated APIs. Please update your extensions or contact the extension author for an updated version.
+[2026-09-19 17:11:31.905] [DEPRECATION WARNING] Detected import of deprecated legacy API: /scripts/ui/components/buttonGroup.js. This is likely caused by a custom node extension using outdated APIs. Please update your extensions or contact the extension author for an updated version.
+[2026-09-19 17:11:32.053] [DEPRECATION WARNING] Detected import of deprecated legacy API: /scripts/ui/components/button.js. This is likely caused by a custom node extension using outdated APIs. Please update your extensions or contact the extension author for an updated version.
+[2026-09-19 17:11:32.059] [DEPRECATION WARNING] Detected import of deprecated legacy API: /scripts/ui/components/popup.js. This is likely caused by a custom node extension using outdated APIs. Please update your extensions or contact the extension author for an updated version.
