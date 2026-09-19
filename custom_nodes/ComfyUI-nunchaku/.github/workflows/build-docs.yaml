@@ -1,0 +1,74 @@
+name: Build Docs
+on:
+  schedule:
+    - cron: '30 7 * * *' # UTC time
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Docs version (default: nightly)'
+        required: false
+        default: 'nightly'
+jobs:
+  build-and-deploy-docs:
+    name: Build and deploy docs
+    runs-on: [self-hosted, build-docs]
+    if: github.event_name != 'workflow_dispatch' || github.actor == 'lmxyy'
+    env:
+      DOC_VERSION: ${{ github.event.inputs.version || 'nightly' }}
+    steps:
+      - name: Checkout dev branch
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: dev
+      - name: Show current commit
+        run: git log -1 --oneline
+      - name: Set up Python
+        run: |
+          which python
+          echo "Setting up Python with Conda"
+          conda create -n nunchaku-docs python=3.12 -y
+      - name: Install Nunchaku
+        run: |
+          source $(conda info --base)/etc/profile.d/conda.sh
+          conda activate nunchaku-docs || { echo "Failed to activate conda env"; exit 1; }
+          which python
+          conda install -c conda-forge gxx=11 gcc=11 libsndfile -y
+          pip install uv
+          echo "Installing dependencies"
+          cd ..
+          git clone https://github.com/nunchaku-tech/nunchaku.git
+          cd nunchaku
+          git log -1 --oneline
+          git submodule init
+          git submodule update
+          uv pip install -e ".[dev,docs]"
+      - name: Install ComfyUI
+        run: |
+          source $(conda info --base)/etc/profile.d/conda.sh
+          conda activate nunchaku-docs || { echo "Failed to activate conda env"; exit 1; }
+          which python
+          uv pip install -e ".[dev,docs]"
+      - name: Build docs
+        run: |
+          source $(conda info --base)/etc/profile.d/conda.sh
+          conda activate nunchaku-docs || { echo "Failed to activate conda env"; exit 1; }
+          which python
+          cd docs
+          make html
+      - name: Deploy docs
+        run: |
+          echo "${{ secrets.DO_SSH_KEY }}" > ./id_rsa
+          chmod 600 id_rsa
+          source $(conda info --base)/etc/profile.d/conda.sh
+          conda activate nunchaku-docs || { echo "Failed to activate conda env"; exit 1; }
+          which python
+          rsync -avz --delete docs/build/html/ ${{ secrets.DO_USER }}@${{ secrets.DO_HOST }}:${{ secrets.DO_DOCS_ROOT }}/ComfyUI-nunchaku-${{ env.DOC_VERSION }}
+          rm id_rsa
+        env:
+          RSYNC_RSH: "ssh -o StrictHostKeyChecking=no -i id_rsa"
+      - name: Clean up
+        if: always()
+        run: |
+          cd ..
+          rm -rf nunchaku
