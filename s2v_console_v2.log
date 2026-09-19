@@ -1,0 +1,38 @@
+INFO:     Started server process [5487]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:6010 (Press CTRL+C to quit)
+INFO:     127.0.0.1:48038 - "GET / HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48038 - "GET /static/app.css HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48054 - "GET /static/app.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48054 - "GET /api/health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48054 - "GET /api/voices HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39512 - "GET /api/health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:40150 - "GET /api/health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53946 - "GET / HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53946 - "GET /static/app.css HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53950 - "GET /static/app.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53950 - "GET /api/health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53950 - "GET /api/voices HTTP/1.1" 200 OK
+INFO:     127.0.0.1:43784 - "POST /api/optimize HTTP/1.1" 200 OK
+INFO:     127.0.0.1:46590 - "POST /api/storyboard HTTP/1.1" 200 OK
+INFO:     127.0.0.1:46590 - "POST /api/image/generate HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37366 - "GET /files/console_9185720b-5_shot1_c2c852.png HTTP/1.1" 200 OK
+INFO:     127.0.0.1:46590 - "POST /api/image/generate HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37366 - "GET /files/console_9185720b-5_shot2_3ad76c.png HTTP/1.1" 200 OK
+INFO:     127.0.0.1:46590 - "POST /api/image/generate HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37366 - "GET /files/console_9185720b-5_shot3_a80e36.png HTTP/1.1" 200 OK
+INFO:     127.0.0.1:46590 - "POST /api/image/generate HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37366 - "GET /files/console_9185720b-5_shot4_b4ed3a.png HTTP/1.1" 200 OK
+INFO:     127.0.0.1:46590 - "POST /api/image/generate HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37366 - "GET /files/console_9185720b-5_shot5_1b2ea8.png HTTP/1.1" 200 OK
+INFO:     127.0.0.1:46590 - "POST /api/image/generate HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37366 - "GET /files/console_9185720b-5_shot6_bf8ccb.png HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37366 - "POST /api/tts/all HTTP/1.1" 200 OK
+INFO:     127.0.0.1:46590 - "POST /api/image/generate HTTP/1.1" 200 OK
+INFO:     127.0.0.1:46590 - "POST /api/image/generate HTTP/1.1" 200 OK
+INFO:     127.0.0.1:46590 - "GET /files/console_9185720b-5_shot8_12a126.png HTTP/1.1" 200 OK
+INFO:     127.0.0.1:40556 - "POST /api/generate/videos HTTP/1.1" 200 OK
+INFO:     127.0.0.1:40556 - "GET /api/generate/status/4bfb6adcc2ff HTTP/1.1" 200 OK
+INFO:     127.0.0.1:40556 - "POST /api/generate/videos HTTP/1.1" 200 OK
+INFO:     127.0.0.1:40556 - "GET /api/generate/status/74d4e7d60b21 HTTP/1.1" 200 OK

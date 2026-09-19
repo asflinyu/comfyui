@@ -1,0 +1,52 @@
+{
+  "additional_special_tokens": [
+    "<image>",
+    "</image>",
+    "<ref>",
+    "</ref>",
+    "<box>",
+    "</box>",
+    "<quad>",
+    "</quad>",
+    "<point>",
+    "</point>",
+    "<slice>",
+    "</slice>",
+    "<image_id>",
+    "</image_id>",
+    "<|reserved_special_token_0|>",
+    "<|reserved_special_token_1|>",
+    "<|reserved_special_token_2|>",
+    "<|reserved_special_token_3|>",
+    "<|reserved_special_token_4|>",
+    "<|reserved_special_token_5|>"
+  ],
+  "bos_token": {
+    "content": "<|im_start|>",
+    "lstrip": false,
+    "normalized": false,
+    "rstrip": false,
+    "single_word": false
+  },
+  "eos_token": {
+    "content": "<|im_end|>",
+    "lstrip": false,
+    "normalized": false,
+    "rstrip": false,
+    "single_word": false
+  },
+  "pad_token": {
+    "content": "<|endoftext|>",
+    "lstrip": false,
+    "normalized": false,
+    "rstrip": false,
+    "single_word": false
+  },
+  "unk_token": {
+    "content": "<unk>",
+    "lstrip": false,
+    "normalized": false,
+    "rstrip": false,
+    "single_word": false
+  }
+}

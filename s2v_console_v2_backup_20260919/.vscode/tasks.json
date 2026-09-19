@@ -1,0 +1,44 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "kill-port-6010",
+            "type": "shell",
+            "command": "/root/miniconda3/envs/bmc/bin/python",
+            "args": [
+                "${workspaceFolder}/kill_port.py",
+                "6010"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared"
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "ensure-tts",
+            "type": "shell",
+            "command": "bash",
+            "args": [
+                "-c",
+                "if [ \"$(curl -s -o /dev/null -w '%{http_code}' --max-time 3 http://127.0.0.1:6008/ 2>/dev/null)\" != \"200\" ]; then echo 'TTS 未运行，自动启动...'; cd /root/ComfyUI/ttsvoice && nohup ./start_autodl.sh > /tmp/s2v_tts.log 2>&1 & echo 'TTS 启动命令已下发（后台加载中）'; else echo 'TTS 已在运行'; fi"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared"
+            },
+            "problemMatcher": [],
+            "dependsOn": "kill-port-6010"
+        }
+    ]
+}

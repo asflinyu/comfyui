@@ -1,0 +1,75 @@
+## ComfyUI-Manager: installing dependencies done.
+[2024-12-19 16:55:30.803] ** ComfyUI startup time: 2024-12-19 16:55:30.803421
+[2024-12-19 16:55:30.803] ** Platform: Linux
+[2024-12-19 16:55:30.803] ** Python version: 3.10.16 (main, Dec 11 2024, 16:24:50) [GCC 11.2.0]
+[2024-12-19 16:55:30.803] ** Python executable: /root/miniconda3/bin/python
+[2024-12-19 16:55:30.803] ** ComfyUI Path: /root/autodl-tmp/ComfyUI
+[2024-12-19 16:55:30.803] ** Log path: /root/autodl-tmp/ComfyUI/comfyui.log
+[2024-12-19 16:55:31.911] 
+Prestartup times for custom nodes:
+[2024-12-19 16:55:31.911]    0.0 seconds: /root/autodl-tmp/ComfyUI/custom_nodes/rgthree-comfy
+[2024-12-19 16:55:31.911]    2.3 seconds: /root/autodl-tmp/ComfyUI/custom_nodes/ComfyUI-Manager
+[2024-12-19 16:55:31.911] 
+Total VRAM 20181 MB, total RAM 515593 MB
+[2024-12-19 16:55:34.229] pytorch version: 2.5.1+cu121
+[2024-12-19 16:55:36.360] xformers version: 0.0.28.post3
+[2024-12-19 16:55:36.360] Set vram state to: NORMAL_VRAM
+[2024-12-19 16:55:36.361] Device: cuda:0 NVIDIA GeForce RTX 3080 : cudaMallocAsync
+[2024-12-19 16:55:36.501] Using xformers attention
+[2024-12-19 16:55:37.434] [Prompt Server] web root: /root/autodl-tmp/ComfyUI/web
+[2024-12-19 16:55:37.768] 
+[2024-12-19 16:55:37.768] [92m[rgthree-comfy] Loaded 42 extraordinary nodes. 🎉[00m
+[2024-12-19 16:55:37.768] 
+[2024-12-19 16:55:37.804] [36;20m[comfyui_controlnet_aux] | INFO -> Using ckpts path: /root/autodl-tmp/ComfyUI/custom_nodes/comfyui_controlnet_aux/ckpts[0m
+[2024-12-19 16:55:37.804] [36;20m[comfyui_controlnet_aux] | INFO -> Using symlinks: False[0m
+[2024-12-19 16:55:37.804] [36;20m[comfyui_controlnet_aux] | INFO -> Using ort providers: ['CUDAExecutionProvider', 'DirectMLExecutionProvider', 'OpenVINOExecutionProvider', 'ROCMExecutionProvider', 'CPUExecutionProvider', 'CoreMLExecutionProvider'][0m
+[2024-12-19 16:55:38.300] DWPose: Onnxruntime with acceleration providers detected
+[2024-12-19 16:55:38.388] ### Loading: ComfyUI-Impact-Pack (V8.0.1)
+[2024-12-19 16:55:38.420] [Impact Pack] Wildcards loading done.
+[2024-12-19 16:55:38.422] ### Loading: ComfyUI-Manager (V2.55.5)
+[2024-12-19 16:55:38.469] ### ComfyUI Version: v0.3.8 | Released on '2024-12-18'
+[2024-12-19 16:55:38.482] Total VRAM 20181 MB, total RAM 515593 MB
+[2024-12-19 16:55:38.483] pytorch version: 2.5.1+cu121
+[2024-12-19 16:55:38.483] xformers version: 0.0.28.post3
+[2024-12-19 16:55:38.483] Set vram state to: NORMAL_VRAM
+[2024-12-19 16:55:38.483] Device: cuda:0 NVIDIA GeForce RTX 3080 : cudaMallocAsync
+[2024-12-19 16:55:39.530] [ComfyUI-Manager] default cache updated: https://raw.githubusercontent.com/ltdrdata/ComfyUI-Manager/main/alter-list.json
+[2024-12-19 16:55:39.679] [ComfyUI-Manager] default cache updated: https://raw.githubusercontent.com/ltdrdata/ComfyUI-Manager/main/model-list.json
+[2024-12-19 16:55:40.064] [ComfyUI-Manager] default cache updated: https://raw.githubusercontent.com/ltdrdata/ComfyUI-Manager/main/github-stats.json
+[2024-12-19 16:55:40.324] [ComfyUI-Manager] default cache updated: https://raw.githubusercontent.com/ltdrdata/ComfyUI-Manager/main/extension-node-map.json
+[2024-12-19 16:55:41.291] [ComfyUI-Manager] default cache updated: https://raw.githubusercontent.com/ltdrdata/ComfyUI-Manager/main/custom-node-list.json
+[2024-12-19 16:55:42.141] A new version of Albumentations is available: 1.4.23 (you have 1.4.7). Upgrade using: pip install --upgrade albumentations
+[2024-12-19 16:55:42.582] ### Loading: ComfyUI-Impact-Subpack (V1.1)
+[2024-12-19 16:55:44.653] [Impact Subpack] ultralytics_bbox: /root/autodl-tmp/ComfyUI/models/ultralytics/bbox
+[2024-12-19 16:55:44.654] [Impact Subpack] ultralytics_segm: /root/autodl-tmp/ComfyUI/models/ultralytics/segm
+[2024-12-19 16:55:44.654] 
+Import times for custom nodes:
+[2024-12-19 16:55:44.654]    0.0 seconds: /root/autodl-tmp/ComfyUI/custom_nodes/websocket_image_save.py
+[2024-12-19 16:55:44.654]    0.0 seconds: /root/autodl-tmp/ComfyUI/custom_nodes/AIGODLIKE-ComfyUI-Translation
+[2024-12-19 16:55:44.654]    0.0 seconds: /root/autodl-tmp/ComfyUI/custom_nodes/ComfyUI-Custom-Scripts
+[2024-12-19 16:55:44.654]    0.0 seconds: /root/autodl-tmp/ComfyUI/custom_nodes/rgthree-comfy
+[2024-12-19 16:55:44.654]    0.0 seconds: /root/autodl-tmp/ComfyUI/custom_nodes/ComfyUI-IC-Light
+[2024-12-19 16:55:44.654]    0.0 seconds: /root/autodl-tmp/ComfyUI/custom_nodes/ComfyUI_IPAdapter_plus
+[2024-12-19 16:55:44.654]    0.0 seconds: /root/autodl-tmp/ComfyUI/custom_nodes/ComfyUI-Impact-Pack
+[2024-12-19 16:55:44.654]    0.1 seconds: /root/autodl-tmp/ComfyUI/custom_nodes/ComfyUI-Manager
+[2024-12-19 16:55:44.654]    0.1 seconds: /root/autodl-tmp/ComfyUI/custom_nodes/ComfyUI-VideoHelperSuite
+[2024-12-19 16:55:44.654]    0.1 seconds: /root/autodl-tmp/ComfyUI/custom_nodes/ComfyUI_LayerStyle
+[2024-12-19 16:55:44.654]    0.2 seconds: /root/autodl-tmp/ComfyUI/custom_nodes/ComfyUI_LayerStyle_Advance
+[2024-12-19 16:55:44.654]    0.5 seconds: /root/autodl-tmp/ComfyUI/custom_nodes/comfyui_controlnet_aux
+[2024-12-19 16:55:44.654]    2.1 seconds: /root/autodl-tmp/ComfyUI/custom_nodes/ComfyUI-Impact-Subpack
+[2024-12-19 16:55:44.654]    3.7 seconds: /root/autodl-tmp/ComfyUI/custom_nodes/ComfyUI_InstantID
+[2024-12-19 16:55:44.655] 
+[2024-12-19 16:55:44.673] Starting server
+
+[2024-12-19 16:55:44.674] To see the GUI go to: http://127.0.0.1:6006
+[2024-12-19 16:55:59.728] FETCH DATA from: /root/autodl-tmp/ComfyUI/custom_nodes/ComfyUI-Manager/extension-node-map.json [DONE]
+[2024-12-19 16:56:44.113] got prompt
+[2024-12-19 16:56:44.272] # 😺dzNodes: LayerStyle -> [1;32mImageScaleByAspectRatio V2 Processed 1 image(s).[m
+[2024-12-19 16:56:44.387] Prompt executed in 0.27 seconds
+[2024-12-19 17:02:37.696] FETCH DATA from: /root/autodl-tmp/ComfyUI/custom_nodes/ComfyUI-Manager/extension-node-map.json [DONE]
+[2024-12-19 17:02:48.103] FETCH DATA from: /root/autodl-tmp/ComfyUI/custom_nodes/ComfyUI-Manager/.cache/1742899825_extension-node-map.json [DONE]
+[2024-12-19 17:02:48.545] FETCH DATA from: /root/autodl-tmp/ComfyUI/custom_nodes/ComfyUI-Manager/.cache/1514988643_custom-node-list.json [DONE]
+[2024-12-19 17:02:48.557] FETCH DATA from: /root/autodl-tmp/ComfyUI/custom_nodes/ComfyUI-Manager/.cache/746607195_github-stats.json [DONE]
+[2024-12-19 17:02:49.125] FETCH DATA from: /root/autodl-tmp/ComfyUI/custom_nodes/ComfyUI-Manager/.cache/1742899825_extension-node-map.json [DONE]
+[2024-12-19 17:03:29.038] 
+Stopped server
