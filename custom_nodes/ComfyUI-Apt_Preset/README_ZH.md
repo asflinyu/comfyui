@@ -1,0 +1,154 @@
+
+<img width="6085" height="413" alt="11123" src="https://github.com/user-attachments/assets/87d0f55b-c3bb-4621-862d-8f65f83815a2" />
+
+# <font color="#000000"> 概述</font>
+当前工作流连线愈发密集，不仅理解困难、操作繁琐，还存在统一性差的问题；随着工作流保存量增多，实际使用时不仅频繁报错，还需重新学习操作方法。为此开发插件，旨在简化工作流、明晰其控制思路，并将围绕 “加载器 ---- 控制器 ----- 采样器” 框架对节点进行设计。
+
+## <a href="./README_ZH.md">中文版</a> >> <a href="./README.md">English</a>
+
+
+# <font color="#000000"> 一、Update record更新记录</font>
+
+2025.1.8  更新流程组节点
+
+2025.1.14 优化sum_load支持缓存和清理，AI_GLM更新支持GLM 4.7新模型，流程组增加判断节点
+
+2025.1.14 sum_load，sum_edit兼容 Flux2_Klein 的latent尺寸
+
+2025.1.25 增加图像批量加载管理器
+
+2025.3.13 增加 LTX2.3 视频融合节点: AD_video_merge
+
+2026.3.15 增加可视化批量加载节点：IO_LoadImgBatch、IO_LoadTextBatch、IO_LoadShotBatch
+
+2026.3.22 增加图像编辑与可视化节点
+
+<img width="2094" height="937" alt="image" src="https://github.com/user-attachments/assets/a36d6361-8db8-446a-b5f1-17780ca289bc" />
+
+2026.3.29 增加视频自动分割节点"AD_VideoSeg": AD_VideoSeg,
+
+2026.4.27 更新交互提示词工具 “text_interPrompt“” 支持4种模式
+
+<img width="2281" height="634" alt="image" src="https://github.com/user-attachments/assets/0acf9217-701e-4c30-92e2-9f5f8ea2eefe" />
+
+
+            
+# <font color="#000000">二、Usage Guide使用指南</font> 
+
+## <font color="#0000FF"> 1、全能加载器 Sum_load_adv, 支持 GGuf模型</font>
+
+1）各种工作流的模型组合，和官方工作流是一样的。
+
+①XL，SD 模式：模型加载checkpoint 或者 Unet 或者 over model. 
+
+②wan2.1,wan2,2, QwenEdit 模式：加载模型 Unet +  clip1 
+
+②Flux\Kontext 模式：加载模型Unet +  clip1 +  clip2   （注意：按顺序，不要clip1+clip3）
+
+③SD3.5模式：加载模型 Unet+clip1 +clip2+clip3
+
+④Hi-dream模式：加载模型 Unet+clip1 +clip2+clip3+clip4
+
+2）覆盖模式over_model和over_clip
+
+①使用over_model，加载器内部对应的modle或Unet失效，会直接输出model
+
+②使用over_clip，加载器内部对应的clip1,2,3,4全部失效， 会直接输出clip
+
+3）预设保存，可以将加载模型，和采样方法统一保存下来
+
+① 至少要选择一个任意预设，否则会报错
+
+②选择任意预设后，所有参数都可以任意修改并生效。
+
+③可以将新设置的参数，保存为新的预设，但是要重启comfyui才可以选择使用
+
+![image](https://github.com/user-attachments/assets/c937203d-6ada-4b58-a882-512290e30dcd)
+
+
+## <font color="#0000FF"> 2、控制器stack：功能化模块，与之关联的控制工具，集中一起</font>
+
+①总控_image堆：通用控制SD,XL,Flux等，Ipa风格，redux迁移，Union_controlnet, controlnet_adv，inpaint重绘
+
+②总控_wan堆：官方支持的所有wan视频生成节点
+
+③总控_AD堆：Animatediff动画生成控制，提示词调度、CN调度、IPA调度等
+
+④总控_Kontext堆：多图参考，分区生成，redux迁移，union_controlnet
+
+⑤总控_QwenEdit堆：多图参考，union_controlnet
+
+<img width="2890" height="715" alt="image" src="https://github.com/user-attachments/assets/b96f1cb7-ab84-489e-859b-cb54ff0ab172" />
+
+
+## <font color="#0000FF">3、采样器 Sampler：丰富的采样方式，省去重复连线</font>
+
+①基础采样器：将comfyui自带的采样器输入端口，打包成单个端口替代，功能和官方的完全一致
+
+②特殊功能采样器：基础采样器+特殊功能的结合体。
+
+像下面的例子，实现二次采样修复、refine放大等操作，一步即可：
+
+![image](https://github.com/user-attachments/assets/0c62a1f7-e92f-41bc-a6fb-447b3cc7ea48)
+
+## <font color="#0000FF">4、实用节点：图像、遮罩、数据处理等工具</font>
+
+1、数据类型：数据转化、数据创建、数据运算
+
+<img width="3405" height="1278" alt="image" src="https://github.com/user-attachments/assets/cf70f053-60a0-42c7-b72f-d7768d393d2b" />
+
+
+2、图像处理：图像处理-->生成-->还原，单图、裁切图、双图组合
+
+<img width="2523" height="984" alt="image" src="https://github.com/user-attachments/assets/0730674b-9370-427b-82cb-ba358cf98eaf" />
+
+
+3、遮罩处理：创建、转换、变形、运算，全套遮罩工具
+
+<img width="3562" height="1079" alt="image" src="https://github.com/user-attachments/assets/8adf81a2-a777-45b2-9e67-19d85fb66855" />
+
+
+# <font color="#000000"> 三 、Installation</font>
+将存储库克隆到**custom_nodes**目录并安装依赖项
+
+```
+
+#1. git下载
+git clone https://github.com/cardenluo/ComfyUI-Apt_Preset.git
+
+#2. 安装依赖
+双击install.bat安装依赖
+
+```
+
+注意Note：
+
+1、要使用功能controlNet schdule控制，请先安装[ComfyUI-Advanced-ControlNet](https://github.com/Kosinkadink/ComfyUI-Advanced-ControlNet) 
+
+2、要加载GGUF模型，请先安装[ComfyUI-GGUF](https://github.com/city96/ComfyUI-GGUF) 
+
+3、要使用load_Nanchaku节点，请先安装[ComfyUI-nunchaku](https://github.com/nunchaku-tech/ComfyUI-nunchaku) .并确保运行正常。
+
+4、ollama model: 下载并放置在  "...comfyui\models\ollama"  [Download model](https://pan.quark.cn/s/2ebc8e5958ef).
+
+5、<a id="AAA">部分节点将使用资源扩展包。请下载它。 : [Apt_file](https://pan.quark.cn/s/31a0aa5ceabf). 
+或者在这里下载它: [Mask_FaceSegment](https://huggingface.co/1038lab/segformer_face) 、[Mask_ClothesSegment](https://huggingface.co/1038lab/segformer_clothes)、 [Mask_BodySegment](https://huggingface.co/Metal3d/deeplabv3p-resnet50-human)
+然后将整个文件夹放入comfyUI/models中</a>
+```
+├── ComfyUI/models/Apt_File
+|     ├──body_segment
+├── ComfyUI/models/Apt_File
+|     ├──segformer_clothes
+├── ComfyUI/models/Apt_File
+|     ├──segformer_face
+```
+
+## Disclaimer免责声明
+This open-source project and its contents are provided "AS IS" without any express or implied warranties, including but not limited to warranties of merchantability, fitness for a particular purpose, and non-infringement. In no event shall the authors or copyright holders be liable for any claim, damages, or other liability, whether in an action of contract, tort, or otherwise, arising from, out of, or in connection with the software or the use or other dealings in the software.
+
+Users are responsible for ensuring compliance with all applicable laws and regulations in their respective jurisdictions when using this software or publishing content generated by it. The authors and copyright holders are not responsible for any violations of laws or regulations by users in their respective locations.
+
+
+## 关注我，分享工作流轻松搭建的方法
+B站 https://space.bilibili.com/2008798642?spm_id_from=333.33.0.0
+
